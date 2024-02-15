@@ -69,7 +69,7 @@ export default function WordsSidebar() {
   const letterValues = alphapeticLettersData[currentLetter];
   return (
   <div className='words-main-bar'>
-    <div className='words-side-menu'>
+    <div className='sidebar'>
         {letterValues && (
           <ul>
             {letterValues.map((value, index) => (
@@ -120,24 +120,36 @@ export default function WordsSidebar() {
                 <div className="card text-black move-up mb-3" >
                     <div className="card-header">{item.indicative.types.present.displayText}</div>
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.present.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -145,24 +157,36 @@ export default function WordsSidebar() {
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.indicative.types.past.displayText}</div>
                   <div className="card-body">
-                  {item.indicative.types.past.data.setI.map((texttense: any, index: number) => (
+                    <div className='setpara'>
+                    {item.indicative.types.past.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.past.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.past.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.past.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.past.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.past.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -170,24 +194,36 @@ export default function WordsSidebar() {
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.indicative.types.future.displayText}</div>
                   <div className="card-body">
-                  {item.indicative.types.future.data.setI.map((texttense: any, index: number) => (
+                    <div className='setpara'>
+                    {item.indicative.types.future.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.future.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.future.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.future.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.future.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.indicative.types.future.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -211,72 +247,108 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-body">
-                  {item.negativeSentences.past.data.setI.map((texttense: any, index: number) => (
+                    <div className='setpara'>
+                    {item.negativeSentences.past.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-body">
-                  {item.negativeSentences.future.data.setI.map((texttense: any, index: number) => (
+                    <div className='setpara'>
+                    {item.negativeSentences.future.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.future.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.future.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.future.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.future.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.negativeSentences.future.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -301,18 +373,22 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.negativeSentences.present.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-body">
+                    <div className='setpara'>
                     {item.negativeSentences.past.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -339,48 +415,72 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -406,48 +506,72 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.can.data.notsetThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -473,48 +597,72 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.may.data.notsetThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -540,48 +688,72 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -607,30 +779,42 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.setHim.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.setHer.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.setThem.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.notsetHim.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.notsetHer.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.let.data.notsetThem.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
@@ -656,48 +840,72 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.setThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-body">
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetI.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetWe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetYou.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetHe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetShe.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
+                    <div className='setpara'>
                     {item.modelforms.types.should.data.notsetThey.map((texttense: any, index: number) => (
                         <p className="card-text" key={index}>{texttense.text}</p>
                     ))}
+                    </div>
                     </div>
                 </div>
               </div>

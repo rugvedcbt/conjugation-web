@@ -43,7 +43,6 @@ function Header() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography
               variant="h6"
               noWrap
@@ -62,17 +61,7 @@ function Header() {
               Conjugation
             </Typography>
             
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                  {page}
-                </Button>
-              ))}
-            </Box>
+            <div className='cm-gp-btn'>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
               <IconButton size="large" aria-label="search" color="inherit">
@@ -116,6 +105,7 @@ function Header() {
                 ))}
               </Menu>
             </Box>
+            </div>
           </Toolbar>
         </Container>
       </AppBar>
