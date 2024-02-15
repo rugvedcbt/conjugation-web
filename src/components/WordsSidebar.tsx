@@ -107,7 +107,7 @@ export default function WordsSidebar() {
         )}
      </div>
     <div className='words-content'>
-      <div className="banner-container mt-5 mb-5" id="featured">
+      <div className="banner-container mt-5 mb-5 indicative-topbanner" id="featured">
         <div className="container-fluid px-4 py-4">
         <div className="card bg-black text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (

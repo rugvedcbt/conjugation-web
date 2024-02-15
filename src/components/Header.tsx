@@ -14,6 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
+// import Ilearnlogo from '../ilearn-logo.png'
+import ileanLogo from '../images/ilearn-logo.png';
+
+
+console.log();
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -58,7 +63,8 @@ function Header() {
                 textDecoration: 'none',
               }}
             >
-              Conjugation
+              <img src={ileanLogo} className='ilearn-logo' alt="logo" />
+              ILearn Conjugation
             </Typography>
             
             <div className='cm-gp-btn'>
