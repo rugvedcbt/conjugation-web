@@ -64,7 +64,7 @@ function Header() {
               }}
             >
               <img src={ileanLogo} className='ilearn-logo' alt="logo" />
-              ILearn Conjugation
+              iLearn Conjugation
             </Typography>
             
             <div className='cm-gp-btn'>
