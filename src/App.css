@@ -167,6 +167,25 @@ footer {
   height: 855px;
 }
 
+.perfect-sentence .mb-3{
+  height: 885px;
+}
+
+.progressive-sentences .mb-3{
+  height: 885px;
+}
+
+.py-4{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.card-body .setpara{
+  line-height: 1rem;
+  position: relative;
+  padding-bottom: 45px;
+}
+
 ul.social-buttons {
   margin-bottom: 0;
 }
