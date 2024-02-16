@@ -338,3 +338,13 @@ footer .quick-links {
 .MuiTypography-h6{
   font-size: 16px;
 }
+
+.data-notfound p{
+  margin-top: 100px;
+  font-size: 24px;
+  color: blue;
+}
+
+.audio-icon{
+  /* background-color: white; */
+}

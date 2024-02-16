@@ -3,7 +3,7 @@
     {
       "word": "sell",
       "baseVerb": {
-        "displayText": "sell",
+        "displayText": "Base Verb",
         "audioUrl": "",
         "data": {
           "text": "Sell - Vil - வில் ",
@@ -11,7 +11,7 @@
         }
       },
       "infinitive":{
-        "displayText": "to Sell",
+        "displayText": "Infinitive",
         "audioUrl": "",
         "data": {
           "text": "to Sell - Vikka - விக்க",

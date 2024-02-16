@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLetterContext } from '../context/LetterContext';
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 import List from '@mui/material/List';
@@ -9,6 +9,8 @@ import ListItemText from '@mui/material/ListItemText';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Box from '@mui/material/Box';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AudiotrackIcon from '@mui/icons-material/Audiotrack';
+import myAudioFile from './../audio/simple-present-audio.mp3'; 
 
 
 export default function WordsSidebar() {
@@ -30,12 +32,12 @@ export default function WordsSidebar() {
   
   const [getJsonData, setJsonData] = useState<WordItem[]>([]);
   const [verb, setVerb] = useState('');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const handleWordChange = (word: string) => {
     setVerb(word);
-    console.log('word...', word);
-    // setCurrentLetter(word)
   };
-  console.log('getJsonData...', getJsonData)
+
   useEffect(() => {
     getJsonWordsData()
     
@@ -51,19 +53,42 @@ export default function WordsSidebar() {
     }
     )
       .then(function(response){
-        console.log('response....', response)
         return response.json();
       })
       .then(function(Json) {
         const wordResponseData = Json.data;
         const filteredData = wordResponseData.filter((item: WordData) => {
-          console.log('item.word...', item.word, verb)
           return item.word === verb;
         });
-        console.log('filteredData....', filteredData)
         setJsonData(filteredData)
       })
   }
+
+  const audioClick = () => {
+    const audio = new Audio(myAudioFile);
+    audio.play();
+    // if (isPlaying) {
+    //   audioRef?.current?.pause();
+    // } else {
+    //   audioRef?.current?.play();
+    // }
+    // setIsPlaying(!isPlaying);
+
+    // const audio = audioRef.current;
+    // if (audio) {
+    //   console.log('audio start..')
+    //   const playPromise = audio.play();
+    //   if (playPromise !== undefined) {
+    //     playPromise
+    //       .then(() => {
+    //         // Playback started successfully
+    //       })
+    //       .catch(error => {
+    //         console.error('Error playing audio:', error);
+    //       });
+    //   }
+    // }
+  };
 
   const { currentLetter } = useLetterContext()
   const letterValues = alphapeticLettersData[currentLetter];
@@ -81,7 +106,6 @@ export default function WordsSidebar() {
                 <ListItemText primary={value} key={index} onClick={() => handleWordChange(value)}/>
               </ListItemButton>
             </ListItem>
-              // <li key={index}>&#9733; {value}</li>
             ))}
           </ul>
         )}
@@ -107,7 +131,51 @@ export default function WordsSidebar() {
         )}
      </div>
     <div className='words-content'>
+      {getJsonData.length === 0 ? (
+        // Render this div if getJsonData is empty
+        <div className='data-notfound'>
+          {verb ? (<p>No data available for {verb}.</p>):(<p>No data available. </p>)}
+          
+        </div>
+      ) : (
+      <div>
       <div className="banner-container mt-5 mb-5 indicative-topbanner" id="featured">
+      <div className="container-fluid px-4 py-4">
+        <div className="card bg-black text-white shadow-lg ">
+          {getJsonData.map((item: WordItem, index: number) => (
+          <>
+          <div className="card-body">
+            <div className="conatiner">
+            <div className="row d-flex justify-content-around">
+              <div className="col">
+                <div className="card text-black move-up mb-3" >
+                <div className="card-header">{item.baseVerb.displayText}</div>
+                    <div className="card-body">
+                    <div className='setpara'>
+                        <p className="card-text">{item.baseVerb.data.text}</p>
+                    </div>
+                    </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className="card text-black move-up mb-3" >
+                <div className="card-header">{item.infinitive.displayText}</div>
+                  <div className="card-body">
+                    <div className='setpara'>
+                        <p className="card-text">{item.infinitive.data.text}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          </>
+        ))}
+      </div>
+      </div>
+      </div>
+      <div className="banner-container mt-5 mb-5" id="featured">
         <div className="container-fluid px-4 py-4">
         <div className="card bg-black text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
@@ -118,7 +186,15 @@ export default function WordsSidebar() {
             <div className="row d-flex justify-content-around">
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
-                    <div className="card-header">{item.indicative.types.present.displayText}</div>
+                    {/* <audio ref={audioRef}>
+                    <source src="./../audio/simple-present-audio.mp3" />
+                    Your browser does not support the audio element.
+                    </audio>
+                  <button onClick={audioClick}>
+                    {isPlaying ? 'Pause' : 'Play'}
+                  </button> */}
+                    <div className="card-header">{item.indicative.types.present.displayText}
+                    <span className='audio-icon'> <AudiotrackIcon onClick={audioClick}></AudiotrackIcon></span></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.indicative.types.present.data.setI.map((texttense: any, index: number) => (
@@ -1359,7 +1435,8 @@ export default function WordsSidebar() {
       </div>
       </div>
       </div>
-    
+
+      </div>)}
     </div>
   </div>
   );
