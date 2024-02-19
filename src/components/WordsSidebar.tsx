@@ -141,7 +141,7 @@ export default function WordsSidebar() {
       <div>
       <div className="banner-container mt-5 mb-5 indicative-topbanner" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <div className="card-body">
@@ -179,7 +179,7 @@ export default function WordsSidebar() {
       </div>
       <div className="banner-container mt-5 mb-5" id="featured">
         <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.indicative.displayText}</h5>
@@ -318,7 +318,7 @@ export default function WordsSidebar() {
       </div>
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.negativeSentences.displayText}</h5>
@@ -450,7 +450,7 @@ export default function WordsSidebar() {
 
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.impretiveSentence.displayText}</h5>
@@ -496,7 +496,7 @@ export default function WordsSidebar() {
       {/* model form --------> Express Obligation/Desire(Need to) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.needto.displayText}</h5>
@@ -591,7 +591,7 @@ export default function WordsSidebar() {
       {/* model form --------> Ability to do an action(Can) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.can.displayText}</h5>
@@ -686,7 +686,7 @@ export default function WordsSidebar() {
       {/* model form --------> Probability of an action(May) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.may.displayText}</h5>
@@ -781,7 +781,7 @@ export default function WordsSidebar() {
       {/* model form --------> After attempting something(Able to) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.ableto.displayText}</h5>
@@ -876,7 +876,7 @@ export default function WordsSidebar() {
       {/* model form --------> Permission(Let) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.let.displayText}</h5>
@@ -941,7 +941,7 @@ export default function WordsSidebar() {
       {/* model form --------> Recommendation/opinion(Should) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <h5 className="card-header" key={index}>{item.modelforms.types.should.displayText}</h5>
@@ -1036,7 +1036,7 @@ export default function WordsSidebar() {
       {/* model form --------> Present progressive / continuous */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <div className="card-body">
@@ -1168,7 +1168,7 @@ export default function WordsSidebar() {
       {/* model form --------> Present perfect (simple) */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <div className="card-body">
@@ -1300,7 +1300,7 @@ export default function WordsSidebar() {
       {/* model form --------> Present perfect progressive / continuous */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <div className="card-body">
@@ -1394,7 +1394,7 @@ export default function WordsSidebar() {
       {/* model form --------> futurePerfectProgressive */}
       <div className="banner-container mt-5 mb-5" id="featured">
       <div className="container-fluid px-4 py-4">
-        <div className="card bg-black text-white shadow-lg ">
+        <div className="card  text-white shadow-lg ">
           {getJsonData.map((item: WordItem, index: number) => (
           <>
           <div className="card-body">
