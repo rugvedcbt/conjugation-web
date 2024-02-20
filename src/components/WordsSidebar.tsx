@@ -125,7 +125,7 @@ export default function WordsSidebar() {
       {getJsonData.length === 0 ? (
         // Render this div if getJsonData is empty
         <div className='data-notfound'>
-          {verb ? (<p>No data available for {verb}.</p>):(<p>No data available. </p>)}
+          {verb ? (<p>No data available for {verb}.</p>):(<p>Start Browsing... </p>)}
           
         </div>
       ) : (
@@ -141,7 +141,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.baseVerb.displayText}
-                <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                         <p className="card-text">{item.baseVerb.data.text}</p>
@@ -152,7 +152,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.infinitive.displayText}
-                <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                         <p className="card-text">{item.infinitive.data.text}</p>
@@ -187,7 +187,7 @@ export default function WordsSidebar() {
                     {isPlaying ? 'Pause' : 'Play'}
                   </button> */}
                     <div className="card-header">{item.indicative.types.present.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.indicative.types.present.data.setI.map((texttense: any, index: number) => (
@@ -225,7 +225,7 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   
                   <div className="card-body">
                     <div className='setpara'>
@@ -264,7 +264,7 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.indicative.types.future.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.indicative.types.future.data.setI.map((texttense: any, index: number) => (
@@ -319,7 +319,7 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.negativeSentences.present.data.setI.map((texttense: any, index: number) => (
@@ -357,7 +357,7 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.negativeSentences.past.data.setI.map((texttense: any, index: number) => (
@@ -395,7 +395,7 @@ export default function WordsSidebar() {
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.future.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.negativeSentences.future.data.setI.map((texttense: any, index: number) => (
@@ -451,7 +451,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.negativeSentences.present.data.setYou.map((texttense: any, index: number) => (
@@ -464,7 +464,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.negativeSentences.past.data.setYou.map((texttense: any, index: number) => (
@@ -497,7 +497,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.needto.data.setI.map((texttense: any, index: number) => (
@@ -535,7 +535,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.needto.data.notsetI.map((texttense: any, index: number) => (
@@ -592,7 +592,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.can.data.setI.map((texttense: any, index: number) => (
@@ -630,7 +630,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.can.data.notsetI.map((texttense: any, index: number) => (
@@ -687,7 +687,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.may.data.setI.map((texttense: any, index: number) => (
@@ -725,7 +725,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.may.data.notsetI.map((texttense: any, index: number) => (
@@ -782,7 +782,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.ableto.data.setI.map((texttense: any, index: number) => (
@@ -820,7 +820,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.ableto.data.notsetI.map((texttense: any, index: number) => (
@@ -877,7 +877,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.let.data.setHim.map((texttense: any, index: number) => (
@@ -900,7 +900,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.let.data.notsetHim.map((texttense: any, index: number) => (
@@ -942,7 +942,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.present.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.should.data.setI.map((texttense: any, index: number) => (
@@ -980,7 +980,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                 <div className="card-header">{item.indicative.types.past.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.should.data.notsetI.map((texttense: any, index: number) => (
@@ -1036,7 +1036,7 @@ export default function WordsSidebar() {
               <div className="col progressive-sentences">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-header">{item.modelforms.types.presentProgressive.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.presentProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1074,7 +1074,7 @@ export default function WordsSidebar() {
               <div className="col progressive-sentences">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.pastProgressive.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.pastProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1112,7 +1112,7 @@ export default function WordsSidebar() {
               <div className="col progressive-sentences">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.futureProgressive.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.futureProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1168,7 +1168,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-header">{item.modelforms.types.presentPerfect.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.presentPerfect.data.setI.map((texttense: any, index: number) => (
@@ -1206,7 +1206,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.pastPerfect.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.pastPerfect.data.setI.map((texttense: any, index: number) => (
@@ -1244,7 +1244,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.futurePerfect.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.futurePerfect.data.setI.map((texttense: any, index: number) => (
@@ -1300,7 +1300,7 @@ export default function WordsSidebar() {
               <div className="col perfect-sentence">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-header">{item.modelforms.types.presentPerfectProgressive.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.presentPerfectProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1338,7 +1338,7 @@ export default function WordsSidebar() {
               <div className="col perfect-sentence">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.pastPerfectProgressive.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.pastPerfectProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1394,7 +1394,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                     <div className="card-header">{item.modelforms.types.futurePerfectProgressive.displayText}
-                    <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                    <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.futurePerfectProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1432,7 +1432,7 @@ export default function WordsSidebar() {
               <div className="col">
                 <div className="card text-black move-up mb-3" >
                   <div className="card-header">{item.modelforms.types.PerfectProgressive.displayText}
-                  <span className='audio-icon' onClick={handleTogglePlay}>{play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
+                  <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                   <div className="card-body">
                     <div className='setpara'>
                     {item.modelforms.types.PerfectProgressive.data.setI.map((texttense: any, index: number) => (
