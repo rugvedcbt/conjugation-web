@@ -18,7 +18,6 @@
 }
 
 .words-content{
-  width: 75%;
   height: 88vh;
 }
 
@@ -146,13 +145,13 @@ footer {
 }
 
 .col .card-header{
-  background-color: #1976d2;
+  background-color: #3391bc;
   color: white;
   font-weight: 700;
 }
 
 h5.card-header{
-  background-color: #1976d2;
+  background-color: #2f63a8;
 }
 
 .card-body p{
@@ -341,6 +340,26 @@ footer .quick-links {
   color: blue;
 }
 
-.audio-icon{
-  /* background-color: white; */
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background-color: #191996 !important;
 }
+
+
+@media only screen and (max-width:600px) {
+  .px-4 {
+    padding-right: 0%!important;
+    padding-left: 0%!important;
+  }
+  .css-cveggr-MuiListItemIcon-root {
+    min-width: 0px !important;
+  }
+  .words-content{
+    padding-top: 45px;
+  }
+  .sidebar{
+    top: 110px;
+  }
+
+}
+
+
