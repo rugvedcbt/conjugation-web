@@ -284,6 +284,7 @@ footer .quick-links {
   height: 100px;
 }
 
+
 .words-content {
   padding-left: 25%;
   width: 100%;
@@ -341,7 +342,7 @@ footer .quick-links {
 }
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background-color: #191996 !important;
+  background-color: #03039c !important;
 }
 
 
@@ -358,6 +359,10 @@ footer .quick-links {
   }
   .sidebar{
     top: 110px;
+  }
+  .ilearn-logo{
+    width: 20px;
+    height: 20px;
   }
 
 }

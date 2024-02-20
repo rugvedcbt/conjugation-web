@@ -48,6 +48,7 @@ function Header() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
+            <img src={ileanLogo} className='ilearn-logo' alt="logo" />
             <Typography
               variant="h6"
               noWrap
@@ -63,7 +64,6 @@ function Header() {
                 textDecoration: 'none',
               }}
             >
-              <img src={ileanLogo} className='ilearn-logo' alt="logo" />
               iLearn Conjugation
             </Typography>
             

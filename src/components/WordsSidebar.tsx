@@ -179,13 +179,6 @@ export default function WordsSidebar() {
             <div className="row d-flex justify-content-around">
               <div className="col negative-sentence">
                 <div className="card text-black move-up mb-3" >
-                    {/* <audio ref={audioRef}>
-                    <source src="./../audio/simple-present-audio.mp3" />
-                    Your browser does not support the audio element.
-                    </audio>
-                  <button onClick={() => audio.play()}>
-                    {isPlaying ? 'Pause' : 'Play'}
-                  </button> */}
                     <div className="card-header">{item.indicative.types.present.displayText}
                     <span className='audio-icon' onClick={handleTogglePlay}>{!play ? <VolumeUpIcon /> : <VolumeOffIcon />} </span><audio ref={audioRef} src={myAudioFile} /></div>
                     <div className="card-body">
