@@ -4,7 +4,7 @@
       "word": "sell",
       "baseVerb": {
         "displayText": "Base Verb",
-        "audioUrl": "",
+        "audioUrl": "../audio/simple-present-audio.mp3",
         "data": {
           "text": "Sell - Vil - வில் ",
           "audioUrl": "www.testaudio.com/sellaudio.mp3"
@@ -12,7 +12,7 @@
       },
       "infinitive":{
         "displayText": "Infinitive",
-        "audioUrl": "",
+        "audioUrl": "../audio/simple-present-audio.mp3",
         "data": {
           "text": "to Sell - Vikka - விக்க",
           "audioUrl": "www.testaudio.com/sellaudio.mp3"
@@ -24,7 +24,7 @@
         "types": {
           "present": {
             "displayText": "Present (simple)",
-            "audioUrl": "",
+            "audioUrl": "audio/simple-present-audio.mp3",
             "data": {
               "setI": [
                 {
