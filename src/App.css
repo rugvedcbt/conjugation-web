@@ -345,6 +345,10 @@ footer .quick-links {
   background-color: #03039c !important;
 }
 
+.card-body .base-verb, .card-body .infinitive{
+  min-width: 250px;
+}
+
 
 @media only screen and (max-width:600px) {
   .px-4 {

@@ -25,67 +25,68 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Settings', 'Share', 'About..', 'Privacy policy', 'Remove adds'];
 
 
-function Header() {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
-  
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
-  
-    return (
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <img src={ileanLogo} className='ilearn-logo' alt="logo" />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              iLearn Conjugation
-            </Typography>
-            
-            <div className='cm-gp-btn'>
+function Header({ onToggleFavorites }: { onToggleFavorites: () => void }) {
+
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <img src={ileanLogo} className='ilearn-logo' alt="logo" />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            iLearn Conjugation
+          </Typography>
+
+          <div className='cm-gp-btn'>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
-              <IconButton size="large" aria-label="search" color="inherit">
-                <SearchIcon />
-              </IconButton>
+                <IconButton size="large" aria-label="search" color="inherit">
+                  <SearchIcon />
+                </IconButton>
               </Tooltip>
-            
+
             </Box>
             <Box sx={{ flexGrow: 0 }}>
-              <IconButton size="large" aria-label="search" color="inherit">
+              <IconButton size="large" aria-label="favorites" color="inherit" onClick={onToggleFavorites}>
                 <StarIcon />
               </IconButton>
             </Box>
-  
+
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton color="inherit" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <MoreIcon />
+                  <MoreIcon />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -111,10 +112,10 @@ function Header() {
                 ))}
               </Menu>
             </Box>
-            </div>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    );
-  }
-  export default Header;
+          </div>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+}
+export default Header;
