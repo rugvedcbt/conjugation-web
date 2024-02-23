@@ -22,7 +22,7 @@ export const useLetterContext = () => useContext(LetterContext);
 // Create a provider component
 export const LetterContextProvider = ({ children } : { children: ReactNode }) => {
   const [ letters ] = useState<string[]>(letterKeys); // Initialize with an empty array
-  const [ currentLetter, setCurrentLetter ] = useState<string>('');
+  const [ currentLetter, setCurrentLetter ] = useState<string>('A');
   // You might want to update the letters state somewhere in your component logic
 
   return (

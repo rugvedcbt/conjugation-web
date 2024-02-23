@@ -1,28 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLetterContext } from '../context/LetterContext';
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
-// import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-// import Box from '@mui/material/Box';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import Audio1 from '../audio/audio1.mp3';
 import Audio2 from '../audio/audio2.mp3'
 import AudioPlayer from './AudioPlayer';
 
 
-
 export default function WordsSidebar({ showFavorites }: { showFavorites: boolean }) {
   interface WordData {
     word: string;
-    // Add other properties if needed
   }
+
   interface WordItem {
     word: string;
     baseVerb: any;
@@ -32,18 +27,16 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
     impretiveSentence: any;
     modelforms: any;
     presentProgressive: any;
-    // Add other properties if needed
   }
+
   interface FavWords {
     word: any;
   }
 
-  const [play, setPlay] = useState(false);
 
   const [getJsonData, setJsonData] = useState<WordItem[]>([]);
   const [favourites, setFavourites] = useState<FavWords[]>([]);
-  const [verb, setVerb] = useState('');
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const [verb, setVerb] = useState('sell');
 
 
   const handleWordChange = (word: string) => {
@@ -69,12 +62,11 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
     if (storedFavourites) {
       setFavourites(JSON.parse(storedFavourites));
     }
-  }, [verb])
+  }, [verb]);
 
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
-
 
 
   const getJsonWordsData = () => {
@@ -99,20 +91,6 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
   }
 
 
-  const handleTogglePlay = () => {
-    const audio = audioRef.current;
-
-    if (audio) {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-
-      setPlay(audio.paused);
-    }
-  };
-
   const { currentLetter } = useLetterContext()
   const letterValues = alphapeticLettersData[currentLetter];
   return (
@@ -121,14 +99,22 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
         {letterValues && (
           <ul>
             {letterValues.map((value, index) => (
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <StarBorderIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={value} key={index} onClick={() => handleWordChange(value)} />
-                </ListItemButton>
-              </ListItem>
+              <React.Fragment key={index}>
+                {(showFavorites && isWordInFavorites(value)) || !showFavorites ? (
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {favourites.some((favWord) => favWord.word === value) ? (
+                          <StarIcon onClick={() => handleFavourites(value)} />
+                        ) : (
+                          <StarBorderIcon onClick={() => handleFavourites(value)} />
+                        )}
+                      </ListItemIcon>
+                      <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                    </ListItemButton>
+                  </ListItem>
+                ) : null}
+              </React.Fragment>
             ))}
           </ul>
         )}
