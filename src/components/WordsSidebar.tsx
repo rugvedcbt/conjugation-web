@@ -13,7 +13,7 @@ import Audio2 from '../audio/audio2.mp3'
 import AudioPlayer from './AudioPlayer';
 
 
-export default function WordsSidebar({ showFavorites }: { showFavorites: boolean }) {
+export default function WordsSidebar() {
   interface WordData {
     word: string;
   }
@@ -36,7 +36,7 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
 
   const [getJsonData, setJsonData] = useState<WordItem[]>([]);
   const [favourites, setFavourites] = useState<FavWords[]>([]);
-  const [verb, setVerb] = useState('sell');
+  const { verb, setVerb, showFavourites } = useLetterContext()
 
 
   const handleWordChange = (word: string) => {
@@ -90,17 +90,17 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
       })
   }
 
-
   const { currentLetter } = useLetterContext()
   const letterValues = alphapeticLettersData[currentLetter];
+
   return (
     <div className='words-main-bar'>
       <div className='sidebar'>
-        {letterValues && (
+        {letterValues && !showFavourites ? (
           <ul>
             {letterValues.map((value, index) => (
               <React.Fragment key={index}>
-                {(showFavorites && isWordInFavorites(value)) || !showFavorites ? (
+                {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
                   <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
@@ -117,15 +117,14 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
               </React.Fragment>
             ))}
           </ul>
-        )}
-        {!letterValues && (
+        ) : (
           <ul>
             {Object.keys(alphapeticLettersData).map((letter, index) => (
               <div key={index}>
                 <ul>
                   {alphapeticLettersData[letter].map((value, valueIndex) => (
                     <React.Fragment key={valueIndex}>
-                      {(showFavorites && isWordInFavorites(value)) || !showFavorites ? (
+                      {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
                         <ListItem disablePadding>
                           <ListItemButton>
                             <ListItemIcon>
@@ -146,12 +145,40 @@ export default function WordsSidebar({ showFavorites }: { showFavorites: boolean
             ))}
           </ul>
         )}
+        {/* {!letterValues && (
+          <ul>
+            {Object.keys(alphapeticLettersData).map((letter, index) => (
+              <div key={index}>
+                <ul>
+                  {alphapeticLettersData[letter].map((value, valueIndex) => (
+                    <React.Fragment key={valueIndex}>
+                      {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
+                        <ListItem disablePadding>
+                          <ListItemButton>
+                            <ListItemIcon>
+                              {favourites.some((favWord) => favWord.word === value) ? (
+                                <StarIcon onClick={() => handleFavourites(value)} />
+                              ) : (
+                                <StarBorderIcon onClick={() => handleFavourites(value)} />
+                              )}
+                            </ListItemIcon>
+                            <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                          </ListItemButton>
+                        </ListItem>
+                      ) : null}
+                    </React.Fragment>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </ul>
+        )} */}
       </div>
       <div className='words-content'>
         {getJsonData.length === 0 ? (
           // Render this div if getJsonData is empty
           <div className='data-notfound'>
-            {verb ? (<p>No data available for {verb}.</p>) : (<p>Start Browsing... </p>)}
+            {verb ? (<p>No data available for {verb}.</p>) : (<p>Start selecting a word... </p>)}
 
           </div>
         ) : (

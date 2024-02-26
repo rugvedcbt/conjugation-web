@@ -349,14 +349,20 @@ footer .quick-links {
   min-width: 250px;
 }
 
+.css-cveggr-MuiListItemIcon-root {
+  min-width: 0px !important;
+}
+
+.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root {
+ padding: 0;
+ margin: 0;
+ min-width: 100px;
+}
 
 @media only screen and (max-width:600px) {
   .px-4 {
     padding-right: 0%!important;
     padding-left: 0%!important;
-  }
-  .css-cveggr-MuiListItemIcon-root {
-    min-width: 0px !important;
   }
   .words-content{
     padding-top: 45px;

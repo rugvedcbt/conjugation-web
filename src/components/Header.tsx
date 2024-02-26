@@ -5,41 +5,48 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 // import Ilearnlogo from '../ilearn-logo.png'
 import ileanLogo from '../images/ilearn-logo.png';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import { useLetterContext } from '../context/LetterContext';
 
 
-console.log();
 
-
-const pages = ['Products', 'Pricing', 'Blog'];
+// const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Settings', 'Share', 'About..', 'Privacy policy', 'Remove adds'];
 
 
-function Header({ onToggleFavorites }: { onToggleFavorites: () => void }) {
+function Header() {
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const { showFavourites ,setShowFavourites } = useLetterContext()
+
+  const toggleFavourites = () => {
+    setShowFavourites(!showFavourites)
   };
+
+
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null);
+  // };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -75,13 +82,22 @@ function Header({ onToggleFavorites }: { onToggleFavorites: () => void }) {
                   <SearchIcon />
                 </IconButton>
               </Tooltip>
-
             </Box>
-            <Box sx={{ flexGrow: 0 }}>
-              <IconButton size="large" aria-label="favorites" color="inherit" onClick={onToggleFavorites}>
+
+            {showFavourites ? 
+            (<Box sx={{ flexGrow: 0 }}>
+              <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
+                <ViewListIcon />
+              </IconButton>
+            </Box>)
+            :
+            (<Box sx={{ flexGrow: 0 }}>
+              <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
                 <StarIcon />
               </IconButton>
-            </Box>
+            </Box>)
+            }
+
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
