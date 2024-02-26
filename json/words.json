@@ -1980,12 +1980,12 @@
     }
     },
     {
-      "word": "asset",
+      "word": "about",
       "baseVerb": {
         "displayText": "Base Verb",
         "audioUrl": "../audio/simple-present-audio.mp3",
         "data": {
-          "text": "Asset - Vil - வில் ",
+          "text": "About - Vil - வில் ",
           "audioUrl": "www.testaudio.com/sellaudio.mp3"
         }
       },
