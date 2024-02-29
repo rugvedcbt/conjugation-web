@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/conjugation-web/static/css/main.c0f338d1.css",
-    "main.js": "/conjugation-web/static/js/main.84c2fa76.js",
+    "main.css": "/conjugation-web/static/css/main.91410811.css",
+    "main.js": "/conjugation-web/static/js/main.d1f8d3b9.js",
     "static/js/592.8436abe1.chunk.js": "/conjugation-web/static/js/592.8436abe1.chunk.js",
     "static/media/audio2.mp3": "/conjugation-web/static/media/audio2.88b9cb43e10cabe63b19.mp3",
     "static/media/audio1.mp3": "/conjugation-web/static/media/audio1.dcbdf7fefceaf17b5ba5.mp3",
     "static/media/ilearn-logo.png": "/conjugation-web/static/media/ilearn-logo.bc3772bd6a692f5ba973.png",
     "index.html": "/conjugation-web/index.html",
-    "main.c0f338d1.css.map": "/conjugation-web/static/css/main.c0f338d1.css.map",
-    "main.84c2fa76.js.map": "/conjugation-web/static/js/main.84c2fa76.js.map",
+    "main.91410811.css.map": "/conjugation-web/static/css/main.91410811.css.map",
+    "main.d1f8d3b9.js.map": "/conjugation-web/static/js/main.d1f8d3b9.js.map",
     "592.8436abe1.chunk.js.map": "/conjugation-web/static/js/592.8436abe1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0f338d1.css",
-    "static/js/main.84c2fa76.js"
+    "static/css/main.91410811.css",
+    "static/js/main.d1f8d3b9.js"
   ]
 }
