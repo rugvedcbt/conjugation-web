@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLetterContext } from '../context/LetterContext';
+import { AudioContextProvider } from '../context/AudioContext'
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,7 +12,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Audio1 from '../audio/audio1.mp3';
 import Audio2 from '../audio/audio2.mp3'
 import AudioPlayer from './AudioPlayer';
-
+import List from '@mui/material/List';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 
 export default function WordsSidebar() {
   interface WordData {
@@ -23,24 +25,25 @@ export default function WordsSidebar() {
     baseVerb: any;
     infinitive: any;
     indicative: any;
-    negativeSentences: any;
-    impretiveSentence: any;
     modelforms: any;
-    presentProgressive: any;
+    indicativeOtherForms: any;
   }
 
   interface FavWords {
     word: any;
   }
 
-
   const [getJsonData, setJsonData] = useState<WordItem[]>([]);
   const [favourites, setFavourites] = useState<FavWords[]>([]);
-  const { verb, setVerb, showFavourites } = useLetterContext()
+  const { verb, setVerb, showFavourites, mobile, setMobile } = useLetterContext();
 
+  const toggleContent = () => {
+    setMobile(!mobile);
+  };
 
   const handleWordChange = (word: string) => {
     setVerb(word);
+    toggleContent();
   };
 
   const isWordInFavorites = (word: string) => {
@@ -55,9 +58,31 @@ export default function WordsSidebar() {
     }
   };
 
-
   useEffect(() => {
-    getJsonWordsData()
+    const getJsonWordsData = () => {
+      fetch('json/words.json', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (Json) {
+          const wordResponseData = Json.data;
+          const filteredData = wordResponseData.filter((item: WordData) => {
+            console.log('item word is :', item.word)
+            console.log('verb is :', verb)
+            return item.word === verb;
+          });
+          console.log('filtered data is :', filteredData)
+          setJsonData(filteredData);
+        });
+    };
+
+    getJsonWordsData();
+
     const storedFavourites = localStorage.getItem('favourites');
     if (storedFavourites) {
       setFavourites(JSON.parse(storedFavourites));
@@ -68,1462 +93,1363 @@ export default function WordsSidebar() {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-
-  const getJsonWordsData = () => {
-    fetch('json/words.json'
-      , {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (Json) {
-        const wordResponseData = Json.data;
-        const filteredData = wordResponseData.filter((item: WordData) => {
-          return item.word === verb;
-        });
-        setJsonData(filteredData)
-      })
-  }
-
   const { currentLetter } = useLetterContext()
   const letterValues = alphapeticLettersData[currentLetter];
 
   return (
     <div className='words-main-bar'>
-      <div className='sidebar'>
+      <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
         {letterValues && !showFavourites ? (
-          <ul>
+          <List>
             {letterValues.map((value, index) => (
               <React.Fragment key={index}>
                 {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
                   <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {favourites.some((favWord) => favWord.word === value) ? (
-                          <StarIcon onClick={() => handleFavourites(value)} />
-                        ) : (
-                          <StarBorderIcon onClick={() => handleFavourites(value)} />
-                        )}
-                      </ListItemIcon>
-                      <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                    </ListItemButton>
+                    {verb === value ? (
+                      <ListItemButton selected>
+                        <ListItemIcon>
+                          {favourites.some((favWord) => favWord.word === value) ? (
+                            <StarIcon onClick={() => handleFavourites(value)} />
+                          ) : (
+                            <StarBorderIcon onClick={() => handleFavourites(value)} />
+                          )}
+                        </ListItemIcon>
+                        <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                      </ListItemButton>
+                    ) : (
+                      <ListItemButton>
+                        <ListItemIcon>
+                          {favourites.some((favWord) => favWord.word === value) ? (
+                            <StarIcon onClick={() => handleFavourites(value)} />
+                          ) : (
+                            <StarBorderIcon onClick={() => handleFavourites(value)} />
+                          )}
+                        </ListItemIcon>
+                        <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                      </ListItemButton>
+                    )}
                   </ListItem>
                 ) : null}
               </React.Fragment>
             ))}
-          </ul>
+          </List>
         ) : (
-          <ul>
+          <List>
+            {favourites.length === 0 && <ListItem> No Favourites Added</ListItem>}
             {Object.keys(alphapeticLettersData).map((letter, index) => (
               <div key={index}>
-                <ul>
+                <List>
                   {alphapeticLettersData[letter].map((value, valueIndex) => (
                     <React.Fragment key={valueIndex}>
-                      {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
+                    {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
                         <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              {favourites.some((favWord) => favWord.word === value) ? (
-                                <StarIcon onClick={() => handleFavourites(value)} />
-                              ) : (
-                                <StarBorderIcon onClick={() => handleFavourites(value)} />
-                              )}
-                            </ListItemIcon>
-                            <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                          </ListItemButton>
+                          {verb === value ? (
+                            <ListItemButton selected>
+                              <ListItemIcon>
+                                {favourites.some((favWord) => favWord.word === value) ? (
+                                  <StarIcon onClick={() => handleFavourites(value)} />
+                                ) : (
+                                  <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                )}
+                              </ListItemIcon>
+                              <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                            </ListItemButton>
+                          ) : (
+                            <ListItemButton>
+                              <ListItemIcon>
+                                {favourites.some((favWord) => favWord.word === value) ? (
+                                  <StarIcon onClick={() => handleFavourites(value)} />
+                                ) : (
+                                  <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                )}
+                              </ListItemIcon>
+                              <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                            </ListItemButton>
+                          )}
                         </ListItem>
                       ) : null}
-                    </React.Fragment>
+                      </React.Fragment>
                   ))}
-                </ul>
+                </List>
               </div>
             ))}
-          </ul>
+          </List>
         )}
-        {/* {!letterValues && (
-          <ul>
-            {Object.keys(alphapeticLettersData).map((letter, index) => (
-              <div key={index}>
-                <ul>
-                  {alphapeticLettersData[letter].map((value, valueIndex) => (
-                    <React.Fragment key={valueIndex}>
-                      {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              {favourites.some((favWord) => favWord.word === value) ? (
-                                <StarIcon onClick={() => handleFavourites(value)} />
-                              ) : (
-                                <StarBorderIcon onClick={() => handleFavourites(value)} />
-                              )}
-                            </ListItemIcon>
-                            <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                          </ListItemButton>
-                        </ListItem>
-                      ) : null}
-                    </React.Fragment>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </ul>
-        )} */}
       </div>
-      <div className='words-content'>
-        {getJsonData.length === 0 ? (
-          // Render this div if getJsonData is empty
-          <div className='data-notfound'>
-            {verb ? (<p>No data available for {verb}.</p>) : (<p>Start selecting a word... </p>)}
+      <AudioContextProvider>
+        <div className={`words-content ${mobile ? '' : 'mobile-content'}`}>
+          {getJsonData.length === 0 ? (
+            <div className='data-notfound'>
 
-          </div>
-        ) : (
-          <div>
-            <div className="banner-container mt-5 mb-5 indicative-topbanner" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col baseverb">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.baseVerb.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    <p className="card-text">{item.baseVerb.data.text}</p>
+              {verb ? (<div>
+                <div className="word-head">
+                    <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
+                      <ArrowBackOutlinedIcon />
+                    </span><br /></div>
+                    <div><h3 className='head'>{verb}</h3></div>
+              </div>
+                <p className='no-verb'>No data available for {verb}.</p>
+              </div>) : (<p>Start selecting a word... </p>)}
+
+            </div>
+          ) : (
+            <div>
+              <div className="word-head">
+                    <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
+                      <ArrowBackOutlinedIcon />
+                    </span><br /></div>
+                    <div><h3 className='head'>{verb}</h3></div>
+              </div>
+
+
+              {/* base verb & infinitive */}
+              <div className="banner-container mt-5 mb-5 indicative-topbanner" id="featured">
+                <div className="container-fluid px-4 py-4">
+                  <div className="card  text-white shadow-lg ">
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col baseverb">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.baseVerb.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      <p className="card-text">{item.baseVerb.data.text}</p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col infinitive">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.infinitive.displayText}
-                                  <AudioPlayer src={Audio2} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    <p className="card-text">{item.infinitive.data.text}</p>
+                              <div className="col infinitive">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.infinitive.displayText}
+                                    <AudioPlayer src={Audio2} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      <p className="card-text">{item.infinitive.data.text}</p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.indicative.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
 
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.past.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+              {/* indicative */}
+              <div className="banner-container mt-5 mb-5" id="featured">
+                <div className="container-fluid px-4 py-4">
+                  <div className="card  text-white shadow-lg ">
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <h4 className="card-header" key={index}>{item.indicative.displayText}</h4>
+                        <div className="card-body">
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col positive-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.future.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col negative-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.past.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.indicative.types.future.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                                </div>
+                              </div>
+                              <div className="col negative-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.future.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.positiveSentences.types.future.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.negativeSentences.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                      </>
+                    ))}
+
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.indicative.indicativeTypes.negativeSentences.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col negative-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col negative-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.past.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col negative-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.future.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.negativeSentences.future.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col negative-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.future.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.negativeSentences.types.future.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.impretiveSentence.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.negativeSentences.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.indicative.indicativeTypes.imperativeSentence.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.imperativeSentence.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.imperativeSentence.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.negativeSentences.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicative.indicativeTypes.imperativeSentence.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicative.indicativeTypes.imperativeSentence.types.past.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
+              {/* MODEL FORM */}
+              <div classNaback-icon-mobileme="banner-container mt-5 mb-5" id="featured">
+                <div className="container-fluid px-4 py-4">
+                  <div className="card  text-white shadow-lg ">
 
-            {/* model form --------> Express Obligation/Desire(Need to) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.needto.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                    {/* model form --------> Express Obligation/Desire(Need to) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <h4 className="card-header" key={index}>{item.modelforms.displayText}</h4>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.needto.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.needto.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.needto.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.needto.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.needto.types.past.data.notsetThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Ability to do an action(Can) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.can.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+
+                    {/* model form --------> Ability to do an action(Can) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.can.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.can.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.can.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.can.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.can.types.past.data.notsetThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Probability of an action(May) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.may.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+
+                    {/* model form --------> Probability of an action(May) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.may.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-sub-header">{item.modelforms.modalFormTypes.may.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.may.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-sub-header">{item.modelforms.modalFormTypes.may.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.may.types.past.data.notsetThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> After attempting something(Able to) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.ableto.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+
+                    {/* model form --------> After attempting something(Able to) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.ableto.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.ableto.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.ableto.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.ableto.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.ableto.types.past.data.notsetThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Permission(Let) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.let.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.setHim.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.setHer.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.setThem.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+
+                    {/* model form --------> Permission(Let) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.let.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.let.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.present.data.setHim.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.present.data.setHer.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.present.data.setThem.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.notsetHim.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.notsetHer.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.let.data.notsetThem.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.let.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.past.data.notsetHim.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.past.data.notsetHer.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.let.types.past.data.notsetThem.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Recommendation/opinion(Should) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <h5 className="card-header" key={index}>{item.modelforms.types.should.displayText}</h5>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                    {/* model form --------> Recommendation/opinion(Should) */}
+                    {getJsonData.map((item: WordItem, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <h5 className="card-sub-header" key={index}>{item.modelforms.modalFormTypes.should.displayText}</h5>
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.should.types.present.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.present.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.indicative.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.should.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.modelforms.modalFormTypes.should.types.past.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.modelforms.modalFormTypes.should.types.past.data.notsetThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* model form --------> Present progressive / continuous */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col progressive-sentences">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.presentProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col progressive-sentences">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.pastProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+              {/* indicativeOtherForms */}
+              <div className="banner-container mt-5 mb-5" id="featured">
+                <div className="container-fluid px-4 py-4">
+                  <div className="card  text-white shadow-lg ">
+
+                    {/* presentProgressive , pastProgressive, futureProgressive */}
+                    {getJsonData.map((item: any, index: number) => (
+                      <>
+                        <h4 className="card-header" key={index}>{item.indicativeOtherForms.displayText}</h4>
+                        <div className="card-body">
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col progressive-sentences">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col progressive-sentences">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.futureProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col progressive-sentences">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futureProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                                </div>
+                              </div>
+                              <div className="col progressive-sentences">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Present perfect (simple) */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.presentPerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                    {/* presentPerFect, pastPerfect, futurePerfect */}
+                    {getJsonData.map((item: any, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.pastPerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.futurePerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      </>
+                    ))}
 
-            {/* model form --------> Present perfect progressive / continuous */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col perfect-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.presentPerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.presentPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                    {/* presentPerfectProgressive, pastPerfectProgressive, futurePerfectContinuous */}
+                    {getJsonData.map((item: any, index: number) => (
+                      <>
+                        <div className="card-body">
+                          <div className="conatiner">
+                            <div className="row d-flex justify-content-around">
+                              <div className="col perfect-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div className="col perfect-sentence">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.pastPerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                              <div className="col perfect-sentence">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.pastPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setI.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setWe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setYou.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setHe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setShe.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
+                                    <div className='setpara'>
+                                      {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setThey.map((texttense: any, index: number) => (
+                                        <p className="card-text" key={index}>{texttense.text}</p>
+                                      ))}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* model form --------> futurePerfectProgressive */}
-            <div className="banner-container mt-5 mb-5" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  {getJsonData.map((item: WordItem, index: number) => (
-                    <>
-                      <div className="card-body">
-                        <div className="conatiner">
-                          <div className="row d-flex justify-content-around">
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.futurePerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.futurePerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.modelforms.types.PerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                  <div className='setpara'>
-                                    {item.modelforms.types.PerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </div>)}
+        </div>
+      </AudioContextProvider>
 
-          </div>)}
-      </div>
     </div>
   );
 }

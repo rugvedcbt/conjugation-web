@@ -67,24 +67,16 @@ aside {
   background:  #1a1d20;
 }
 
-/* img css */
 
-/* .testimonals-container img{
-  width:300px;
-  
-} */
-
-/* hero */
 .center{
   text-align: center;
 }
 
-/*  Card hover */
 .move-up:hover{
     /* background-color: #5fa2e5; */
   color: white;
-    transition: all .5s;
-    transform : translateY(-10px);
+  transition: all .5s;
+  transform : translateY(-10px);
 }
 
 .ng-mrg-t{
@@ -150,7 +142,16 @@ footer {
   font-weight: 700;
 }
 
-h5.card-header{
+.card-sub-header{
+  background-color: #3391bc;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+h4.card-header, h5.card-sub-header, h3.head{
   background-color: #2f63a8;
 }
 
@@ -159,15 +160,15 @@ h5.card-header{
 }
 
 .negative-sentence .mb-3{
-  height: 855px;
+  height: fit-content;
 }
 
 .perfect-sentence .mb-3{
-  height: 885px;
+  height: fit-content;
 }
 
 .progressive-sentences .mb-3{
-  height: 920px;
+  height: fit-content;
 }
 
 .py-4{
@@ -256,6 +257,7 @@ footer .quick-links {
 .sidebar ul {
   height: 100%;
   padding-left: 0rem;
+  margin-top: 0.5rem;
 }
 
 
@@ -268,12 +270,10 @@ footer .quick-links {
 }
 
 .sidebar {
-  top: 148px;
+  top: 141px;
   min-height: 100vh;
   height: 100%;
   position: fixed;
-  /* background: #f9ecec; */
-  /* background: linear-gradient(100deg, #d0d6dd 30%, rgb(219 181 155) 70%); */
   width: 25%;
   display:inline-block; 
   overflow-y: scroll;
@@ -287,7 +287,7 @@ footer .quick-links {
 
 .words-content {
   padding-left: 25%;
-  width: 100%;
+  /* width: 100%; */
   padding-top: 85px;
 }
 .css-r6ewbb-MuiToolbar-root {
@@ -349,27 +349,104 @@ footer .quick-links {
   min-width: 250px;
 }
 
-.css-cveggr-MuiListItemIcon-root {
-  min-width: 0px !important;
+.css-h4y409-MuiList-root {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }
 
-.css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root {
- padding: 0;
- margin: 0;
- min-width: 100px;
+.css-r6ewbb-MuiToolbar-root {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.back-icon{
+  display: none;
+  color: white;
+}
+
+.back-icon-mobile{
+  display: none;
+}
+
+.no-verb{
+  padding-left: 10rem;
+}
+
+.word-head{
+  display: none;
 }
 
 @media only screen and (max-width:600px) {
+
+
+  *{
+    font-size: small;
+  }
+  
   .px-4 {
     padding-right: 0%!important;
     padding-left: 0%!important;
   }
+
   .words-content{
-    padding-top: 45px;
+    padding-top: 20px;
   }
+
+  .words-content{
+    padding-left: 0px;
+    padding: 1rem;
+  }
+
+  .words-main-bar{
+    min-width: fit-content;
+    overflow-x: hidden;
+  }
+
+  .mobile-content{
+    margin-top: 10px;
+    padding-top: 20px;
+    display: none;
+  }
+
+  .mobile-sidebar-on{
+    display: none;
+  }
+
+  .back-icon-mobile{
+    display: block;
+  }
+
+  .word-head{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 5rem;
+    align-items: center;
+  }
+
+  h3.head{
+    color: white;
+    background-color: #2f63a8;
+    margin-bottom: 0px;
+    width: 200px;
+    border-radius: 5px;
+  }
+
+  .indicative-topbanner{
+    margin-top: 1rem !important;
+  }
+
   .sidebar{
-    top: 110px;
+    top: 95px;
+    min-width: 100%;
   }
+
+  .no-verb{
+    margin-top: 2rem;
+    padding-left: 2rem;
+  }
+
   .ilearn-logo{
     width: 20px;
     height: 20px;

@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
 export default function LetterBar() {
-  const { letters, setCurrentLetter, currentLetter, setVerb } = useLetterContext()
+  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile } = useLetterContext()
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -15,6 +15,7 @@ export default function LetterBar() {
   const handleLetterChange = (letter: string) => {
     setCurrentLetter(letter)
     setVerb('')
+    setMobile(false)
   };
 
   useEffect(() => {

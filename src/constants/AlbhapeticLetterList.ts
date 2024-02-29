@@ -1,5 +1,5 @@
   export const alphapeticLettersData: { [key: string]: string[] } = {
-    'A': ['about', 'abandon', 'asset', 'abduct','abolish','account','adorn','adopt','afflict'],
+    'A': ['about', 'abandon', 'asset', 'abduct','abolish','account','adorn','adopt','afflict','affliate', 'affect', 'aim', 'air','airdrop','ally','alter','amaze','ambush','ampllify', 'anger', 'animate', 'annoy','answer','announce','appear','appeal'],
     'B': ['back', 'bag', 'bait', 'bar','bark','bathe','beach','betray','bill','blow'],
     'C': ['cab','calm','carol','certify','chart','chomp','cipher','circuit','click'],
     'D': ['dab','dam','dead','decay','defeat','delete','deploy','desire','detox','die'],
