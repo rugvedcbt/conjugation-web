@@ -12,7 +12,9 @@ interface LetterContextType {
   showFavourites: boolean;
   setShowFavourites: (showFavourites: boolean) => void;
   mobile: boolean;
-  setMobile: (mobile: boolean) => void; 
+  setMobile: (mobile: boolean) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
 // Create a context with the initial value of your context
@@ -25,7 +27,9 @@ const LetterContext = createContext<LetterContextType>({
   showFavourites: false,
   setShowFavourites: () => {},
   mobile: false,
-  setMobile: () => {}, 
+  setMobile: () => {},
+  loading: false,
+  setLoading: () => {},
 });
 
 // Create a custom hook to access the context
@@ -38,12 +42,12 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
   const [verb, setVerb] = useState<string>('about');
   const [showFavourites, setShowFavourites] = useState<boolean>(false);
   const [mobile, setMobile] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   
-
   // You might want to update the letters state somewhere in your component logic
 
   return (
-    <LetterContext.Provider value={{ letters, currentLetter, setCurrentLetter, verb, setVerb, showFavourites, setShowFavourites, mobile, setMobile }}>
+    <LetterContext.Provider value={{ letters, currentLetter, setCurrentLetter, verb, setVerb, showFavourites, setShowFavourites, mobile, setMobile, loading, setLoading }}>
       {children}
     </LetterContext.Provider>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import { useAudioContext } from '../context/AudioContext';
@@ -8,9 +8,26 @@ interface AudioPlayerProps {
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
-  const [play, setPlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const { currentlyPlaying, setCurrentlyPlaying } = useAudioContext();
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    
+    const handleEnded = () => {
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    };
+
+    if (audio) {
+      audio.addEventListener('ended', handleEnded);
+      return () => {
+        audio.removeEventListener('ended', handleEnded);
+      };
+    }
+  }, []);
 
   const handleTogglePlay = () => {
     const audio = audioRef.current;
@@ -18,6 +35,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
     if (audio) {
       if (currentlyPlaying && currentlyPlaying !== audio) {
         currentlyPlaying.pause();
+        currentlyPlaying.currentTime = 0;
       }
 
       if (audio.paused) {
@@ -26,7 +44,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
         audio.pause();
       }
 
-      setPlay(!play);
       setCurrentlyPlaying(audio);
     }
   };
@@ -34,7 +51,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   return (
     <>
       <span className='audio-icon' onClick={handleTogglePlay}>
-        {play ? <VolumeOffIcon /> : <VolumeUpIcon />}
+        {audioRef.current && !audioRef.current.paused ? <VolumeOffIcon /> : <VolumeUpIcon />}
       </span>
       <audio ref={audioRef} src={src} />
     </>
@@ -42,3 +59,4 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
 };
 
 export default AudioPlayer;
+

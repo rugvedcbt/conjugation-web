@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useLetterContext } from '../context/LetterContext';
 import { AudioContextProvider } from '../context/AudioContext'
-import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import StarIcon from '@mui/icons-material/Star';
+import Box from '@mui/material/Box';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Audio1 from '../audio/audio1.mp3';
 import Audio2 from '../audio/audio2.mp3'
 import AudioPlayer from './AudioPlayer';
-import List from '@mui/material/List';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import CircularProgress from '@mui/material/CircularProgress';
+import Sidebar from './Sidebar'
+
 
 export default function WordsSidebar() {
   interface WordData {
@@ -35,31 +31,16 @@ export default function WordsSidebar() {
 
   const [getJsonData, setJsonData] = useState<WordItem[]>([]);
   const [favourites, setFavourites] = useState<FavWords[]>([]);
-  const { verb, setVerb, showFavourites, mobile, setMobile } = useLetterContext();
+  const { verb, mobile, setMobile, loading, setLoading } = useLetterContext();
 
-  const toggleContent = () => {
-    setMobile(!mobile);
-  };
+  // const toggleContent = () => {
+  //   setMobile(!mobile);
+  // };
 
-  const handleWordChange = (word: string) => {
-    setVerb(word);
-    toggleContent();
-  };
-
-  const isWordInFavorites = (word: string) => {
-    return favourites.some((favWord) => favWord.word === word);
-  };
-
-  const handleFavourites = (word: string) => {
-    if (isWordInFavorites(word)) {
-      setFavourites((prevFavourites) => prevFavourites.filter((favWord) => favWord.word !== word));
-    } else {
-      setFavourites((prevFavourites) => [...prevFavourites, { word }]);
-    }
-  };
 
   useEffect(() => {
     const getJsonWordsData = () => {
+      setLoading(true);
       fetch('json/words.json', {
         headers: {
           'Content-Type': 'application/json',
@@ -72,12 +53,12 @@ export default function WordsSidebar() {
         .then(function (Json) {
           const wordResponseData = Json.data;
           const filteredData = wordResponseData.filter((item: WordData) => {
-            console.log('item word is :', item.word)
-            console.log('verb is :', verb)
             return item.word === verb;
           });
-          console.log('filtered data is :', filteredData)
           setJsonData(filteredData);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     };
 
@@ -93,112 +74,46 @@ export default function WordsSidebar() {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  const { currentLetter } = useLetterContext()
-  const letterValues = alphapeticLettersData[currentLetter];
 
   return (
     <div className='words-main-bar'>
-      <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
-        {letterValues && !showFavourites ? (
-          <List>
-            {letterValues.map((value, index) => (
-              <React.Fragment key={index}>
-                {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
-                  <ListItem disablePadding>
-                    {verb === value ? (
-                      <ListItemButton selected>
-                        <ListItemIcon>
-                          {favourites.some((favWord) => favWord.word === value) ? (
-                            <StarIcon onClick={() => handleFavourites(value)} />
-                          ) : (
-                            <StarBorderIcon onClick={() => handleFavourites(value)} />
-                          )}
-                        </ListItemIcon>
-                        <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                      </ListItemButton>
-                    ) : (
-                      <ListItemButton>
-                        <ListItemIcon>
-                          {favourites.some((favWord) => favWord.word === value) ? (
-                            <StarIcon onClick={() => handleFavourites(value)} />
-                          ) : (
-                            <StarBorderIcon onClick={() => handleFavourites(value)} />
-                          )}
-                        </ListItemIcon>
-                        <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                      </ListItemButton>
-                    )}
-                  </ListItem>
-                ) : null}
-              </React.Fragment>
-            ))}
-          </List>
-        ) : (
-          <List>
-            {favourites.length === 0 && <ListItem> No Favourites Added</ListItem>}
-            {Object.keys(alphapeticLettersData).map((letter, index) => (
-              <div key={index}>
-                <List>
-                  {alphapeticLettersData[letter].map((value, valueIndex) => (
-                    <React.Fragment key={valueIndex}>
-                    {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
-                        <ListItem disablePadding>
-                          {verb === value ? (
-                            <ListItemButton selected>
-                              <ListItemIcon>
-                                {favourites.some((favWord) => favWord.word === value) ? (
-                                  <StarIcon onClick={() => handleFavourites(value)} />
-                                ) : (
-                                  <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                )}
-                              </ListItemIcon>
-                              <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                            </ListItemButton>
-                          ) : (
-                            <ListItemButton>
-                              <ListItemIcon>
-                                {favourites.some((favWord) => favWord.word === value) ? (
-                                  <StarIcon onClick={() => handleFavourites(value)} />
-                                ) : (
-                                  <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                )}
-                              </ListItemIcon>
-                              <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                            </ListItemButton>
-                          )}
-                        </ListItem>
-                      ) : null}
-                      </React.Fragment>
-                  ))}
-                </List>
-              </div>
-            ))}
-          </List>
-        )}
-      </div>
+      <Sidebar />
       <AudioContextProvider>
         <div className={`words-content ${mobile ? '' : 'mobile-content'}`}>
           {getJsonData.length === 0 ? (
             <div className='data-notfound'>
 
-              {verb ? (<div>
+              {verb ? (
+              <div className='message'>
                 <div className="word-head">
-                    <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
-                      <ArrowBackOutlinedIcon />
-                    </span><br /></div>
-                    <div><h3 className='head'>{verb}</h3></div>
-              </div>
-                <p className='no-verb'>No data available for {verb}.</p>
+                  <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
+                    <ArrowBackOutlinedIcon />
+                  </span><br /></div>
+                  <div><h3 className='head'>{verb}</h3></div>
+                </div>
+
+                  { loading ? (
+                    <p className='no-verb'>
+                    <Box sx={{ display: 'flex' }}>
+                    <CircularProgress />
+                    </Box>
+                  </p>
+                  ):(
+                    <p className='no-verb'>
+                    No data available for {verb}.
+                  </p>
+                  )}
+                  
               </div>) : (<p>Start selecting a word... </p>)}
 
             </div>
           ) : (
             <div>
               <div className="word-head">
-                    <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
-                      <ArrowBackOutlinedIcon />
-                    </span><br /></div>
-                    <div><h3 className='head'>{verb}</h3></div>
+                <div><span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={() => { setMobile(false) }}>
+                  <ArrowBackOutlinedIcon />
+                </span><br /></div>
+                <div><h3 className='head'>{verb}</h3></div>
               </div>
 
 
@@ -208,7 +123,7 @@ export default function WordsSidebar() {
                   <div className="card  text-white shadow-lg ">
                     {getJsonData.map((item: WordItem, index: number) => (
                       <>
-                        <div className="card-body">
+                        <div className="card-body" key={index}>
                           <div className="conatiner">
                             <div className="row d-flex justify-content-around">
                               <div className="col baseverb">
