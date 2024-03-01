@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef,useState, useEffect } from 'react';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import { useAudioContext } from '../context/AudioContext';
@@ -9,6 +9,7 @@ interface AudioPlayerProps {
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const { currentlyPlaying, setCurrentlyPlaying } = useAudioContext();
 
   useEffect(() => {
@@ -40,8 +41,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
 
       if (audio.paused) {
         audio.play();
+        setIsPlaying(true);
       } else {
         audio.pause();
+        setIsPlaying(false);
       }
 
       setCurrentlyPlaying(audio);
@@ -51,7 +54,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   return (
     <>
       <span className='audio-icon' onClick={handleTogglePlay}>
-        {audioRef.current && !audioRef.current.paused ? <VolumeOffIcon /> : <VolumeUpIcon />}
+        {audioRef.current && !audioRef.current.paused && isPlaying ? <VolumeOffIcon /> : <VolumeUpIcon />}
       </span>
       <audio ref={audioRef} src={src} />
     </>
