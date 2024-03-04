@@ -14,7 +14,8 @@
 .words-main-bar{
   display: flex;
   width: 100%;
-  height: 88vh;
+  height: 100%;
+  /* padding: 1rem; */
 }
 
 .words-content{
@@ -262,12 +263,12 @@ footer .quick-links {
   height: 100%;
   padding-left: 0rem;
 }
-.message{
+/* .message{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
+} */
 
 
 .MuiBox-root {
@@ -345,7 +346,8 @@ footer .quick-links {
 }
 
 .data-notfound p{
-  margin-top: 100px;
+  /* margin-top: 100px; */
+  margin-left: 0px;
   font-size: 24px;
   color: blue;
 }
@@ -383,6 +385,7 @@ footer .quick-links {
 }
 
 .no-verb{
+  padding-top: 10rem;
   padding-left: 10rem;
 }
 
@@ -390,8 +393,40 @@ footer .quick-links {
   display: none;
 }
 
-@media only screen and (max-width:600px) {
+.verb-head{
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.card-header.word{
+  text-transform: uppercase;
+  display: flex;
+}
+
+.card-header .verb {
+  width: 100%;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-message {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.verb-head{
+  margin-left: 4rem;
+}
+
+@media only screen and (max-width:600px) {
 
   *{
     font-size: small;
@@ -403,12 +438,9 @@ footer .quick-links {
   }
 
   .words-content{
-    padding-top: 20px;
-  }
-
-  .words-content{
     padding-left: 0px;
     padding: 1rem;
+    margin-bottom: 2rem;
   }
 
   .words-main-bar{
@@ -431,12 +463,8 @@ footer .quick-links {
   }
 
   .word-head{
+    display: block;
     margin-top: 8rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    column-gap: 5rem;
-    align-items: center;
   }
 
   h3.head{
@@ -445,10 +473,6 @@ footer .quick-links {
     margin-bottom: 0px;
     width: 200px;
     border-radius: 5px;
-  }
-
-  .indicative-topbanner{
-    margin-top: 1rem !important;
   }
 
   .sidebar{
@@ -465,6 +489,17 @@ footer .quick-links {
     width: 20px;
     height: 20px;
   }
+
+  .indicative-topbanner{
+    margin-top: 0px !important;
+  }
+
+  .move-up:hover{
+    transition: 0;
+    transform : translateY(0px);
+  }
+
+
 
 }
 

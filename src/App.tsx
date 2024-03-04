@@ -5,7 +5,6 @@ import WordsSidebar from './components/WordsSidebar';
 import './App.css';
 
 function App() {
-  
 
   return (
     <div className="App">
