@@ -4059,12 +4059,5979 @@
       
     },
     {
-      "word": "abandon",
+      "word": "back",
       "baseVerb": {
         "displayText": "Base Verb",
         "audioUrl": "",
         "data": {
-          "text": "abandon - Vil - வில் ",
+          "text": "back - Vil - வில் ",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },
+      "infinitive":{
+        "displayText": "Infinitive",
+        "audioUrl": "",
+        "data": {
+          "text": "to Sell - Vikka - விக்க",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },  
+      "indicative": {
+        "displayText": "Indicative",
+        "audioUrl": "",
+        "indicativeTypes" : {
+          "positiveSentences" : {
+            "displayText" : "Positive Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sell"
+                    },
+                    {
+                      "text": "Naan Vikkuraen"
+                    },
+                    {
+                      "text": "நான் விக்கிறேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "we sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkuroam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கிறோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "you sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkura/vikkureenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கிற/விக்குறீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "he sells"
+                    },
+                    {
+                      "text": "Avan/Avar vikkuraan/vikkuraar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கிறான்/விக்குறார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkuraal/vikkuraanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கிறாள்/விக்குறாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "they sell"
+                    },
+                    {
+                      "text": "Avanga vikkuraanga"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sold"
+                    },
+                    {
+                      "text": "Naan viththaen"
+                    },
+                    {
+                      "text": "நான் வித்தேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We sold"
+                    },
+                    {
+                      "text": "Naanga/Naama viththoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம வித்தோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You sold"
+                    },
+                    {
+                      "text": "Nee/Neenga viththa/Viththeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க வித்த/வித்தீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He sold"
+                    },
+                    {
+                      "text": "Avan/Avar viththaan/viththaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் வித்தான்/வித்தார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sold"
+                    },
+                    {
+                      "text": "Aval/Avanga viththaal/viththaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க வித்தாள்/வித்தாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They sold"
+                    },
+                    {
+                      "text": "Avanga Viththaanga"
+                    },
+                    {
+                      "text": "அவங்க வித்தாங்க"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will sell"
+                    },
+                    {
+                      "text": "Naan vippaen"
+                    },
+                    {
+                      "text": "நான் விப்பேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vippoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விப்போம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vippa/Vippeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விப்ப/விப்பீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will sell"
+                    },
+                    {
+                      "text": "Avan/Avar Vippaan/Vippaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விப்பான்/விப்பார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vippaal/vippaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விப்பாள்/விப்பாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will sell"
+                    },
+                    {
+                      "text": "Avanga Vippaanga"
+                    },
+                    {
+                      "text": "அவங்க விப்பாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "negativeSentences":{
+            "displayText": "Negative Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I don’t sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We don’t sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You don’t sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He doesn’t sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She doesn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They don’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I didnt sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We didnt sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You didnt sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He didnt sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She didn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They didn’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will not sell"
+                    },
+                    {
+                      "text": "Naan vikka maattaen"
+                    },
+                    {
+                      "text": "நான் விக்க மாட்டேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka maattoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க மாட்டோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka maatta/vikka maatteenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க மாட்ட/விக்க மாட்டீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will not  sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka maattaar/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க மாட்டார்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka maattaal/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க மாட்டாள்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will not sell"
+                    },
+                    {
+                      "text": "Avanga vikka maattaanga"
+                    },
+                    {
+                      "text": "அவங்க விக்க மாட்டாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "imperativeSentence":{
+            "displayText": "Imperative Sentences",
+            "audioUrl": "",
+            "types" : {
+              "present": {
+              "displayText": "Present (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You sell"
+                  },
+                  {
+                    "text": "Nee/Neenga viththudu/Viththudunga"
+                  },
+                  {
+                    "text": "நீ/நீங்க வித்துடு/வித்துடுங்க"
+                  }
+                ]
+                
+              }
+              },
+              "past": {
+              "displayText": "Past (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You don't sell"
+                  },
+                  {
+                    "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
+                  },
+                  {
+                    "text": "நீ/நீங்க விக்காத/விக்காதீங்க"
+                  }
+                ]
+                
+              }
+              }
+            }
+          }
+        } 
+      },
+      "modelforms":{
+        "displayText": "Modal forms",
+        "audioUrl": "",
+        "modalFormTypes": {
+          "needto": {
+            "displayText": "Express Obligation/Desire(Need to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I need to sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They need to sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText": "Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I don't need to sell"
+                    },
+                    {
+                      "text": "Naan vikka vaenaam"
+                    },
+                    {
+                      "text": "நான் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We don't need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka vaenaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You don't need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka vaenaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He don't need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka vaenaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She don't need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They don't need to sell"
+                    },
+                    {
+                      "text": "Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவங்க விக்க வேணாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "can": {
+            "displayText": "Ability to do an action(Can)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I can sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyum"
+                    },
+                    {
+                      "text": "என்னால் விக்க முடியும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We can sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You can sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He can sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She can sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They can sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I can't sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We can't sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You can't sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He can't sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She can't sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They can't sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியாது"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "may": {
+            "displayText": "Probability of an action(May)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I may sell"
+                    },
+                    {
+                      "text": "Naan vikkalaam"
+                    },
+                    {
+                      "text": "நான் விக்கலாம்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We may sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கலாம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You may sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கலாம்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He may sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கலாம்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She may sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கலாம்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They may sell"
+                    },
+                    {
+                      "text": "Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்கலாம்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I may not sell"
+                    },
+                    {
+                      "text": "Naan vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நான் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We may not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You may not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He may not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She may not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They may not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "ableto": {
+            "displayText": "After attempting something(Able to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I am able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியுது"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We are able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You are able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He is able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியுது"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She is may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They are able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியுது"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I am not able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyala"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியல"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We are not able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You are not able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He is not able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியல"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She is not may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They are not able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியல"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "let": {
+            "displayText": "Permission(Let)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setHim": [
+                    {
+                      "text": "Let him sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கட்டும்"
+                    }
+                  ],
+                  "setHer": [
+                    {
+                      "text": "Let her sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கட்டும்"
+                    }
+                  ],
+                  "setThem": [
+                    {
+                      "text": "Let them sell"
+                    },
+                    {
+                      "text": "Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்கட்டும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetHim": [
+                    {
+                      "text": "Let him not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetHer": [
+                    {
+                      "text": "Let her not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetThem": [
+                    {
+                      "text": "Let them not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "should": {
+            "displayText": "Recommendation/opinion(Should)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I should sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We should sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You should sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He should sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She should sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They should sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I should n't sell"
+                    },
+                    {
+                      "text": "Naan vikka koodaadhu"
+                    },
+                    {
+                      "text": "நான் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We should n't sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka koodaadhu"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க கூடாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You should n't sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka koodaadhu"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He should n't sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She should n't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They should n't sell"
+                    },
+                    {
+                      "text": "Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவங்க விக்க கூடாது"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "indicativeOtherForms" : {
+        "displayText" : "Indicative - Other Forms",
+        "audioUrl": "",
+        "indicativeOtherFormTypes" : {
+          "presentProgressive": {
+            "displayText": "Present progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I am selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we are selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you are selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "He is selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they are selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastProgressive": {
+            "displayText": "Past progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I was selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irundhaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We were selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You were selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irundha/irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்த/இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he was selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்தான்/இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாள்/இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they were selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futureProgressive": {
+            "displayText": "Future progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will be selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu iruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We will be selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You will be selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu iruppa/iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருப்ப/இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will be selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருப்பான்/இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will be selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாள்/இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will be selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfect": {
+            "displayText": "Present perfect (simple)",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have sold"
+                },
+                {
+                  "text": "Naan viththu irukkaen"
+                },
+                {
+                  "text": "நான் வித்து இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருக்க/வித்து இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருக்கான்/வித்து இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருக்காள்/வித்து இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have sold"
+                },
+                {
+                  "text": "Avanga viththu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfect": {
+            "displayText": "Past perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had sold"
+                },
+                {
+                  "text": "Naan viththu irundhaen"
+                },
+                {
+                  "text": "நான் வித்து இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருந்த/வித்து இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருந்தான்/வித்து இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irundhaal/ viththu irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருந்தாள்/வித்து இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had sold"
+                },
+                {
+                  "text": "Avanga viththu irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfect": {
+            "displayText": "Future perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have sold"
+                },
+                {
+                  "text": "Naan viththu iruppaen"
+                },
+                {
+                  "text": "நான் வித்து இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருப்ப/வித்து இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have sold"
+                },
+                {
+                  "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருப்பான்/வித்து இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irunppaal/ viththu irunppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருப்பாள்/வித்து இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have sold"
+                },
+                {
+                  "text": "Avanga viththu irunppaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfectProgressive": {
+            "displayText": "Present perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfectProgressive": {
+            "displayText": "Past perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhirukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்க/இருந்திருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருக்கான்/இருந்திருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhirukkaal/irundhirukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காள்/இருந்திருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfectContinuous": {
+            "displayText": "Future perfect continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhiruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்ப/இருந்திருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருப்பான்/இருந்திருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhiruppaal/irundhiruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாள்/இருந்திருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாங்க"
+                }
+              ]
+            }
+          }
+        }
+      }
+
+    },
+    {
+      "word": "calm",
+      "baseVerb": {
+        "displayText": "Base Verb",
+        "audioUrl": "",
+        "data": {
+          "text": "Calm - Vil - வில் ",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },
+      "infinitive":{
+        "displayText": "Infinitive",
+        "audioUrl": "",
+        "data": {
+          "text": "to Sell - Vikka - விக்க",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },  
+      "indicative": {
+        "displayText": "Indicative",
+        "audioUrl": "",
+        "indicativeTypes" : {
+          "positiveSentences" : {
+            "displayText" : "Positive Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sell"
+                    },
+                    {
+                      "text": "Naan Vikkuraen"
+                    },
+                    {
+                      "text": "நான் விக்கிறேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "we sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkuroam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கிறோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "you sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkura/vikkureenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கிற/விக்குறீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "he sells"
+                    },
+                    {
+                      "text": "Avan/Avar vikkuraan/vikkuraar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கிறான்/விக்குறார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkuraal/vikkuraanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கிறாள்/விக்குறாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "they sell"
+                    },
+                    {
+                      "text": "Avanga vikkuraanga"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sold"
+                    },
+                    {
+                      "text": "Naan viththaen"
+                    },
+                    {
+                      "text": "நான் வித்தேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We sold"
+                    },
+                    {
+                      "text": "Naanga/Naama viththoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம வித்தோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You sold"
+                    },
+                    {
+                      "text": "Nee/Neenga viththa/Viththeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க வித்த/வித்தீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He sold"
+                    },
+                    {
+                      "text": "Avan/Avar viththaan/viththaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் வித்தான்/வித்தார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sold"
+                    },
+                    {
+                      "text": "Aval/Avanga viththaal/viththaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க வித்தாள்/வித்தாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They sold"
+                    },
+                    {
+                      "text": "Avanga Viththaanga"
+                    },
+                    {
+                      "text": "அவங்க வித்தாங்க"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will sell"
+                    },
+                    {
+                      "text": "Naan vippaen"
+                    },
+                    {
+                      "text": "நான் விப்பேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vippoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விப்போம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vippa/Vippeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விப்ப/விப்பீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will sell"
+                    },
+                    {
+                      "text": "Avan/Avar Vippaan/Vippaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விப்பான்/விப்பார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vippaal/vippaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விப்பாள்/விப்பாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will sell"
+                    },
+                    {
+                      "text": "Avanga Vippaanga"
+                    },
+                    {
+                      "text": "அவங்க விப்பாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "negativeSentences":{
+            "displayText": "Negative Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I don’t sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We don’t sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You don’t sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He doesn’t sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She doesn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They don’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I didnt sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We didnt sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You didnt sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He didnt sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She didn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They didn’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will not sell"
+                    },
+                    {
+                      "text": "Naan vikka maattaen"
+                    },
+                    {
+                      "text": "நான் விக்க மாட்டேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka maattoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க மாட்டோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka maatta/vikka maatteenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க மாட்ட/விக்க மாட்டீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will not  sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka maattaar/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க மாட்டார்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka maattaal/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க மாட்டாள்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will not sell"
+                    },
+                    {
+                      "text": "Avanga vikka maattaanga"
+                    },
+                    {
+                      "text": "அவங்க விக்க மாட்டாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "imperativeSentence":{
+            "displayText": "Imperative Sentences",
+            "audioUrl": "",
+            "types" : {
+              "present": {
+              "displayText": "Present (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You sell"
+                  },
+                  {
+                    "text": "Nee/Neenga viththudu/Viththudunga"
+                  },
+                  {
+                    "text": "நீ/நீங்க வித்துடு/வித்துடுங்க"
+                  }
+                ]
+                
+              }
+              },
+              "past": {
+              "displayText": "Past (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You don't sell"
+                  },
+                  {
+                    "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
+                  },
+                  {
+                    "text": "நீ/நீங்க விக்காத/விக்காதீங்க"
+                  }
+                ]
+                
+              }
+              }
+            }
+          }
+        } 
+      },
+      "modelforms":{
+        "displayText": "Modal forms",
+        "audioUrl": "",
+        "modalFormTypes": {
+          "needto": {
+            "displayText": "Express Obligation/Desire(Need to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I need to sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They need to sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText": "Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I don't need to sell"
+                    },
+                    {
+                      "text": "Naan vikka vaenaam"
+                    },
+                    {
+                      "text": "நான் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We don't need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka vaenaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You don't need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka vaenaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He don't need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka vaenaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She don't need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They don't need to sell"
+                    },
+                    {
+                      "text": "Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவங்க விக்க வேணாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "can": {
+            "displayText": "Ability to do an action(Can)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I can sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyum"
+                    },
+                    {
+                      "text": "என்னால் விக்க முடியும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We can sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You can sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He can sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She can sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They can sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I can't sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We can't sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You can't sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He can't sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She can't sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They can't sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியாது"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "may": {
+            "displayText": "Probability of an action(May)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I may sell"
+                    },
+                    {
+                      "text": "Naan vikkalaam"
+                    },
+                    {
+                      "text": "நான் விக்கலாம்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We may sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கலாம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You may sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கலாம்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He may sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கலாம்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She may sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கலாம்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They may sell"
+                    },
+                    {
+                      "text": "Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்கலாம்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I may not sell"
+                    },
+                    {
+                      "text": "Naan vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நான் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We may not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You may not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He may not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She may not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They may not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "ableto": {
+            "displayText": "After attempting something(Able to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I am able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியுது"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We are able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You are able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He is able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியுது"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She is may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They are able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியுது"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I am not able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyala"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியல"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We are not able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You are not able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He is not able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியல"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She is not may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They are not able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியல"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "let": {
+            "displayText": "Permission(Let)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setHim": [
+                    {
+                      "text": "Let him sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கட்டும்"
+                    }
+                  ],
+                  "setHer": [
+                    {
+                      "text": "Let her sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கட்டும்"
+                    }
+                  ],
+                  "setThem": [
+                    {
+                      "text": "Let them sell"
+                    },
+                    {
+                      "text": "Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்கட்டும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetHim": [
+                    {
+                      "text": "Let him not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetHer": [
+                    {
+                      "text": "Let her not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetThem": [
+                    {
+                      "text": "Let them not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "should": {
+            "displayText": "Recommendation/opinion(Should)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I should sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We should sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You should sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He should sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She should sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They should sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I should n't sell"
+                    },
+                    {
+                      "text": "Naan vikka koodaadhu"
+                    },
+                    {
+                      "text": "நான் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We should n't sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka koodaadhu"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க கூடாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You should n't sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka koodaadhu"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He should n't sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She should n't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They should n't sell"
+                    },
+                    {
+                      "text": "Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவங்க விக்க கூடாது"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "indicativeOtherForms" : {
+        "displayText" : "Indicative - Other Forms",
+        "audioUrl": "",
+        "indicativeOtherFormTypes" : {
+          "presentProgressive": {
+            "displayText": "Present progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I am selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we are selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you are selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "He is selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they are selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastProgressive": {
+            "displayText": "Past progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I was selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irundhaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We were selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You were selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irundha/irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்த/இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he was selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்தான்/இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாள்/இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they were selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futureProgressive": {
+            "displayText": "Future progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will be selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu iruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We will be selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You will be selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu iruppa/iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருப்ப/இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will be selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருப்பான்/இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will be selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாள்/இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will be selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfect": {
+            "displayText": "Present perfect (simple)",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have sold"
+                },
+                {
+                  "text": "Naan viththu irukkaen"
+                },
+                {
+                  "text": "நான் வித்து இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருக்க/வித்து இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருக்கான்/வித்து இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருக்காள்/வித்து இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have sold"
+                },
+                {
+                  "text": "Avanga viththu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfect": {
+            "displayText": "Past perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had sold"
+                },
+                {
+                  "text": "Naan viththu irundhaen"
+                },
+                {
+                  "text": "நான் வித்து இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருந்த/வித்து இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருந்தான்/வித்து இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irundhaal/ viththu irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருந்தாள்/வித்து இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had sold"
+                },
+                {
+                  "text": "Avanga viththu irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfect": {
+            "displayText": "Future perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have sold"
+                },
+                {
+                  "text": "Naan viththu iruppaen"
+                },
+                {
+                  "text": "நான் வித்து இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருப்ப/வித்து இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have sold"
+                },
+                {
+                  "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருப்பான்/வித்து இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irunppaal/ viththu irunppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருப்பாள்/வித்து இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have sold"
+                },
+                {
+                  "text": "Avanga viththu irunppaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfectProgressive": {
+            "displayText": "Present perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfectProgressive": {
+            "displayText": "Past perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhirukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்க/இருந்திருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருக்கான்/இருந்திருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhirukkaal/irundhirukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காள்/இருந்திருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfectContinuous": {
+            "displayText": "Future perfect continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhiruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்ப/இருந்திருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருப்பான்/இருந்திருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhiruppaal/irundhiruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாள்/இருந்திருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாங்க"
+                }
+              ]
+            }
+          }
+        }
+      }
+
+    },
+    {
+      "word": "dab",
+      "baseVerb": {
+        "displayText": "Base Verb",
+        "audioUrl": "",
+        "data": {
+          "text": "dab - Vil - வில் ",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },
+      "infinitive":{
+        "displayText": "Infinitive",
+        "audioUrl": "",
+        "data": {
+          "text": "to Sell - Vikka - விக்க",
+          "audioUrl": "www.testaudio.com/sellaudio.mp3"
+        }
+      },  
+      "indicative": {
+        "displayText": "Indicative",
+        "audioUrl": "",
+        "indicativeTypes" : {
+          "positiveSentences" : {
+            "displayText" : "Positive Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sell"
+                    },
+                    {
+                      "text": "Naan Vikkuraen"
+                    },
+                    {
+                      "text": "நான் விக்கிறேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "we sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkuroam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கிறோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "you sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkura/vikkureenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கிற/விக்குறீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "he sells"
+                    },
+                    {
+                      "text": "Avan/Avar vikkuraan/vikkuraar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கிறான்/விக்குறார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkuraal/vikkuraanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கிறாள்/விக்குறாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "they sell"
+                    },
+                    {
+                      "text": "Avanga vikkuraanga"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I sold"
+                    },
+                    {
+                      "text": "Naan viththaen"
+                    },
+                    {
+                      "text": "நான் வித்தேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We sold"
+                    },
+                    {
+                      "text": "Naanga/Naama viththoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம வித்தோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You sold"
+                    },
+                    {
+                      "text": "Nee/Neenga viththa/Viththeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க வித்த/வித்தீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He sold"
+                    },
+                    {
+                      "text": "Avan/Avar viththaan/viththaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் வித்தான்/வித்தார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She sold"
+                    },
+                    {
+                      "text": "Aval/Avanga viththaal/viththaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க வித்தாள்/வித்தாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They sold"
+                    },
+                    {
+                      "text": "Avanga Viththaanga"
+                    },
+                    {
+                      "text": "அவங்க வித்தாங்க"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will sell"
+                    },
+                    {
+                      "text": "Naan vippaen"
+                    },
+                    {
+                      "text": "நான் விப்பேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vippoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விப்போம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vippa/Vippeenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விப்ப/விப்பீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will sell"
+                    },
+                    {
+                      "text": "Avan/Avar Vippaan/Vippaar"
+                    },
+                    {
+                      "text": "அவன்/அவர் விப்பான்/விப்பார்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vippaal/vippaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விப்பாள்/விப்பாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will sell"
+                    },
+                    {
+                      "text": "Avanga Vippaanga"
+                    },
+                    {
+                      "text": "அவங்க விப்பாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "negativeSentences":{
+            "displayText": "Negative Sentences",
+            "audioUrl": "",
+            "types": {
+              "present": {
+                "displayText": "Present (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I don’t sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We don’t sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You don’t sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He doesn’t sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She doesn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They don’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "past": {
+                "displayText": "Past (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I didnt sell"
+                    },
+                    {
+                      "text": "Naan vikkala"
+                    },
+                    {
+                      "text": "நான் விக்கல"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We didnt sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkala"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கல"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You didnt sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkala"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கல"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He didnt sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkala"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கல"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She didn't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkala"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கல"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They didn’t sell"
+                    },
+                    {
+                      "text": "Avanga vikkala"
+                    },
+                    {
+                      "text": "அவங்க விக்கல"
+                    }
+                  ]
+                }
+              },
+              "future": {
+                "displayText": "Future (simple)",
+                "audioUrl": "",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I will not sell"
+                    },
+                    {
+                      "text": "Naan vikka maattaen"
+                    },
+                    {
+                      "text": "நான் விக்க மாட்டேன்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We will not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka maattoam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க மாட்டோம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You will not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka maatta/vikka maatteenga"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க மாட்ட/விக்க மாட்டீங்க"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He will not  sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka maattaar/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க மாட்டார்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She will not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka maattaal/vikka maattaanga"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க மாட்டாள்/விக்க மாட்டாங்க"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They will not sell"
+                    },
+                    {
+                      "text": "Avanga vikka maattaanga"
+                    },
+                    {
+                      "text": "அவங்க விக்க மாட்டாங்க"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "imperativeSentence":{
+            "displayText": "Imperative Sentences",
+            "audioUrl": "",
+            "types" : {
+              "present": {
+              "displayText": "Present (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You sell"
+                  },
+                  {
+                    "text": "Nee/Neenga viththudu/Viththudunga"
+                  },
+                  {
+                    "text": "நீ/நீங்க வித்துடு/வித்துடுங்க"
+                  }
+                ]
+                
+              }
+              },
+              "past": {
+              "displayText": "Past (simple)",
+              "data": {
+                "setYou": [
+                  {
+                    "text": "You don't sell"
+                  },
+                  {
+                    "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
+                  },
+                  {
+                    "text": "நீ/நீங்க விக்காத/விக்காதீங்க"
+                  }
+                ]
+                
+              }
+              }
+            }
+          }
+        } 
+      },
+      "modelforms":{
+        "displayText": "Modal forms",
+        "audioUrl": "",
+        "modalFormTypes": {
+          "needto": {
+            "displayText": "Express Obligation/Desire(Need to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I need to sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They need to sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText": "Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I don't need to sell"
+                    },
+                    {
+                      "text": "Naan vikka vaenaam"
+                    },
+                    {
+                      "text": "நான் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We don't need to sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka vaenaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You don't need to sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka vaenaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He don't need to sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka vaenaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She don't need to sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க வேணாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They don't need to sell"
+                    },
+                    {
+                      "text": "Avanga vikka vaenaam"
+                    },
+                    {
+                      "text": "அவங்க விக்க வேணாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "can": {
+            "displayText": "Ability to do an action(Can)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText": "Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I can sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyum"
+                    },
+                    {
+                      "text": "என்னால் விக்க முடியும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We can sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You can sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He can sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She can sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They can sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyum"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I can't sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We can't sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You can't sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He can't sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She can't sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They can't sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyaadhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியாது"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "may": {
+            "displayText": "Probability of an action(May)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I may sell"
+                    },
+                    {
+                      "text": "Naan vikkalaam"
+                    },
+                    {
+                      "text": "நான் விக்கலாம்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We may sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கலாம்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You may sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கலாம்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He may sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கலாம்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She may sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கலாம்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They may sell"
+                    },
+                    {
+                      "text": "Avanga vikkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்கலாம்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I may not sell"
+                    },
+                    {
+                      "text": "Naan vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நான் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We may not sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You may not sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He may not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She may not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They may not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkalaam"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கலாம்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "ableto": {
+            "displayText": "After attempting something(Able to)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I am able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியுது"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We are able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You are able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He is able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியுது"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She is may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியுது"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They are able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyudhu"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியுது"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I am not able to sell"
+                    },
+                    {
+                      "text": "Ennaala vikka mudiyala"
+                    },
+                    {
+                      "text": "என்னால விக்க முடியல"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We are not able sell"
+                    },
+                    {
+                      "text": "Engalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "எங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You are not able to sell"
+                    },
+                    {
+                      "text": "Unnaala/Ungalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "உன்னால/உங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He is not able to sell"
+                    },
+                    {
+                      "text": "Avanaala/Avaraala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவனால/அவரால விக்க முடியல"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She is not may sell"
+                    },
+                    {
+                      "text": "Avalaala/Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவளால/அவங்களால விக்க முடியல"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They are not able to sell"
+                    },
+                    {
+                      "text": "Avangalaala vikka mudiyala"
+                    },
+                    {
+                      "text": "அவங்களால விக்க முடியல"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "let": {
+            "displayText": "Permission(Let)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setHim": [
+                    {
+                      "text": "Let him sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கட்டும்"
+                    }
+                  ],
+                  "setHer": [
+                    {
+                      "text": "Let her sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கட்டும்"
+                    }
+                  ],
+                  "setThem": [
+                    {
+                      "text": "Let them sell"
+                    },
+                    {
+                      "text": "Avanga vikkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்கட்டும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetHim": [
+                    {
+                      "text": "Let him not sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetHer": [
+                    {
+                      "text": "Let her not sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ],
+                  "notsetThem": [
+                    {
+                      "text": "Let them not sell"
+                    },
+                    {
+                      "text": "Avanga vikkaama irukkattum"
+                    },
+                    {
+                      "text": "அவங்க விக்காம இருக்கட்டும்"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "should": {
+            "displayText": "Recommendation/opinion(Should)",
+            "audioUrl": "",
+            "types" : {
+              "present" : {
+                "displayText":"Present (simple)",
+                "data": {
+                  "setI": [
+                    {
+                      "text": "I should sell"
+                    },
+                    {
+                      "text": "Naan vikkanum"
+                    },
+                    {
+                      "text": "நான் விக்கணும்"
+                    }
+                  ],
+                  "setWe": [
+                    {
+                      "text": "We should sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikkanum"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்கணும்"
+                    }
+                  ],
+                  "setYou": [
+                    {
+                      "text": "You should sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikkanum"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்கணும்"
+                    }
+                  ],
+                  "setHe": [
+                    {
+                      "text": "He should sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikkanum"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்கணும்"
+                    }
+                  ],
+                  "setShe": [
+                    {
+                      "text": "She should sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்கணும்"
+                    }
+                  ],
+                  "setThey": [
+                    {
+                      "text": "They should sell"
+                    },
+                    {
+                      "text": "Avanga vikkanum"
+                    },
+                    {
+                      "text": "அவங்க விக்கணும்"
+                    }
+                  ]
+                }
+              },
+              "past" : {
+                "displayText":"Past (simple)",
+                "data" : {
+                  "notsetI": [
+                    {
+                      "text": "I should n't sell"
+                    },
+                    {
+                      "text": "Naan vikka koodaadhu"
+                    },
+                    {
+                      "text": "நான் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetWe": [
+                    {
+                      "text": "We should n't sell"
+                    },
+                    {
+                      "text": "Naanga/Naama vikka koodaadhu"
+                    },
+                    {
+                      "text": "நாங்க/நாம விக்க கூடாது"
+                    }
+                  ],
+                  "notsetYou": [
+                    {
+                      "text": "You should n't sell"
+                    },
+                    {
+                      "text": "Nee/Neenga vikka koodaadhu"
+                    },
+                    {
+                      "text": "நீ/நீங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetHe": [
+                    {
+                      "text": "He should n't sell"
+                    },
+                    {
+                      "text": "Avan/Avar vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவன்/அவர் விக்க கூடாது"
+                    }
+                  ],
+                  "notsetShe": [
+                    {
+                      "text": "She should n't sell"
+                    },
+                    {
+                      "text": "Aval/Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவள்/அவங்க விக்க கூடாது"
+                    }
+                  ],
+                  "notsetThey": [
+                    {
+                      "text": "They should n't sell"
+                    },
+                    {
+                      "text": "Avanga vikka koodaadhu"
+                    },
+                    {
+                      "text": "அவங்க விக்க கூடாது"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "indicativeOtherForms" : {
+        "displayText" : "Indicative - Other Forms",
+        "audioUrl": "",
+        "indicativeOtherFormTypes" : {
+          "presentProgressive": {
+            "displayText": "Present progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I am selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we are selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you are selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "He is selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they are selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastProgressive": {
+            "displayText": "Past progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I was selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu irundhaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We were selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You were selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu irundha/irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்த/இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he was selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்தான்/இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She was selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாள்/இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they were selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futureProgressive": {
+            "displayText": "Future progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will be selling"
+                },
+                {
+                  "text": "Naan viththuttu/viththukittu iruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "We will be selling"
+                },
+                {
+                  "text": "Naanga/Naama viththuttu/viththukittu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "You will be selling"
+                },
+                {
+                  "text": "Nee/Neenga viththuttu/viththukittu iruppa/iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருப்ப/இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will be selling"
+                },
+                {
+                  "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருப்பான்/இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will be selling"
+                },
+                {
+                  "text": "Aval/Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாள்/இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will be selling"
+                },
+                {
+                  "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfect": {
+            "displayText": "Present perfect (simple)",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have sold"
+                },
+                {
+                  "text": "Naan viththu irukkaen"
+                },
+                {
+                  "text": "நான் வித்து இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irukkoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருக்க/வித்து இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருக்கான்/வித்து இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருக்காள்/வித்து இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have sold"
+                },
+                {
+                  "text": "Avanga viththu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfect": {
+            "displayText": "Past perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had sold"
+                },
+                {
+                  "text": "Naan viththu irundhaen"
+                },
+                {
+                  "text": "நான் வித்து இருந்தேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu irundhoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருந்தோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருந்த/வித்து இருந்தீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had sold"
+                },
+                {
+                  "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருந்தான்/வித்து இருந்தார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irundhaal/ viththu irundhaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருந்தாள்/வித்து இருந்தாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had sold"
+                },
+                {
+                  "text": "Avanga viththu irundhaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருந்தாங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfect": {
+            "displayText": "Future perfect",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have sold"
+                },
+                {
+                  "text": "Naan viththu iruppaen"
+                },
+                {
+                  "text": "நான் வித்து இருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have sold"
+                },
+                {
+                  "text": "Naanga/Naama viththu iruppoam"
+                },
+                {
+                  "text": "நாங்க/நாம வித்து இருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have sold"
+                },
+                {
+                  "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்து இருப்ப/வித்து இருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have sold"
+                },
+                {
+                  "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்து இருப்பான்/வித்து இருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have sold"
+                },
+                {
+                  "text": "Aval/Avanga viththu irunppaal/ viththu irunppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்து இருப்பாள்/வித்து இருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have sold"
+                },
+                {
+                  "text": "Avanga viththu irunppaanga"
+                },
+                {
+                  "text": "அவங்க வித்து இருப்பாங்க"
+                }
+              ]
+            }
+          },
+          "presentPerfectProgressive": {
+            "displayText": "Present perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருக்க/இருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he has been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருக்கான்/இருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருக்காள்/இருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருக்காங்க"
+                }
+              ]
+            }
+          },
+          "pastPerfectProgressive": {
+            "displayText": "Past perfect progressive / continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I had been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhirukkaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we had been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருக்கோம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you had been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்க/இருந்திருக்கீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he had been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருக்கான்/இருந்திருக்கார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She had been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhirukkaal/irundhirukkaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காள்/இருந்திருக்காங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they had been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருக்காங்க"
+                }
+              ]
+            }
+          },
+          "futurePerfectContinuous": {
+            "displayText": "Future perfect continuous",
+            "audioUrl": "",
+            "data": {
+              "setI": [
+                {
+                  "text": "I will have been selling"
+                },
+                {
+                  "text": "Naan vithuttu/viththu kittu irundhiruppaen"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்பேன்"
+                }
+              ],
+              "setWe": [
+                {
+                  "text": "we will have been selling"
+                },
+                {
+                  "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
+                },
+                {
+                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்போம்"
+                }
+              ],
+              "setYou": [
+                {
+                  "text": "you will have been selling"
+                },
+                {
+                  "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
+                },
+                {
+                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்ப/இருந்திருப்பீங்க"
+                }
+              ],
+              "setHe": [
+                {
+                  "text": "he will have been selling"
+                },
+                {
+                  "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
+                },
+                {
+                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருப்பான்/இருந்திருப்பார்"
+                }
+              ],
+              "setShe": [
+                {
+                  "text": "She will have been selling"
+                },
+                {
+                  "text": "Aval/Avanga vithuttu/viththu kittu irundhiruppaal/irundhiruppaanga"
+                },
+                {
+                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாள்/இருந்திருப்பாங்க"
+                }
+              ],
+              "setThey": [
+                {
+                  "text": "they will have been selling"
+                },
+                {
+                  "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
+                },
+                {
+                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாங்க"
+                }
+              ]
+            }
+          }
+        }
+      }
+
+    },
+    {
+      "word": "eat",
+      "baseVerb": {
+        "displayText": "Base Verb",
+        "audioUrl": "",
+        "data": {
+          "text": "eat - Vil - வில் ",
           "audioUrl": "www.testaudio.com/sellaudio.mp3"
         }
       },
