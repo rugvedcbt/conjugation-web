@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/conjugation-web/static/css/main.b7ba46dc.css",
+    "main.css": "/conjugation-web/static/css/main.e791c915.css",
     "main.js": "/conjugation-web/static/js/main.0f79339c.js",
     "static/js/592.8436abe1.chunk.js": "/conjugation-web/static/js/592.8436abe1.chunk.js",
     "static/media/audio2.mp3": "/conjugation-web/static/media/audio2.88b9cb43e10cabe63b19.mp3",
     "static/media/audio1.mp3": "/conjugation-web/static/media/audio1.dcbdf7fefceaf17b5ba5.mp3",
     "static/media/ilearn-logo.png": "/conjugation-web/static/media/ilearn-logo.bc3772bd6a692f5ba973.png",
     "index.html": "/conjugation-web/index.html",
-    "main.b7ba46dc.css.map": "/conjugation-web/static/css/main.b7ba46dc.css.map",
+    "main.e791c915.css.map": "/conjugation-web/static/css/main.e791c915.css.map",
     "main.0f79339c.js.map": "/conjugation-web/static/js/main.0f79339c.js.map",
     "592.8436abe1.chunk.js.map": "/conjugation-web/static/js/592.8436abe1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7ba46dc.css",
+    "static/css/main.e791c915.css",
     "static/js/main.0f79339c.js"
   ]
 }
