@@ -42,20 +42,15 @@ export default function WordsSidebar() {
                     </Box>
                   </p>
                 ) : (
-                  <div className={`banner-container mb-5 verb-head ${!mobile ? '' : 'message'}`} id="featured">
-                    <div className="container-fluid px-4 py-4">
-                      <div className="card  text-white shadow-lg ">
-                        <h4 className="card-header word">
-                          <span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={handleBackIcon}>
-                            <ArrowBackOutlinedIcon />
-                          </span>
-                          <div className='verb'>{verb}</div>
-                        </h4>
-                        <div className="card-message">
-                          <p>Sorry!</p>
-                          <p>We couldn't find any data for the word '{verb}'.</p>
-                        </div>
-                      </div>
+                  <div className={`verb-head ${!mobile ? '' : 'message'}`} >
+                    <h4 className={`card-header word ${!mobile ? '' : 'message'}`}>
+                      <span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={handleBackIcon}>
+                        <ArrowBackOutlinedIcon />
+                      </span>
+                      <div className='verb'>{verb}</div>
+                    </h4>
+                    <div className="card-message">
+                      <p>Oops! Content not Available.</p>
                     </div>
                   </div>
                 )}
@@ -64,16 +59,13 @@ export default function WordsSidebar() {
           </div>
         ) : (
           <div>
-            <div className="banner-container mb-5 word-head" id="featured">
-              <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
-                  <h4 className="card-header word">
-                    <span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={handleBackIcon}>
-                      <ArrowBackOutlinedIcon />
-                    </span>
-                    <div className='verb'>{verb}</div></h4>
-                </div>
-              </div>
+            <div className="word-head">
+              <h4 className="card-header word">
+                <span className={!mobile ? 'back-icon' : 'back-icon-mobile'} onClick={handleBackIcon}>
+                  <ArrowBackOutlinedIcon />
+                </span>
+                <div className='verb'>{verb}</div>
+              </h4>
             </div>
 
 
@@ -418,7 +410,7 @@ export default function WordsSidebar() {
             {/* MODEL FORM */}
             <div classNaback-icon-mobileme="banner-container mt-5 mb-5" id="featured">
               <div className="container-fluid px-4 py-4">
-                <div className="card  text-white shadow-lg ">
+                <div className="card indicative  text-white shadow-lg ">
 
                   {/* model form --------> Express Obligation/Desire(Need to) */}
                   {wordData.map((item: any, index: number) => (

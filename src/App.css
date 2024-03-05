@@ -160,18 +160,6 @@ h4.card-header, h5.card-sub-header, h3.head{
   text-align: left;
 }
 
-.negative-sentence .mb-3{
-  height: fit-content;
-}
-
-.perfect-sentence .mb-3{
-  height: fit-content;
-}
-
-.progressive-sentences .mb-3{
-  height: fit-content;
-}
-
 .py-4{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
@@ -300,11 +288,7 @@ footer .quick-links {
   /* width: 100%; */
   padding-top: 85px;
 }
-.css-r6ewbb-MuiToolbar-root {
-  width: 100%;
-  flex: 1;
-  justify-content: space-between;
-}
+
 
 .cm-gp-btn {
   display: flex;
@@ -348,12 +332,23 @@ footer .quick-links {
 .data-notfound p{
   /* margin-top: 100px; */
   margin-left: 0px;
-  font-size: 24px;
-  color: blue;
+  /* font-size: 24px; */
+  color: rgb(58, 58, 58);
 }
 
+.negative-sentence .mb-3{
+  height: max-content;
+}
+
+.perfect-sentence .mb-3{
+  height: max-content;
+}
+
+.progressive-sentences .mb-3{
+  height: max-content;
+}
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background-color: #03039c !important;
+  background-color: #0000ff !important;
 }
 
 .card-body .base-verb, .card-body .infinitive{
@@ -373,6 +368,14 @@ footer .quick-links {
 .css-r6ewbb-MuiToolbar-root {
   flex-direction: row;
   justify-content: space-between;
+  /* column-gap: 22rem;
+  width: 100%; */
+}
+
+.logo-head{
+  display: flex;
+  flex-direction: row;
+  column-gap: 0px;
 }
 
 .back-icon{
@@ -395,14 +398,10 @@ footer .quick-links {
 
 .verb-head{
   margin-top: 10rem;
+  margin-left: 15rem;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-}
-
-.card-header.word{
-  text-transform: uppercase;
-  display: flex;
 }
 
 .card-header .verb {
@@ -413,24 +412,65 @@ footer .quick-links {
   justify-content: center;
 }
 
-.card-message {
+/* .card-message {
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
   max-width: 300px;
+} */
+
+.css-12o98wt{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 22rem;
+}
+.css-16iqbst{
+  align-items: center;
 }
 
-.verb-head{
-  margin-left: 4rem;
+.card-body .setpara {
+  line-height: 1rem;
+  position: relative;    
+  padding-bottom: 20px;
+}
+
+.card-header.word{
+  display: none;
+}
+@media only screen and (max-width:600px){
+
 }
 
 @media only screen and (max-width:600px) {
 
+  .css-12o98wt {
+    justify-content: flex-end;
+    column-gap: 16rem;
+
+  }
+  .card-body .setpara {  
+    line-height: 1.2rem; 
+    padding-bottom: 5px ;
+  }
+
+  .css-r6ewbb-MuiToolbar-root{
+    margin-left: 2rem;
+    /* column-gap: 10rem;
+    margin-left: 2rem; */
+  }
+
   *{
     font-size: small;
   }
+  
+  img.ilearn-logo{
+    display: flex !important;
+    z-index: 999;
+  }
+
   
   .px-4 {
     padding-right: 0%!important;
@@ -438,6 +478,7 @@ footer .quick-links {
   }
 
   .words-content{
+    margin-top: 1rem;
     padding-left: 0px;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -464,8 +505,10 @@ footer .quick-links {
 
   .word-head{
     display: block;
-    margin-top: 8rem;
+    margin-top: 10rem;
+    background-color: rgba(255, 0, 0, 0.5);
   }
+
 
   h3.head{
     color: white;
@@ -490,8 +533,8 @@ footer .quick-links {
     height: 20px;
   }
 
-  .indicative-topbanner{
-    margin-top: 0px !important;
+  .indicative{
+    margin-top: 20px !important;
   }
 
   .move-up:hover{
@@ -499,6 +542,52 @@ footer .quick-links {
     transform : translateY(0px);
   }
 
+  .col{
+    min-width: 200px;
+  }
+
+  .verb-head{
+    margin-left: 4rem;
+  }
+
+  .card-message {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-top: 5rem;
+    max-width: 300px;
+    margin-left: 2.8rem;
+  }
+
+  .card-header.word{
+    text-transform: uppercase;
+    display: flex;
+    position: fixed !important;
+    width: 96%;
+    z-index: 999;
+    border-radius: 5px;
+    margin-top: -3.5rem;
+    margin-left: -6px !important;
+    padding: 0.5rem;
+    color: white;
+    /* box-shadow: 0 -15px 15px -15px #333; */
+
+  }
+
+  .card-header.word.message {
+    text-transform: uppercase;
+    display: flex;
+    position: fixed !important;
+    width: 96%;
+    z-index: 999;
+    border-radius: 5px;
+    margin-top: -12rem;
+    margin-left: -4.2rem !important;
+    padding: 0.5rem;
+    color: white;
+  }
 
 
 }

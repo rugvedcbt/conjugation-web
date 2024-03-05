@@ -37,7 +37,7 @@ function Header() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const { showFavourites ,setShowFavourites } = useLetterContext()
+  const { showFavourites, setShowFavourites } = useLetterContext()
 
   const toggleFavourites = () => {
     setShowFavourites(!showFavourites)
@@ -56,24 +56,27 @@ function Header() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={ileanLogo} className='ilearn-logo' alt="logo" />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            iLearn Conjugation
-          </Typography>
+          <div className='logo-head'>
+            <img src={ileanLogo} className='ilearn-logo' alt="logo" />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              iLearn Conjugation
+            </Typography>
+          </div>
+
 
           <div className='cm-gp-btn'>
             <Box sx={{ flexGrow: 0 }}>
@@ -84,18 +87,18 @@ function Header() {
               </Tooltip>
             </Box>
 
-            {showFavourites ? 
-            (<Box sx={{ flexGrow: 0 }}>
-              <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
-                <ViewListIcon />
-              </IconButton>
-            </Box>)
-            :
-            (<Box sx={{ flexGrow: 0 }}>
-              <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
-                <StarIcon />
-              </IconButton>
-            </Box>)
+            {showFavourites ?
+              (<Box sx={{ flexGrow: 0 }}>
+                <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
+                  <ViewListIcon />
+                </IconButton>
+              </Box>)
+              :
+              (<Box sx={{ flexGrow: 0 }}>
+                <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
+                  <StarIcon />
+                </IconButton>
+              </Box>)
             }
 
 
