@@ -157,7 +157,7 @@ export default function WordsSidebar() {
                                 </div>
                               </div>
                             </div>
-                            <div className="col negative-sentence">
+                            <div className="col positive-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.past.displayText}
                                   <AudioPlayer src={Audio1} /></div>
@@ -196,7 +196,7 @@ export default function WordsSidebar() {
                                 </div>
                               </div>
                             </div>
-                            <div className="col negative-sentence">
+                            <div className="col positive-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.future.displayText}
                                   <AudioPlayer src={Audio1} /></div>
@@ -1265,7 +1265,7 @@ export default function WordsSidebar() {
                                 </div>
                               </div>
                             </div>
-                            <div className="col">
+                            <div className="col perfect-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.displayText}
                                   <AudioPlayer src={Audio1} /></div>
