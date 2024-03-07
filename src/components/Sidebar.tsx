@@ -18,7 +18,7 @@ function Sidebar() {
   }
 
   const [favourites, setFavourites] = useState<FavWords[]>([]);
-  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord } = useLetterContext();
+  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile } = useLetterContext();
   const { searchedWords } = useSearchContext();
 
   const toggleContent = () => {
@@ -54,31 +54,18 @@ function Sidebar() {
         <List>
           {searchedWords.map((value) => (
             <React.Fragment key={value}>
-              {(showFavourites && isWordInFavorites(verb)) || !showFavourites ? (
+              {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
                 <ListItem disablePadding>
-                  {searchWord === verb ? (
-                    <ListItemButton selected>
-                      <ListItemIcon>
-                        {favourites.some((favWord) => favWord.word === verb) ? (
-                          <StarIcon onClick={() => handleFavourites(value)} />
-                        ) : (
-                          <StarBorderIcon onClick={() => handleFavourites(value)} />
-                        )}
-                      </ListItemIcon>
-                      <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                    </ListItemButton>
-                  ) : (
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {favourites.some((favWord) => favWord.word === value) ? (
-                          <StarIcon onClick={() => handleFavourites(value)} />
-                        ) : (
-                          <StarBorderIcon onClick={() => handleFavourites(value)} />
-                        )}
-                      </ListItemIcon>
-                      <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                    </ListItemButton>
-                  )}
+                  <ListItemButton>
+                    <ListItemIcon>
+                      {isWordInFavorites(value) ? (
+                        <StarIcon onClick={() => handleFavourites(value)} />
+                      ) : (
+                        <StarBorderIcon onClick={() => handleFavourites(value)} />
+                      )}
+                    </ListItemIcon>
+                    <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                  </ListItemButton>
                 </ListItem>
               ) : null}
             </React.Fragment>
@@ -122,43 +109,47 @@ function Sidebar() {
             </List>
           ) : (
             <List>
-              {favourites.length === 0 ? <ListItem> No Favourites Added</ListItem> : <div>{Object.keys(alphapeticLettersData).map((letter, index) => (
-                <div key={index}>
-                  <List>
-                    {alphapeticLettersData[letter].map((value, valueIndex) => (
-                      <React.Fragment key={valueIndex}>
-                        {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
-                          <ListItem disablePadding>
-                            {verb === value ? (
-                              <ListItemButton selected>
-                                <ListItemIcon>
-                                  {favourites.some((favWord) => favWord.word === value) ? (
-                                    <StarIcon onClick={() => handleFavourites(value)} />
-                                  ) : (
-                                    <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                  )}
-                                </ListItemIcon>
-                                <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                              </ListItemButton>
-                            ) : (
-                              <ListItemButton>
-                                <ListItemIcon>
-                                  {favourites.some((favWord) => favWord.word === value) ? (
-                                    <StarIcon onClick={() => handleFavourites(value)} />
-                                  ) : (
-                                    <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                  )}
-                                </ListItemIcon>
-                                <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                              </ListItemButton>
-                            )}
-                          </ListItem>
-                        ) : null}
-                      </React.Fragment>
-                    ))}
-                  </List>
+              {favourites.length === 0 ? <ListItem> No Favourites Added</ListItem> :
+                <div>
+                  {Object.keys(alphapeticLettersData).map((letter, index) => (
+                    <div key={index}>
+                      <List>
+                        {alphapeticLettersData[letter].map((value, valueIndex) => (
+                          <React.Fragment key={valueIndex}>
+                            {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
+                              <ListItem disablePadding>
+                                {verb === value ? (
+                                  <ListItemButton selected>
+                                    <ListItemIcon>
+                                      {favourites.some((favWord) => favWord.word === value) ? (
+                                        <StarIcon onClick={() => handleFavourites(value)} />
+                                      ) : (
+                                        <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                      )}
+                                    </ListItemIcon>
+                                    <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                                  </ListItemButton>
+                                ) : (
+                                  <ListItemButton>
+                                    <ListItemIcon>
+                                      {favourites.some((favWord) => favWord.word === value) ? (
+                                        <StarIcon onClick={() => handleFavourites(value)} />
+                                      ) : (
+                                        <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                      )}
+                                    </ListItemIcon>
+                                    <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                                  </ListItemButton>
+                                )}
+                              </ListItem>
+                            ) : null}
+                          </React.Fragment>
+                        ))}
+                      </List>
+                    </div>
+                  ))}
                 </div>
-              ))}</div>}
+              }
 
             </List>
           )}

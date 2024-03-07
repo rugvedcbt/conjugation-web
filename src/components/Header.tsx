@@ -85,6 +85,7 @@ function Header() {
 
   const toggleFavourites = () => {
     setShowFavourites(!showFavourites)
+    setSearchWord('')
   };
 
   const handleCloseUserMenu = () => {
@@ -95,11 +96,11 @@ function Header() {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
     // setVerb(searchValue);
-  
+
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
       .flatMap(letter => alphapeticLettersData[letter])
       .filter(word => word.toLowerCase().includes(searchValue));
-  
+
     setSearchedWords([...filteredWords]);
   };
 
@@ -135,41 +136,36 @@ function Header() {
 
           <div className='cm-gp-btn'>
 
-            {!showFavourites &&
-              <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Search">
-                  <Search>
-                    <SearchIconWrapper>
-                      <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                      placeholder="Search…"
-                      inputProps={{ 'aria-label': 'search' }}
-                      value={searchWord}
-                      onChange={handleSearch}
-                    />
-                  </Search>
-                </Tooltip>
-              </Box>
-            }
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Search">
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ 'aria-label': 'search' }}
+                    value={searchWord}
+                    onChange={handleSearch}
+                  />
+                </Search>
+              </Tooltip>
+            </Box>
 
-            {showFavourites ?
-              (<Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Favourites">
+            {/* {searchWord.length === 0 &&  */}
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Favourites">
+                {showFavourites ? (
                   <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
                     <ViewListIcon />
-                  </IconButton>
-                </Tooltip>
-              </Box>)
-              :
-              (<Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Favourites">
-                  <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
+                  </IconButton>)
+                  :
+                  (<IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
                     <StarIcon />
                   </IconButton>
-                </Tooltip>
-              </Box>)
-            }
+                  )}
+              </Tooltip>
+            </Box>
 
             {/* <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Theme">
