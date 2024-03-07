@@ -74,9 +74,9 @@ aside {
 
 .move-up:hover{
     /* background-color: #5fa2e5; */
-  /* color: white;
+  color: white;
   transition: all .5s;
-  transform : translateY(-10px); */
+  transform : translateY(-10px);
 }
 
 .ng-mrg-t{
@@ -470,7 +470,7 @@ footer .quick-links {
   right: 0;
   transform: translate(-50%,-50%);
   left: 50%;
-  z-index: 99;
+  z-index: 99999;
 }
 
 .audioref-controls audio {
@@ -480,11 +480,6 @@ footer .quick-links {
 h4.main-verb{
   text-transform: uppercase;
   text-decoration: solid;
-}
-
-.setpara .gif-image{
-  width: 250px;
-  height: 250px;
 }
 
 @media only screen and (max-width:600px) {
@@ -533,9 +528,7 @@ h4.main-verb{
   }
 
   .css-r6ewbb-MuiToolbar-root{
-    margin-left: 2rem;
-    /* column-gap: 10rem;
-    margin-left: 2rem; */
+    margin-left: 1rem;
   }
 
   *{
@@ -678,6 +671,8 @@ h4.main-verb{
   .row>* {
     width: 100%;
   }
+  .css-mnn31 {
+    width: 80px;
+  }
+
 }
-
-
