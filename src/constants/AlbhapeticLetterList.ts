@@ -3,7 +3,7 @@
     'B': ['back', 'bag', 'bait', 'bar','bark','bathe','beach','betray','bill','blow'],
     'C': ['cab','calm','carol','certify','chart','chomp','cipher','circuit','click'],
     'D': ['dab','dam','dead','decay','defeat','delete','deploy','desire','detox','die'],
-    'E': ['eat','earth','educate','egg','eject','embody','encode','engage','erupt','excess'],
+    'E': ['eat','earth','educate','egg','eject','embody','encode','engage','erupt'],
     'F': ['flaw','fleck','flex','flesh','forge','format','fowl','free','frizz','freeze'],
     'G': ['gate','gain','gas','germinate','glass','goose','grill','gut','gulf','gulp'],
     'H': ['habit','hack','haft','hand','harm','harvest','hawk','heckle','high','honey'],

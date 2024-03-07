@@ -10,7 +10,9 @@ import { useAudioContext } from '../context/AudioContext';
 import Audio1 from '../audio/audio1.mp3'
 import Audio2 from '../audio/audio2.mp3'
 
+
 export default function WordsSidebar() {
+  
   const {
     verb,
     mobile,
@@ -68,38 +70,50 @@ export default function WordsSidebar() {
               </h4>
             </div>
 
-
-            {/* base verb & infinitive */}
             <div className="banner-container mt-3 mb-3 indicative-topbanner" id="featured">
               <div className="container-fluid px-4 py-4">
                 <div className="card  text-white shadow-lg ">
                   {wordData.map((item: any, index: number) => (
                     <>
+                    <h4 className="card-header main-verb" key={index}>{verb}</h4>
                       <div className="card-body" key={index}>
                         <div className="conatiner">
                           <div className="row d-flex justify-content-around">
-                            <div className="col baseverb">
+                            <div className="col">
                               <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.baseVerb.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                <div className="card-header">{item.baseVerb.data.text}
+                                </div>
                                 <div className="card-body">
                                   <div className='setpara'>
-                                    <p className="card-text">{item.baseVerb.data.text}</p>
+                                    <img src="https://i.gifer.com/898O.gif" width="250" height="250" alt='{item.baseVerb.displayText}'></img>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="col infinitive">
-                              <div className="card text-black move-up mb-3" >
-                                <div className="card-header">{item.infinitive.displayText}
-                                  <AudioPlayer src={Audio2} /></div>
-                                <div className="card-body">
-                                  <div className='setpara'>
-                                    <p className="card-text">{item.infinitive.data.text}</p>
+                            <div className='base-content'>
+                              <div className="col baseverb">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.baseVerb.displayText}
+                                    <AudioPlayer src={Audio1} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      <p className="card-text">{item.baseVerb.data.text}</p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                              <div className="col infinitive">
+                                <div className="card text-black move-up mb-3" >
+                                  <div className="card-header">{item.infinitive.displayText}
+                                    <AudioPlayer src={Audio2} /></div>
+                                  <div className="card-body">
+                                    <div className='setpara'>
+                                      <p className="card-text">{item.infinitive.data.text}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div></div>
+
                           </div>
                         </div>
                       </div>
@@ -109,7 +123,6 @@ export default function WordsSidebar() {
               </div>
             </div>
 
-            {/* indicative */}
             <div className="banner-container mt-5 mb-5" id="featured">
               <div className="container-fluid px-4 py-4">
                 <div className="card  text-white shadow-lg ">
@@ -407,12 +420,10 @@ export default function WordsSidebar() {
               </div>
             </div>
 
-            {/* MODEL FORM */}
             <div classNaback-icon-mobileme="banner-container mt-5 mb-5" id="featured">
               <div className="container-fluid px-4 py-4">
                 <div className="card indicative  text-white shadow-lg ">
 
-                  {/* model form --------> Express Obligation/Desire(Need to) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <h4 className="card-header" key={index}>{item.modelforms.displayText}</h4>
@@ -502,8 +513,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-
-                  {/* model form --------> Ability to do an action(Can) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -592,8 +601,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-
-                  {/* model form --------> Probability of an action(May) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -682,8 +689,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-
-                  {/* model form --------> After attempting something(Able to) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -772,8 +777,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-
-                  {/* model form --------> Permission(Let) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -832,7 +835,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-                  {/* model form --------> Recommendation/opinion(Should) */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -925,12 +927,10 @@ export default function WordsSidebar() {
               </div>
             </div>
 
-            {/* indicativeOtherForms */}
             <div className="banner-container mt-5 mb-5" id="featured">
               <div className="container-fluid px-4 py-4">
                 <div className="card  text-white shadow-lg ">
 
-                  {/* presentProgressive , pastProgressive, futureProgressive */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <h4 className="card-header" key={index}>{item.indicativeOtherForms.displayText}</h4>
@@ -1057,7 +1057,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-                  {/* presentPerFect, pastPerfect, futurePerfect */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">
@@ -1183,7 +1182,6 @@ export default function WordsSidebar() {
                     </>
                   ))}
 
-                  {/* presentPerfectProgressive, pastPerfectProgressive, futurePerfectContinuous */}
                   {wordData.map((item: any, index: number) => (
                     <>
                       <div className="card-body">

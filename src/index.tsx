@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {LetterContextProvider} from './context/LetterContext'
 import {AudioContextProvider} from './context/AudioContext'
+import {SearchContextProvider} from './context/SearchContext'
+
 
 
 const root = ReactDOM.createRoot(
@@ -13,9 +15,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <LetterContextProvider>
     <AudioContextProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+      <SearchContextProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </SearchContextProvider>
     </AudioContextProvider>
   </LetterContextProvider>
 );

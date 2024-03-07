@@ -1,6 +1,7 @@
 import React, { useRef,useState, useEffect } from 'react';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { useAudioContext } from '../context/AudioContext';
+import VolumeDownIcon from '@mui/icons-material/VolumeDown';
 
 interface AudioPlayerProps {
   src: string;
@@ -11,7 +12,7 @@ interface ModalProps {
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef:any = useRef<HTMLAudioElement>(null);
   const { currentlyPlaying, setCurrentlyPlaying } = useAudioContext();
   const [showControls, setShowControls] = useState(false);
 
@@ -44,7 +45,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   const handleTogglePlay = () => {
     setShowControls(previous => !previous);
   };
-
+  
   return (
     <>
       <span className='audio-icon' >
@@ -52,12 +53,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
       </span>
       {showControls}
       <audio ref={audioRef} src={src} />
-      <div className='audioref-controls'>
-        {showControls && <audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
-      </div>
+      {showControls && <audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
     </>
   );
 };
 
 export default AudioPlayer;
-

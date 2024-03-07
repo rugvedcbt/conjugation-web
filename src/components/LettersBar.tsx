@@ -3,9 +3,11 @@ import {useLetterContext} from '../context/LetterContext'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { useSearchContext } from '../context/SearchContext';
 
 export default function LetterBar() {
-  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile } = useLetterContext()
+  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord } = useLetterContext();
+  const { setSearchedWords } = useSearchContext();
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -15,6 +17,8 @@ export default function LetterBar() {
   const handleLetterChange = (letter: string) => {
     setCurrentLetter(letter)
     setVerb('')
+    setSearchWord('')
+    setSearchedWords([])
     setMobile(false)
   };
 

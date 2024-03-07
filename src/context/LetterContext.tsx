@@ -25,6 +25,8 @@ interface LetterContextType {
   setCurrentLetter: (currentLetter: string) => void;
   verb: string;
   setVerb: (verb: string) => void;
+  searchWord: string;
+  setSearchWord: (verb: string) => void;
   favourites: any;
   setFavourites: (favourites: any) => void;
   showFavourites: boolean;
@@ -42,6 +44,8 @@ const LetterContext = createContext<LetterContextType>({
   setCurrentLetter: () => {},
   verb: '',
   setVerb: () => {},
+  searchWord: '',
+  setSearchWord: () => {},
   favourites: '',
   setFavourites: () => {},
   showFavourites: false,
@@ -59,6 +63,7 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
   const [letters] = useState<string[]>(letterKeys);
   const [currentLetter, setCurrentLetter] = useState<string>('A');
   const [verb, setVerb] = useState<string>('about');
+  const [searchWord, setSearchWord] = useState<string>('');
   const [favourites, setFavourites] = useState<FavWords[]>([]);
   const [showFavourites, setShowFavourites] = useState<boolean>(false);
   const [mobile, setMobile] = useState<boolean>(false);
@@ -106,6 +111,8 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
     setCurrentLetter,
     verb,
     setVerb,
+    searchWord,
+    setSearchWord,
     favourites,
     setFavourites,
     showFavourites,

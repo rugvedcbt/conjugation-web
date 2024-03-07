@@ -15,7 +15,6 @@
   display: flex;
   width: 100%;
   height: 100%;
-  /* padding: 1rem; */
 }
 
 .words-content{
@@ -252,19 +251,12 @@ footer .quick-links {
   height: 100%;
   padding-left: 0rem;
 }
-/* .message{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-} */
-
 
 .MuiBox-root {
   position: sticky;
-  top: 68px;
+  /* top: 68px; */
   min-height: 100%;
-  width: 100%;
+  /* width: 100%; */
   z-index: 999;
 }
 
@@ -354,6 +346,14 @@ footer .quick-links {
 
 .card-body .base-verb, .card-body .infinitive{
   min-width: 250px;
+}
+
+.base-container{
+  display: flex;
+  flex-direction: row;
+}
+.row>*{
+  width: 50%;
 }
 
 .css-h4y409-MuiList-root {
@@ -477,8 +477,9 @@ footer .quick-links {
   width: 260px;
 }
 
-@media only screen and (max-width:600px){
-
+h4.main-verb{
+  text-transform: uppercase;
+  text-decoration: solid;
 }
 
 @media only screen and (max-width:600px) {
@@ -488,6 +489,11 @@ footer .quick-links {
     column-gap: 16rem;
 
   }
+
+  .main-verb{
+    display: none;
+  }
+
   .card-body .setpara {  
     line-height: 1.2rem; 
     padding-bottom: 30px ;
@@ -564,6 +570,10 @@ footer .quick-links {
     display: none;
   }
 
+  .cm-gp-btn button {
+    padding: 5px;
+  }
+
   .back-icon-mobile{
     display: block;
   }
@@ -571,7 +581,6 @@ footer .quick-links {
   .word-head{
     display: block;
     margin-top: 10rem;
-    background-color: rgba(255, 0, 0, 0.5);
   }
 
 
@@ -638,7 +647,6 @@ footer .quick-links {
     padding: 0.5rem;
     color: white;
     /* box-shadow: 0 -15px 15px -15px #333; */
-
   }
 
   .card-header.word.message {
@@ -654,7 +662,17 @@ footer .quick-links {
     color: white;
   }
 
+  .css-1776fzg-MuiInputBase-root .MuiInputBase-input{
+    width: 110px;
+  }
 
+  .justify-content-around {
+    justify-content: space-between !important;
+  }
+
+  .row>* {
+    width: 100%;
+  }
 }
 
 

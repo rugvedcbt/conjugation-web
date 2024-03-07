@@ -1,56 +1,112 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MoreIcon from '@mui/icons-material/MoreVert';
-// import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
-// import Ilearnlogo from '../ilearn-logo.png'
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useLetterContext } from '../context/LetterContext';
+import { useSearchContext } from '../context/SearchContext';
+import { styled, alpha } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
+import { alphapeticLettersData } from '../constants/AlbhapeticLetterList'
+// import { useContext } from 'react';
+// import { useTheme } from '@mui/material/styles';
+// import Brightness4Icon from '@mui/icons-material/Brightness4';
+// import Brightness7Icon from '@mui/icons-material/Brightness7';
+// import { ColorModeContext } from '../App'
 
 
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Settings', 'Share', 'About..', 'Privacy policy', 'Remove adds'];
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  width: '100%',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
+
+
+const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads']
 
 function Header() {
 
-  // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  // const theme = useTheme();
+  // const colorMode = useContext(ColorModeContext);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const { showFavourites, setShowFavourites, searchWord, setSearchWord } = useLetterContext();
+  const { setSearchedWords, searchedWords } = useSearchContext();
 
-  // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-  //   setAnchorElNav(event.currentTarget);
-  // };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-
-  const { showFavourites, setShowFavourites } = useLetterContext()
 
   const toggleFavourites = () => {
     setShowFavourites(!showFavourites)
   };
 
-
-  // const handleCloseNavMenu = () => {
-  //   setAnchorElNav(null);
-  // };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value.toLowerCase();
+    setSearchWord(searchValue);
+    // setVerb(searchValue);
+  
+    const filteredWords: string[] = Object.keys(alphapeticLettersData)
+      .flatMap(letter => alphapeticLettersData[letter])
+      .filter(word => word.toLowerCase().includes(searchValue));
+  
+    setSearchedWords([...filteredWords]);
+  };
+
+  useEffect(() => {
+    console.log(searchedWords);
+
+  }, [searchedWords, searchWord]);
 
   return (
     <AppBar position="static">
@@ -77,30 +133,51 @@ function Header() {
             </Typography>
           </div>
 
-
           <div className='cm-gp-btn'>
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton size="large" aria-label="search" color="inherit">
-                  <SearchIcon />
-                </IconButton>
-              </Tooltip>
-            </Box>
+
+            {!showFavourites &&
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Search">
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      placeholder="Search…"
+                      inputProps={{ 'aria-label': 'search' }}
+                      value={searchWord}
+                      onChange={handleSearch}
+                    />
+                  </Search>
+                </Tooltip>
+              </Box>
+            }
 
             {showFavourites ?
               (<Box sx={{ flexGrow: 0 }}>
-                <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
-                  <ViewListIcon />
-                </IconButton>
+                <Tooltip title="Favourites">
+                  <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
+                    <ViewListIcon />
+                  </IconButton>
+                </Tooltip>
               </Box>)
               :
               (<Box sx={{ flexGrow: 0 }}>
-                <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
-                  <StarIcon />
-                </IconButton>
+                <Tooltip title="Favourites">
+                  <IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
+                    <StarIcon />
+                  </IconButton>
+                </Tooltip>
               </Box>)
             }
 
+            {/* <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Theme">
+                <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+              </Tooltip>
+            </Box> */}
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
@@ -132,9 +209,11 @@ function Header() {
               </Menu>
             </Box>
           </div>
+
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default Header;
