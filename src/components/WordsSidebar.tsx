@@ -85,7 +85,7 @@ export default function WordsSidebar() {
                                 </div>
                                 <div className="card-body">
                                   <div className='setpara'>
-                                    <img src="https://i.gifer.com/898O.gif" width="250" height="250" alt='{item.baseVerb.displayText}'></img>
+                                    <img src="https://i.gifer.com/898O.gif" className="gif-image" alt='{item.baseVerb.displayText}'></img>
                                   </div>
                                 </div>
                               </div>

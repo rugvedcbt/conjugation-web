@@ -53,7 +53,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
       </span>
       {showControls}
       <audio ref={audioRef} src={src} />
-      {showControls && <audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
+      <div className='audioref-controls'>
+        {showControls && <audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
+      </div>
     </>
   );
 };
