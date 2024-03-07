@@ -470,7 +470,7 @@ footer .quick-links {
   right: 0;
   transform: translate(-50%,-50%);
   left: 50%;
-  z-index: 99999;
+  z-index: 99;
 }
 
 .audioref-controls audio {
