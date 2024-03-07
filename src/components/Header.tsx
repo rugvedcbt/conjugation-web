@@ -105,7 +105,6 @@ function Header() {
   };
 
   useEffect(() => {
-    console.log(searchedWords);
 
   }, [searchedWords, searchWord]);
 

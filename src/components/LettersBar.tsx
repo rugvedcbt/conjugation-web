@@ -23,7 +23,7 @@ export default function LetterBar() {
   };
 
   useEffect(() => {
-    console.log('currentLetter',currentLetter);
+    
   },[currentLetter]);
 
   return (

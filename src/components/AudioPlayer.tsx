@@ -36,7 +36,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    console.log('useeffect...')
     if (audio) {
       audio.volume = 0.5; // Set the default volume to 0.5 (50%)
     }

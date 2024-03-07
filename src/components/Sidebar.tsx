@@ -17,7 +17,10 @@ function Sidebar() {
     word: any;
   }
 
-  const [favourites, setFavourites] = useState<FavWords[]>([]);
+  const [favourites, setFavourites] = useState(() => {
+    const storedFavourites = localStorage.getItem('favourites');
+    return storedFavourites ? JSON.parse(storedFavourites) : [];
+  });
   const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile } = useLetterContext();
   const { searchedWords } = useSearchContext();
 
@@ -31,20 +34,23 @@ function Sidebar() {
   };
 
   const isWordInFavorites = (word: string) => {
-    return favourites.some((favWord) => favWord.word === word);
+    return favourites.some((favWord: FavWords) => favWord.word === word);
   };
 
   const handleFavourites = (word: string) => {
     if (isWordInFavorites(word)) {
-      setFavourites((prevFavourites) => prevFavourites.filter((favWord) => favWord.word !== word));
+      setFavourites((prevFavourites: FavWords[]) => prevFavourites.filter((favWord: FavWords) => favWord.word !== word));
     } else {
-      setFavourites((prevFavourites) => [...prevFavourites, { word }]);
+      setFavourites((prevFavourites: FavWords[]) => [...prevFavourites, { word }]);
     }
   };
 
   useEffect(() => {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
+
+  const storedFavourites = localStorage.getItem('favourites');
+  console.log('Stored favourites:', storedFavourites);
 
   const letterValues = alphapeticLettersData[currentLetter];
 
@@ -82,7 +88,7 @@ function Sidebar() {
                       {verb === value ? (
                         <ListItemButton selected>
                           <ListItemIcon>
-                            {favourites.some((favWord) => favWord.word === value) ? (
+                            {favourites.some((favWord: FavWords) => favWord.word === value) ? (
                               <StarIcon onClick={() => handleFavourites(value)} />
                             ) : (
                               <StarBorderIcon onClick={() => handleFavourites(value)} />
@@ -93,7 +99,7 @@ function Sidebar() {
                       ) : (
                         <ListItemButton>
                           <ListItemIcon>
-                            {favourites.some((favWord) => favWord.word === value) ? (
+                            {favourites.some((favWord: FavWords) => favWord.word === value) ? (
                               <StarIcon onClick={() => handleFavourites(value)} />
                             ) : (
                               <StarBorderIcon onClick={() => handleFavourites(value)} />
@@ -121,7 +127,7 @@ function Sidebar() {
                                 {verb === value ? (
                                   <ListItemButton selected>
                                     <ListItemIcon>
-                                      {favourites.some((favWord) => favWord.word === value) ? (
+                                      {favourites.some((favWord: FavWords) => favWord.word === value) ? (
                                         <StarIcon onClick={() => handleFavourites(value)} />
                                       ) : (
                                         <StarBorderIcon onClick={() => handleFavourites(value)} />
@@ -132,7 +138,7 @@ function Sidebar() {
                                 ) : (
                                   <ListItemButton>
                                     <ListItemIcon>
-                                      {favourites.some((favWord) => favWord.word === value) ? (
+                                      {favourites.some((favWord: FavWords) => favWord.word === value) ? (
                                         <StarIcon onClick={() => handleFavourites(value)} />
                                       ) : (
                                         <StarBorderIcon onClick={() => handleFavourites(value)} />
