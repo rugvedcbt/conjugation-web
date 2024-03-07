@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from 'react';
+
+
+// Hooks
 import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
+
+// Constants
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
+
+// Components
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import List from '@mui/material/List';
+
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Sidebar() {
 
@@ -21,7 +30,7 @@ function Sidebar() {
     const storedFavourites = localStorage.getItem('favourites');
     return storedFavourites ? JSON.parse(storedFavourites) : [];
   });
-  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile } = useLetterContext();
+  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord } = useLetterContext();
   const { searchedWords } = useSearchContext();
 
   const toggleContent = () => {
@@ -56,7 +65,18 @@ function Sidebar() {
 
   return (
     <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
-      {searchedWords.length !== 0 ? (
+      {searchedWords.length === 0 && (
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+              </ListItemIcon>
+              <ListItemText primary='No words Found'/>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      )}
+      {searchedWords.length !== 0  && searchWord.length !== 0 ? (
         <List>
           {searchedWords.map((value) => (
             <React.Fragment key={value}>
@@ -79,7 +99,7 @@ function Sidebar() {
         </List>
       ) : (
         <div>
-          {letterValues && !showFavourites ? (
+          {letterValues && !showFavourites && searchedWords.length === 0 ? (
             <List>
               {letterValues.map((value, index) => (
                 <React.Fragment key={index}>

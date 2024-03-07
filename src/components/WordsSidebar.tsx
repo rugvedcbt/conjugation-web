@@ -76,7 +76,7 @@ export default function WordsSidebar() {
                   {wordData.map((item: any, index: number) => (
                     <>
                     <h4 className="card-header main-verb" key={index}>{verb}</h4>
-                      <div className="card-body" key={index}>
+                      <div className="card-body">
                         <div className="conatiner">
                           <div className="row d-flex justify-content-around">
                             <div className="col">
@@ -1059,7 +1059,7 @@ export default function WordsSidebar() {
 
                   {wordData.map((item: any, index: number) => (
                     <>
-                      <div className="card-body">
+                      <div className="card-body" key={index}>
                         <div className="conatiner">
                           <div className="row d-flex justify-content-around">
                             <div className="col">
@@ -1184,7 +1184,7 @@ export default function WordsSidebar() {
 
                   {wordData.map((item: any, index: number) => (
                     <>
-                      <div className="card-body">
+                      <div className="card-body" key={index}>
                         <div className="conatiner">
                           <div className="row d-flex justify-content-around">
                             <div className="col perfect-sentence">
