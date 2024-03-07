@@ -65,7 +65,7 @@ function Sidebar() {
 
   return (
     <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
-      {searchedWords.length === 0 && (
+      {/* {searchedWords.length === 0 && (
         <List>
           <ListItem disablePadding>
             <ListItemButton>
@@ -75,7 +75,7 @@ function Sidebar() {
             </ListItemButton>
           </ListItem>
         </List>
-      )}
+      )} */}
       {searchedWords.length !== 0  && searchWord.length !== 0 ? (
         <List>
           {searchedWords.map((value) => (
@@ -99,7 +99,7 @@ function Sidebar() {
         </List>
       ) : (
         <div>
-          {letterValues && !showFavourites && searchedWords.length === 0 ? (
+          {letterValues && !showFavourites ? (
             <List>
               {letterValues.map((value, index) => (
                 <React.Fragment key={index}>

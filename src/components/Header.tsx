@@ -14,6 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
+import Snackbar from '@mui/material/Snackbar';
 import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
 import { styled, alpha } from '@mui/material/styles';
@@ -77,6 +78,8 @@ function Header() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const { showFavourites, setShowFavourites, searchWord, setSearchWord } = useLetterContext();
   const { setSearchedWords, searchedWords } = useSearchContext();
+  const [open, setOpen] = React.useState(false);
+
 
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -102,10 +105,20 @@ function Header() {
       .filter(word => word.toLowerCase().includes(searchValue));
 
     setSearchedWords([...filteredWords]);
+    
+  };
+
+  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
   };
 
   useEffect(() => {
-
+    if(searchedWords.length === 0 && searchWord.length !== 0){
+      setOpen(true);
+    }
   }, [searchedWords, searchWord]);
 
   return (
@@ -132,6 +145,13 @@ function Header() {
               iLearn Conjugation
             </Typography>
           </div>
+
+          <Snackbar
+            open={open}
+            autoHideDuration={900}
+            onClose={handleClose}
+            message="No words found"
+          />
 
           <div className='cm-gp-btn'>
 
