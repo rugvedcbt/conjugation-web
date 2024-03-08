@@ -5,13 +5,16 @@ import VolumeDownIcon from '@mui/icons-material/VolumeDown';
 
 interface AudioPlayerProps {
   src: string;
+  id?:string;
+  handleSelectedID: (id: string) => void;
+  selectedId?: string;
 }
 
 interface ModalProps {
   onClose: () => void;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, id, handleSelectedID, selectedId }) => {
   const audioRef:any = useRef<HTMLAudioElement>(null);
   const { currentlyPlaying, setCurrentlyPlaying } = useAudioContext();
   const [showControls, setShowControls] = useState(false);
@@ -41,19 +44,23 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
     }
   }, []);
 
-  const handleTogglePlay = () => {
-    setShowControls(previous => !previous);
+  const handleTogglePlay = (id: any) => {
+    handleSelectedID(id)
+    if(id != selectedId) {
+      setShowControls(true);
+    } else {
+      setShowControls(previous => !previous);
+    }
   };
   
   return (
     <>
       <span className='audio-icon' >
-        <VolumeUpIcon onClick={handleTogglePlay}/>
+        <VolumeUpIcon onClick={() => {handleTogglePlay(id)}}/>
       </span>
-      {showControls}
       <audio ref={audioRef} src={src} />
       <div className='audioref-controls'>
-        {showControls && <audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
+        {showControls && (selectedId == id) &&<audio ref={audioRef} src={src} controls controlsList="nodownload"/>}
       </div>
     </>
   );

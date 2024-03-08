@@ -490,6 +490,10 @@ h4.main-verb{
 }
 
 @media screen and (max-width: 768px){
+  .base-content{
+  width: 100%; 
+  }
+
   .base-card{
     flex-direction: row !important;
   }

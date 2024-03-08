@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,6 +38,11 @@ export default function WordsSidebar() {
     setMobile(false);
     currentlyPlaying?.pause();
   };
+
+  const [selectedId, setSelectedId] = useState("");
+  const handleSelectedID = (id: string) => {
+    setSelectedId(prev => id);
+  }
 
   const highlightKeywords= (text: string | undefined, excludedWords: string[]) => {
     const parts = typeof text === 'string' ? text.split(/\b/) : [];
@@ -153,7 +158,7 @@ export default function WordsSidebar() {
                               <div className="col baseverb">
                                 <div className="card text-black move-up mb-3" >
                                   <div className="card-header">{item.baseVerb.displayText}
-                                    <AudioPlayer src={Audio1} /></div>
+                                    <AudioPlayer src={Audio1} id="30" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                   <div className="card-body">
                                     <div className='setpara'>
                                       <p className="card-text">{highlightMixedKeywords(item.baseVerb.data.text)}</p>
@@ -164,7 +169,7 @@ export default function WordsSidebar() {
                               <div className="col infinitive">
                                 <div className="card text-black move-up mb-3" >
                                   <div className="card-header">{item.infinitive.displayText}
-                                    <AudioPlayer src={Audio2} /></div>
+                                    <AudioPlayer src={Audio2} id="31" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                   <div className="card-body">
                                     <div className='setpara'>
                                       <p className="card-text">{highlightMixedKeywords(item.infinitive.data.text)}</p>
@@ -194,7 +199,7 @@ export default function WordsSidebar() {
                             <div className="col positive-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="1" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setI.map((texttense: any, index: number) => (
@@ -232,7 +237,7 @@ export default function WordsSidebar() {
                             <div className="col positive-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="2" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
 
                                 <div className="card-body">
                                   <div className='setpara'>
@@ -271,7 +276,7 @@ export default function WordsSidebar() {
                             <div className="col positive-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.positiveSentences.types.future.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="3" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setI.map((texttense: any, index: number) => (
@@ -321,7 +326,7 @@ export default function WordsSidebar() {
                             <div className="col negative-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="4" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setI.map((texttense: any, index: number) => (
@@ -359,7 +364,7 @@ export default function WordsSidebar() {
                             <div className="col negative-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="5" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setI.map((texttense: any, index: number) => (
@@ -397,7 +402,7 @@ export default function WordsSidebar() {
                             <div className="col negative-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.negativeSentences.types.future.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="6" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setI.map((texttense: any, index: number) => (
@@ -447,7 +452,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.imperativeSentence.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="7" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.imperativeSentence.types.present.data.setYou.map((texttense: any, index: number) => (
@@ -460,7 +465,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicative.indicativeTypes.imperativeSentence.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="8" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.imperativeSentence.types.past.data.setYou.map((texttense: any, index: number) => (
@@ -493,7 +498,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.needto.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="9" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setI.map((texttense: any, index: number) => (
@@ -531,7 +536,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.needto.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="10" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetI.map((texttense: any, index: number) => (
@@ -581,7 +586,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.can.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="11" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setI.map((texttense: any, index: number) => (
@@ -619,7 +624,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.can.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="12" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetI.map((texttense: any, index: number) => (
@@ -669,7 +674,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-sub-header">{item.modelforms.modalFormTypes.may.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="13" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setI.map((texttense: any, index: number) => (
@@ -707,7 +712,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-sub-header">{item.modelforms.modalFormTypes.may.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="14" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetI.map((texttense: any, index: number) => (
@@ -757,7 +762,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.ableto.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="15" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setI.map((texttense: any, index: number) => (
@@ -795,7 +800,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.ableto.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="16" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetI.map((texttense: any, index: number) => (
@@ -845,7 +850,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.let.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="17" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.present.data.setHim.map((texttense: any, index: number) => (
@@ -868,7 +873,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.let.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="18" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.past.data.notsetHim.map((texttense: any, index: number) => (
@@ -903,7 +908,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.should.types.present.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="19" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setI.map((texttense: any, index: number) => (
@@ -941,7 +946,7 @@ export default function WordsSidebar() {
                             <div className="col">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.modelforms.modalFormTypes.should.types.past.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="20" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetI.map((texttense: any, index: number) => (
@@ -999,7 +1004,7 @@ export default function WordsSidebar() {
                             <div className="col progressive-sentences">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="21" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1037,7 +1042,7 @@ export default function WordsSidebar() {
                             <div className="col progressive-sentences">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="22" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1075,7 +1080,7 @@ export default function WordsSidebar() {
                             <div className="col progressive-sentences">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="23" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1124,7 +1129,7 @@ export default function WordsSidebar() {
                             <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="24" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setI.map((texttense: any, index: number) => (
@@ -1162,7 +1167,7 @@ export default function WordsSidebar() {
                             <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="25" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setI.map((texttense: any, index: number) => (
@@ -1200,7 +1205,7 @@ export default function WordsSidebar() {
                             <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="26" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setI.map((texttense: any, index: number) => (
@@ -1249,7 +1254,7 @@ export default function WordsSidebar() {
                             <div className="col perfect-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="27" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1287,7 +1292,7 @@ export default function WordsSidebar() {
                             <div className="col perfect-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="28" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setI.map((texttense: any, index: number) => (
@@ -1325,7 +1330,7 @@ export default function WordsSidebar() {
                             <div className="col perfect-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.displayText}
-                                  <AudioPlayer src={Audio1} /></div>
+                                  <AudioPlayer src={Audio1} id="29" handleSelectedID={handleSelectedID} selectedId={selectedId}/></div>
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setI.map((texttense: any, index: number) => (

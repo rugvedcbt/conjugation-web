@@ -59,7 +59,6 @@ function Sidebar() {
   }, [favourites]);
 
   const storedFavourites = localStorage.getItem('favourites');
-  console.log('Stored favourites:', storedFavourites);
 
   const letterValues = alphapeticLettersData[currentLetter];
 
