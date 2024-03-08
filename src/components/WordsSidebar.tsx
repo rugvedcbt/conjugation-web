@@ -1062,7 +1062,7 @@ export default function WordsSidebar() {
                       <div className="card-body" key={index}>
                         <div className="conatiner">
                           <div className="row d-flex justify-content-around">
-                            <div className="col">
+                            <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.displayText}
                                   <AudioPlayer src={Audio1} /></div>
@@ -1100,7 +1100,7 @@ export default function WordsSidebar() {
                                 </div>
                               </div>
                             </div>
-                            <div className="col">
+                            <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.displayText}
                                   <AudioPlayer src={Audio1} /></div>
@@ -1138,7 +1138,7 @@ export default function WordsSidebar() {
                                 </div>
                               </div>
                             </div>
-                            <div className="col">
+                            <div className="col perfectsimple-sentence">
                               <div className="card text-black move-up mb-3" >
                                 <div className="card-header">{item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.displayText}
                                   <AudioPlayer src={Audio1} /></div>

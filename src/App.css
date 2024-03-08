@@ -341,7 +341,7 @@ footer .quick-links {
   height: max-content;
 }
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background-color: #0000ff !important;
+  background-image: linear-gradient(to right, rgb(51 145 188 / 15%), rgb(47 99 168));
 }
 
 .card-body .base-verb, .card-body .infinitive{
@@ -432,12 +432,6 @@ footer .quick-links {
   align-items: center;
 }
 
-.card-body .setpara {
-  line-height: 1rem;
-  position: relative;    
-  padding-bottom: 20px;
-}
-
 .card-header.word{
   display: none;
 }
@@ -449,22 +443,26 @@ footer .quick-links {
 }
 
 .negative-sentence .mb-3{
-  height: 855px;
+  height: 100%;
 }
 
 .perfect-sentence .mb-3{
-  height: 935px;
+  height: 100%;
 }
 
 .progressive-sentences .mb-3{
-  height: 920px;
+  height: 100%;
 }
 
 .positive-sentence .mb-3{
-  height: 825px;
+  height: 100%;
 }
 
-.audioref-controls {
+.perfectsimple-sentence .mb-3{
+  height: 100%;
+}
+
+.audioref-controls{
   position: absolute;
   top: 73px;
   right: 0;
@@ -473,7 +471,7 @@ footer .quick-links {
   z-index: 99;
 }
 
-.audioref-controls audio {
+.audioref-controls audio{
   width: 260px;
 }
 
@@ -481,9 +479,48 @@ h4.main-verb{
   text-transform: uppercase;
   text-decoration: solid;
 }
+
 .gif-image{
   width: 250px;
   height: 250px;
+}
+
+.card-body .setpara:last-child{
+  border-bottom: unset;
+}
+
+@media screen and (max-width: 768px){
+  .base-card{
+    flex-direction: row !important;
+  }
+
+  .card-body .d-flex {
+    flex-direction: column;
+  }
+
+  .card-body .d-flex .col {
+      width: 100%;
+  }
+  
+  .base-card .col {
+      width: 50% !important;
+  }
+  
+  .card-body .base-verb, .card-body .infinitive {
+      min-width: unset;
+  }
+  
+  .base-content .col {
+      width: 100% !important;
+  }
+  
+  .gif-image {
+      width: 100%;
+      height: 100%;
+  }
+  .banner-container .card-body .col {
+    margin-bottom: 1rem !important;
+}
 }
 
 @media only screen and (max-width:600px) {
@@ -504,19 +541,19 @@ h4.main-verb{
   }
 
   .negative-sentence .mb-3{
-    height: 670px;
+    height: 100%;
   }
 
   .perfect-sentence .mb-3{
-    height: 750px;
+    height: 100%;
   }
 
   .progressive-sentences .mb-3{
-    height: 750px;
+    height: 100%;
   }
 
   .positive-sentence .mb-3{
-    height: 670px;
+    height: 100%;
   }
 
   .audioref-controls audio {
