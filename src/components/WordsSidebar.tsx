@@ -1,12 +1,23 @@
 import React from 'react';
-import { useLetterContext } from '../context/LetterContext';
-import Box from '@mui/material/Box';
+
+// Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// components 
 import AudioPlayer from './AudioPlayer';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
-import CircularProgress from '@mui/material/CircularProgress';
 import Sidebar from './Sidebar';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
+
+// Constants
+import { excludedEnglishWords, excludedTamilWords } from '../constants/ExcludedWords';
+
+// Hooks
 import { useAudioContext } from '../context/AudioContext';
+import { useLetterContext } from '../context/LetterContext';
+
+// Sample Audio
 import Audio1 from '../audio/audio1.mp3'
 import Audio2 from '../audio/audio2.mp3'
 
@@ -27,6 +38,54 @@ export default function WordsSidebar() {
     setMobile(false);
     currentlyPlaying?.pause();
   };
+
+  const highlightKeywords= (text: string | undefined, excludedWords: string[]) => {
+    const parts = typeof text === 'string' ? text.split(/\b/) : [];
+  
+    return parts.map((part, index) => {
+      const matchingWord = excludedWords.find(word => part.toLowerCase() === word.toLowerCase());
+  
+      return (
+        <span key={index} className={matchingWord ? "excluded-word" : "other-text"}>
+          {part}
+        </span>
+      );
+    });
+  };
+
+  const highlightKeywordsTamil = (text: string | undefined, excludedWords: string[]) => {
+    const parts = typeof text === 'string' ? text.split(/([\u0B80-\u0BFF]+|[^\u0B80-\u0BFF]+)/).filter(Boolean) : [];
+
+    return parts.map((part, index) => (
+      <span key={index} className={excludedWords.includes(part) ? "excluded-word" : "other-text"}>
+        {part}
+      </span>
+    ));
+  };
+
+  const highlightMixedKeywords = (text: string | undefined) => {
+    const parts = typeof text === 'string' ? text.split(/(\s+)/).filter(Boolean) : [];
+  
+    return parts.map((part, index) => {
+      // Check if the part contains Tamil script characters
+      const isTamil = /[\u0B80-\u0BFF]/.test(part);
+  
+      // Choose the appropriate exclusion list and highlighting function
+      const excludedWords = isTamil ? excludedTamilWords : excludedEnglishWords;
+      const highlightFunction = isTamil ? highlightKeywordsTamil : highlightKeywords;
+  
+      // Check for partial matching for Tamil words
+      const matchingWord = excludedWords.find(word => part.toLowerCase().includes(word.toLowerCase()));
+  
+      return (
+        <span key={index} className={matchingWord ? "excluded-word" : "other-text"}>
+          {highlightFunction(part, excludedWords)}
+        </span>
+      );
+    });
+  };
+  
+  
 
   return (
     <div className='words-main-bar'>
@@ -97,7 +156,7 @@ export default function WordsSidebar() {
                                     <AudioPlayer src={Audio1} /></div>
                                   <div className="card-body">
                                     <div className='setpara'>
-                                      <p className="card-text">{item.baseVerb.data.text}</p>
+                                      <p className="card-text">{highlightMixedKeywords(item.baseVerb.data.text)}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -108,7 +167,7 @@ export default function WordsSidebar() {
                                     <AudioPlayer src={Audio2} /></div>
                                   <div className="card-body">
                                     <div className='setpara'>
-                                      <p className="card-text">{item.infinitive.data.text}</p>
+                                      <p className="card-text">{highlightMixedKeywords(item.infinitive.data.text)}</p>
                                     </div>
                                   </div>
                                 </div>
@@ -139,32 +198,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -178,32 +237,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.past.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -216,32 +275,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -266,32 +325,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -304,32 +363,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.past.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -342,32 +401,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -392,7 +451,7 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.imperativeSentence.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -405,7 +464,7 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.imperativeSentence.types.past.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -438,32 +497,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -476,32 +535,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.needto.types.past.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -526,32 +585,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -564,32 +623,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.can.types.past.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -614,32 +673,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -652,32 +711,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.may.types.past.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -702,32 +761,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -740,32 +799,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.ableto.types.past.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -790,17 +849,17 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.present.data.setHim.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.present.data.setHer.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.present.data.setThem.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -813,17 +872,17 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.past.data.notsetHim.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.past.data.notsetHer.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.let.types.past.data.notsetThem.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -848,32 +907,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.present.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -886,32 +945,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.modelforms.modalFormTypes.should.types.past.data.notsetThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -944,32 +1003,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -982,32 +1041,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1020,32 +1079,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futureProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1069,32 +1128,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1107,32 +1166,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1145,32 +1204,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfect.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1194,32 +1253,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.presentPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1232,32 +1291,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.pastPerfectProgressive.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>
@@ -1270,32 +1329,32 @@ export default function WordsSidebar() {
                                 <div className="card-body">
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setI.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setWe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setYou.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setHe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setShe.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                   <div className='setpara'>
                                     {item.indicativeOtherForms.indicativeOtherFormTypes.futurePerfectContinuous.data.setThey.map((texttense: any, index: number) => (
-                                      <p className="card-text" key={index}>{texttense.text}</p>
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
                                 </div>

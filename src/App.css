@@ -476,7 +476,7 @@ footer .quick-links {
 }
 
 h4.main-verb{
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-decoration: solid;
 }
 
@@ -527,12 +527,11 @@ h4.main-verb{
 
   .css-12o98wt {
     justify-content: flex-end;
-    column-gap: 16rem;
-
+    column-gap: 2rem;
   }
 
-  .main-verb{
-    display: none;
+  .css-cpy9c4{
+    width: 150px;
   }
 
   .card-body .setpara {  
@@ -716,4 +715,14 @@ h4.main-verb{
     width: 80px;
   }
 
+}
+
+.excluded-word{
+  color: black;
+  font-weight: 400;  
+}
+
+.other-text{
+  color: darkgreen;
+  font-weight: 700;
 }
