@@ -534,6 +534,10 @@ h4.main-verb{
     column-gap: 2rem;
   }
 
+  .main-verb{
+    display: none;
+  }
+
   .css-cpy9c4{
     width: 150px;
   }
