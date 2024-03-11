@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { ChangeEventHandler, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,12 +19,6 @@ import { useSearchContext } from '../context/SearchContext';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList'
-// import { useContext } from 'react';
-// import { useTheme } from '@mui/material/styles';
-// import Brightness4Icon from '@mui/icons-material/Brightness4';
-// import Brightness7Icon from '@mui/icons-material/Brightness7';
-// import { ColorModeContext } from '../App'
-
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -41,6 +34,37 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
+
+const setDark = () => {
+  localStorage.setItem("theme", "dark");
+  document.documentElement.setAttribute("data-theme", "dark");
+};
+
+const setLight = () => {
+  localStorage.setItem("theme", "light");
+  document.documentElement.setAttribute("data-theme", "light");
+};
+
+const storedTheme = localStorage.getItem("theme");
+
+const prefersDark =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+const defaultDark =
+  storedTheme === "dark" || (storedTheme === null && prefersDark);
+
+if (defaultDark) {
+  setDark();
+}
+
+const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
+  if (e.target.checked) {
+    setDark();
+  } else {
+    setLight();
+  }
+};
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -192,13 +216,19 @@ function Header() {
               </Tooltip>
             </Box>
 
-            {/* <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Theme">
-                <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-                  {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                 <IconButton sx={{ ml: 1 }} color="inherit">
+                  <input
+                    className="form-check-input"
+                    id="flexSwitchCheckDefault"
+                    type="checkbox"
+                    onChange={toggleTheme}
+                    defaultChecked={defaultDark}
+                  />
                 </IconButton>
               </Tooltip>
-            </Box> */}
+            </Box>
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
