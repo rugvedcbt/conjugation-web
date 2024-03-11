@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-const letterKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const letterKeys = ['A-Z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 interface WordData {
   word: string;
@@ -61,7 +61,7 @@ export const useLetterContext = () => useContext(LetterContext);
 
 export const LetterContextProvider = ({ children }: { children: ReactNode }) => {
   const [letters] = useState<string[]>(letterKeys);
-  const [currentLetter, setCurrentLetter] = useState<string>('A');
+  const [currentLetter, setCurrentLetter] = useState<string>('A-Z');
   const [verb, setVerb] = useState<string>('about');
   const [searchWord, setSearchWord] = useState<string>('');
   const [favourites, setFavourites] = useState<FavWords[]>([]);

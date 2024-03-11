@@ -16,15 +16,36 @@ import ListItemText from '@mui/material/ListItemText';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import List from '@mui/material/List';
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
+
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+interface State extends SnackbarOrigin {
+  open: boolean;
+}
+
 
 function Sidebar() {
 
   interface FavWords {
     word: any;
   }
+
+  const [state, setState] = React.useState<State>({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+
+  const { vertical, horizontal, open } = state;
+
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
 
   const [favourites, setFavourites] = useState(() => {
     const storedFavourites = localStorage.getItem('favourites');
@@ -47,6 +68,10 @@ function Sidebar() {
   };
 
   const handleFavourites = (word: string) => {
+    setState({ ...state, open: true });
+      setTimeout(() => {
+        handleClose();
+      },2500);
     if (isWordInFavorites(word)) {
       setFavourites((prevFavourites: FavWords[]) => prevFavourites.filter((favWord: FavWords) => favWord.word !== word));
     } else {
@@ -58,24 +83,21 @@ function Sidebar() {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  const storedFavourites = localStorage.getItem('favourites');
+  // const storedFavourites = localStorage.getItem('favourites');
 
   const letterValues = alphapeticLettersData[currentLetter];
 
   return (
     <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
-      {/* {searchedWords.length === 0 && (
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary='No words Found'/>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      )} */}
-      {searchedWords.length !== 0  && searchWord.length !== 0 ? (
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        autoHideDuration={900}
+        onClose={handleClose}
+        message="favourites added"
+        key={vertical + horizontal}
+      />
+      {searchedWords.length !== 0 && searchWord.length !== 0 ? (
         <List>
           {searchedWords.map((value) => (
             <React.Fragment key={value}>
@@ -134,7 +156,8 @@ function Sidebar() {
             </List>
           ) : (
             <List>
-              {favourites.length === 0 ? <ListItem> No Favourites Added</ListItem> :
+              <div></div>
+              {favourites.length === 0 && showFavourites && <ListItem> No Favourites Added</ListItem>}
                 <div>
                   {Object.keys(alphapeticLettersData).map((letter, index) => (
                     <div key={index}>
@@ -174,7 +197,6 @@ function Sidebar() {
                     </div>
                   ))}
                 </div>
-              }
 
             </List>
           )}

@@ -723,6 +723,9 @@ h4.main-verb{
     width: 80px;
   }
 
+  h4.main-verb{
+    display: none;
+  }
 }
 
 .excluded-word{
@@ -733,4 +736,23 @@ h4.main-verb{
 .other-text{
   color: darkgreen;
   font-weight: 700;
+}
+
+
+body {
+  font-family: "Outfit", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;  
+}
+
+.css-10hburv-MuiTypography-root{
+  font-family: "Outfit", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important; 
+}
+
+.css-r6ewbb-MuiToolbar-root a{
+  font-family: "League Spartan", serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
 }

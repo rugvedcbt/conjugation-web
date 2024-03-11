@@ -14,7 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import Snackbar from '@mui/material/Snackbar';
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
 import { styled, alpha } from '@mui/material/styles';
@@ -68,6 +68,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+interface State extends SnackbarOrigin {
+  open: boolean;
+}
+
 
 const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads']
 
@@ -78,9 +82,6 @@ function Header() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const { showFavourites, setShowFavourites, searchWord, setSearchWord } = useLetterContext();
   const { setSearchedWords, searchedWords } = useSearchContext();
-  const [open, setOpen] = React.useState(false);
-
-
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -95,10 +96,22 @@ function Header() {
     setAnchorElUser(null);
   };
 
+  const [state, setState] = React.useState<State>({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+
+  const { vertical, horizontal, open } = state;
+
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
-    // setVerb(searchValue);
 
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
       .flatMap(letter => alphapeticLettersData[letter])
@@ -106,18 +119,19 @@ function Header() {
 
     setSearchedWords([...filteredWords]);
     
+    if(searchedWords.length === 0){
+      setState({ ...state, open: true });
+      setTimeout(() => {
+        handleClose();
+      },2500);
+    }
+   
   };
 
-  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  };
 
   useEffect(() => {
-    if(searchedWords.length === 0 && searchWord.length !== 0){
-      setOpen(true);
+    if (searchedWords.length === 0 && searchWord.length !== 0) {
+      setState({ ...state, open: true });
     }
   }, [searchedWords, searchWord]);
 
@@ -146,13 +160,6 @@ function Header() {
             </Typography>
           </div>
 
-          <Snackbar
-            open={open}
-            autoHideDuration={900}
-            onClose={handleClose}
-            message="No words found"
-          />
-
           <div className='cm-gp-btn'>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -170,6 +177,15 @@ function Header() {
                 </Search>
               </Tooltip>
             </Box>
+
+            <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            autoHideDuration={900}
+            onClose={handleClose}
+            message="No words found"
+            key={vertical + horizontal}
+            />
 
             {/* {searchWord.length === 0 &&  */}
             <Box sx={{ flexGrow: 0 }}>
