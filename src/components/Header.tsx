@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,7 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
-import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
 import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
 import { styled, alpha } from '@mui/material/styles';
@@ -68,46 +68,36 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-interface State extends SnackbarOrigin {
-  open: boolean;
-}
-
-
 const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads']
 
 function Header() {
 
   // const theme = useTheme();
   // const colorMode = useContext(ColorModeContext);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const { showFavourites, setShowFavourites, searchWord, setSearchWord } = useLetterContext();
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter,setTab } = useLetterContext();
   const { setSearchedWords, searchedWords } = useSearchContext();
+  const [open, setOpen] = useState(false);
+
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const toggleFavourites = () => {
-    setShowFavourites(!showFavourites)
-    setSearchWord('')
+    setShowFavourites(!showFavourites);
+    setSearchWord('');
+    setCurrentLetter('A-Z');
+    setTab(0);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
-  const [state, setState] = React.useState<State>({
-    open: false,
-    vertical: 'top',
-    horizontal: 'center',
-  });
-
-  const { vertical, horizontal, open } = state;
-
-
   const handleClose = () => {
-    setState({ ...state, open: false });
-  };
+    setOpen(false);
+  }
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.toLowerCase();
@@ -118,20 +108,20 @@ function Header() {
       .filter(word => word.toLowerCase().includes(searchValue));
 
     setSearchedWords([...filteredWords]);
-    
-    if(searchedWords.length === 0){
-      setState({ ...state, open: true });
+
+    if (searchedWords.length === 0 && searchWord.length !== 0) {
+      setOpen(true)
       setTimeout(() => {
         handleClose();
-      },2500);
+      }, 2500);
     }
-   
+
   };
 
 
   useEffect(() => {
     if (searchedWords.length === 0 && searchWord.length !== 0) {
-      setState({ ...state, open: true });
+      setOpen(true)
     }
   }, [searchedWords, searchWord]);
 
@@ -163,7 +153,6 @@ function Header() {
           <div className='cm-gp-btn'>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Search">
                 <Search>
                   <SearchIconWrapper>
                     <SearchIcon />
@@ -175,16 +164,17 @@ function Header() {
                     onChange={handleSearch}
                   />
                 </Search>
-              </Tooltip>
             </Box>
 
             <Snackbar
-            anchorOrigin={{ vertical, horizontal }}
-            open={open}
-            autoHideDuration={900}
-            onClose={handleClose}
-            message="No words found"
-            key={vertical + horizontal}
+              open={open}
+              autoHideDuration={900}
+              onClose={handleClose}
+              message="No words found"
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
             />
 
             {/* {searchWord.length === 0 &&  */}

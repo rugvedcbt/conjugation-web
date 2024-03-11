@@ -16,16 +16,11 @@ import ListItemText from '@mui/material/ListItemText';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import List from '@mui/material/List';
-import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-
+import Snackbar from '@mui/material/Snackbar';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-interface State extends SnackbarOrigin {
-  open: boolean;
-}
+import { SnackbarContent } from '@mui/material';
 
 
 function Sidebar() {
@@ -34,25 +29,15 @@ function Sidebar() {
     word: any;
   }
 
-  const [state, setState] = React.useState<State>({
-    open: false,
-    vertical: 'top',
-    horizontal: 'center',
-  });
-
-  const { vertical, horizontal, open } = state;
-
-
-  const handleClose = () => {
-    setState({ ...state, open: false });
-  };
-
   const [favourites, setFavourites] = useState(() => {
     const storedFavourites = localStorage.getItem('favourites');
     return storedFavourites ? JSON.parse(storedFavourites) : [];
   });
   const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord } = useLetterContext();
   const { searchedWords } = useSearchContext();
+  const [open, setOpen] = useState(false);
+  const [favMessage, setFavMessage] = useState('');
+
 
   const toggleContent = () => {
     setMobile(!mobile);
@@ -67,15 +52,39 @@ function Sidebar() {
     return favourites.some((favWord: FavWords) => favWord.word === word);
   };
 
+  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  }
+
+  const AddWord = () => {
+    setOpen(true);
+    setTimeout(() => {
+      setOpen(false);
+    }, 1500);
+  };
+
+  const removeWord = () => {
+    setOpen(true);
+    setTimeout(() => {
+      setOpen(false);
+    }, 1500);
+  };
+
+
   const handleFavourites = (word: string) => {
-    setState({ ...state, open: true });
-      setTimeout(() => {
-        handleClose();
-      },2500);
+
     if (isWordInFavorites(word)) {
       setFavourites((prevFavourites: FavWords[]) => prevFavourites.filter((favWord: FavWords) => favWord.word !== word));
+      setFavMessage(`${word} removed from favourites`)
+      removeWord();
     } else {
       setFavourites((prevFavourites: FavWords[]) => [...prevFavourites, { word }]);
+      // added to favourites
+      setFavMessage(`${word} added from favourites`)
+      AddWord();
     }
   };
 
@@ -83,22 +92,29 @@ function Sidebar() {
     localStorage.setItem('favourites', JSON.stringify(favourites));
   }, [favourites]);
 
-  // const storedFavourites = localStorage.getItem('favourites');
-
   const letterValues = alphapeticLettersData[currentLetter];
 
   return (
     <div className={`sidebar ${mobile ? 'mobile-sidebar-on' : ''}`}>
-      <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
-        open={open}
-        autoHideDuration={900}
-        onClose={handleClose}
-        message="favourites added"
-        key={vertical + horizontal}
-      />
       {searchedWords.length !== 0 && searchWord.length !== 0 ? (
         <List>
+          <div>
+            <Snackbar
+              className='snackbar'
+              open={open}
+              autoHideDuration={1000}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+            >
+              <SnackbarContent
+                style={{ backgroundColor: 'lightblue', color: 'black' }}
+                message={favMessage}
+              />
+            </Snackbar>
+          </div>
           {searchedWords.map((value) => (
             <React.Fragment key={value}>
               {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
@@ -122,6 +138,23 @@ function Sidebar() {
         <div>
           {letterValues && !showFavourites ? (
             <List>
+              <div>
+                <Snackbar
+                  className='snackbar'
+                  open={open}
+                  autoHideDuration={1000}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center",
+                  }}
+                >
+                  <SnackbarContent
+                    style={{ backgroundColor: 'white', color: 'black' }}
+                    message={favMessage}
+                  />
+                </Snackbar>
+              </div>
               {letterValues.map((value, index) => (
                 <React.Fragment key={index}>
                   {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
@@ -156,47 +189,63 @@ function Sidebar() {
             </List>
           ) : (
             <List>
-              <div></div>
+              <div>
+                <Snackbar
+                  className='snackbar'
+                  open={open}
+                  autoHideDuration={1000}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center",
+                  }}
+                >
+                  <SnackbarContent
+                    style={{ backgroundColor: 'white', color: 'black' }}
+                    message={favMessage}
+                  />
+                </Snackbar>
+              </div>
               {favourites.length === 0 && showFavourites && <ListItem> No Favourites Added</ListItem>}
-                <div>
-                  {Object.keys(alphapeticLettersData).map((letter, index) => (
-                    <div key={index}>
-                      <List>
-                        {alphapeticLettersData[letter].map((value, valueIndex) => (
-                          <React.Fragment key={valueIndex}>
-                            {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
-                              <ListItem disablePadding>
-                                {verb === value ? (
-                                  <ListItemButton selected>
-                                    <ListItemIcon>
-                                      {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                                        <StarIcon onClick={() => handleFavourites(value)} />
-                                      ) : (
-                                        <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                      )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                                  </ListItemButton>
-                                ) : (
-                                  <ListItemButton>
-                                    <ListItemIcon>
-                                      {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                                        <StarIcon onClick={() => handleFavourites(value)} />
-                                      ) : (
-                                        <StarBorderIcon onClick={() => handleFavourites(value)} />
-                                      )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={value} onClick={() => handleWordChange(value)} />
-                                  </ListItemButton>
-                                )}
-                              </ListItem>
-                            ) : null}
-                          </React.Fragment>
-                        ))}
-                      </List>
-                    </div>
-                  ))}
-                </div>
+              <div>
+                {Object.keys(alphapeticLettersData).map((letter, index) => (
+                  <div key={index}>
+                    <List>
+                      {alphapeticLettersData[letter].map((value, valueIndex) => (
+                        <React.Fragment key={valueIndex}>
+                          {(showFavourites && isWordInFavorites(value)) || !showFavourites ? (
+                            <ListItem disablePadding>
+                              {verb === value ? (
+                                <ListItemButton selected>
+                                  <ListItemIcon>
+                                    {favourites.some((favWord: FavWords) => favWord.word === value) ? (
+                                      <StarIcon onClick={() => handleFavourites(value)} />
+                                    ) : (
+                                      <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                    )}
+                                  </ListItemIcon>
+                                  <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                                </ListItemButton>
+                              ) : (
+                                <ListItemButton>
+                                  <ListItemIcon>
+                                    {favourites.some((favWord: FavWords) => favWord.word === value) ? (
+                                      <StarIcon onClick={() => handleFavourites(value)} />
+                                    ) : (
+                                      <StarBorderIcon onClick={() => handleFavourites(value)} />
+                                    )}
+                                  </ListItemIcon>
+                                  <ListItemText primary={value} onClick={() => handleWordChange(value)} />
+                                </ListItemButton>
+                              )}
+                            </ListItem>
+                          ) : null}
+                        </React.Fragment>
+                      ))}
+                    </List>
+                  </div>
+                ))}
+              </div>
 
             </List>
           )}
