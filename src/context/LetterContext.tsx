@@ -25,10 +25,12 @@ interface LetterContextType {
   setCurrentLetter: (currentLetter: string) => void;
   verb: string;
   setVerb: (verb: string) => void;
-  tab: any;
-  setTab: (tab: any) => void;
+  tab: number;
+  setTab: (tab: number) => void;
   searchWord: string;
   setSearchWord: (verb: string) => void;
+  snackMessage: string;
+  setSnackMessage: (snackMessage: string) => void;
   favourites: any;
   setFavourites: (favourites: any) => void;
   showFavourites: boolean;
@@ -50,6 +52,8 @@ const LetterContext = createContext<LetterContextType>({
   setTab: () => {},
   searchWord: '',
   setSearchWord: () => {},
+  snackMessage: '',
+  setSnackMessage: () => {},
   favourites: '',
   setFavourites: () => {},
   showFavourites: false,
@@ -67,8 +71,9 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
   const [letters] = useState<string[]>(letterKeys);
   const [currentLetter, setCurrentLetter] = useState<string>('all');
   const [verb, setVerb] = useState<string>('about');
-  const [tab, setTab] = useState<any>(0);
+  const [tab, setTab] = useState<number>(0);
   const [searchWord, setSearchWord] = useState<string>('');
+  const [snackMessage, setSnackMessage] = useState<string>('');
   const [favourites, setFavourites] = useState<FavWords[]>([]);
   const [showFavourites, setShowFavourites] = useState<boolean>(false);
   const [mobile, setMobile] = useState<boolean>(false);
@@ -129,6 +134,8 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
     wordData,
     tab,
     setTab,
+    snackMessage,
+    setSnackMessage
   };
 
   return (

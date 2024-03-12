@@ -18,7 +18,8 @@ import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import { alphapeticLettersData } from '../constants/AlbhapeticLetterList'
+import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
+import { SnackbarContent } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -92,17 +93,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads']
+const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads'];
 
 function Header() {
-
-  // const theme = useTheme();
-  // const colorMode = useContext(ColorModeContext);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter,setTab } = useLetterContext();
-  const { setSearchedWords, searchedWords } = useSearchContext();
+  const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter, setTab, snackMessage } = useLetterContext();
+  const { setSearchedWords } = useSearchContext();
   const [open, setOpen] = useState(false);
-
+  const [message, setMessage] = useState('');
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -119,35 +117,38 @@ function Header() {
     setAnchorElUser(null);
   };
 
-  const handleClose = () => {
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
     setOpen(false);
-  }
+  };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
-
+    setMessage(`searched word ${searchValue} not found`);
+  
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
       .flatMap(letter => alphapeticLettersData[letter])
       .filter(word => word.toLowerCase().includes(searchValue));
-
+  
     setSearchedWords([...filteredWords]);
-
-    if (searchedWords.length === 0 && searchWord.length !== 0) {
-      setOpen(true)
-      setTimeout(() => {
-        handleClose();
-      }, 2500);
+  
+    if (filteredWords.length === 0 && searchValue.trim() !== '') {
+      setOpen(true);
+    } else {
+      setOpen(false);
     }
-
   };
-
+  
 
   useEffect(() => {
-    if (searchedWords.length === 0 && searchWord.length !== 0) {
-      setOpen(true)
+    if (snackMessage) {
+      setMessage(snackMessage);
+      setOpen(true);
     }
-  }, [searchedWords, searchWord]);
+  }, [snackMessage]);
 
   return (
     <AppBar position="static">
@@ -159,7 +160,7 @@ function Header() {
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href=""
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -177,31 +178,35 @@ function Header() {
           <div className='cm-gp-btn'>
 
             <Box sx={{ flexGrow: 0 }}>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                    value={searchWord}
-                    onChange={handleSearch}
-                  />
-                </Search>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ 'aria-label': 'search' }}
+                  value={searchWord}
+                  onChange={handleSearch}
+                />
+              </Search>
             </Box>
 
             <Snackbar
+              className='snackbar'
               open={open}
-              autoHideDuration={900}
+              autoHideDuration={500}
               onClose={handleClose}
-              message="No words found"
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "center",
               }}
-            />
+            >
+              <SnackbarContent
+                style={{ backgroundColor: 'white', color: 'black' }}
+                message={message}
+              />
+            </Snackbar>
 
-            {/* {searchWord.length === 0 &&  */}
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Favourites">
                 {showFavourites ? (
@@ -218,7 +223,7 @@ function Header() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Theme">
-                 <IconButton sx={{ ml: 1 }} color="inherit">
+                <IconButton sx={{ ml: 1 }} color="inherit">
                   <input
                     className="form-check-input"
                     id="flexSwitchCheckDefault"
