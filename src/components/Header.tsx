@@ -222,7 +222,7 @@ function Header() {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Theme">
+              <Tooltip title="Dark Mode">
                  <IconButton sx={{ ml: 1 }} color="inherit">
                   <div className="form-check form-switch">
                     <input
