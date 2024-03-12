@@ -8,6 +8,8 @@
   --letter-color: #fff;
   --col-cardheader-bg: #3391bc;
   --star-outline-color: #66696c;
+  --data-notfound-color: #333;
+  --other-text-color: darkgreen;
 }
 
 [data-theme="dark"] {
@@ -20,6 +22,8 @@
   --letters-tabbg-color: #333;
   --col-cardheader-bg: #333;
   --star-outline-color: #fff;
+  --data-notfound-color: #fff;
+  --other-text-color: #0d6efd;
 }
 
 body {
@@ -361,10 +365,8 @@ footer .quick-links {
 }
 
 .data-notfound p{
-  /* margin-top: 100px; */
   margin-left: 0px;
-  /* font-size: 24px; */
-  color: rgb(58, 58, 58);
+  color: var(--data-notfound-color);
 }
 
 .negative-sentence .mb-3{
@@ -772,7 +774,7 @@ h4.main-verb{
 }
 
 .other-text{
-  color: darkgreen;
+  color: var(--other-text-color);
   font-weight: 700;
 }
 

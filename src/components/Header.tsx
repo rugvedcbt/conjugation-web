@@ -223,14 +223,16 @@ function Header() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Theme">
-                <IconButton sx={{ ml: 1 }} color="inherit">
-                  <input
-                    className="form-check-input"
-                    id="flexSwitchCheckDefault"
-                    type="checkbox"
-                    onChange={toggleTheme}
-                    defaultChecked={defaultDark}
-                  />
+                 <IconButton sx={{ ml: 1 }} color="inherit">
+                  <div className="form-check form-switch">
+                    <input
+                      className="form-check-input"
+                      id="flexSwitchCheckDefault"
+                      type="checkbox"
+                      onChange={toggleTheme}
+                      defaultChecked={defaultDark}
+                    />
+                  </div>
                 </IconButton>
               </Tooltip>
             </Box>
