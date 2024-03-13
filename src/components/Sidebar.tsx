@@ -13,10 +13,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import StarIcon from '@mui/icons-material/Star';
+// import FavoriteBorderIcon from '@mui/icons-material/StarBorder';
+// import FavoriteIcon from '@mui/icons-material/Star';
 import List from '@mui/material/List';
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,7 +32,7 @@ function Sidebar() {
     const storedFavourites = localStorage.getItem('favourites');
     return storedFavourites ? JSON.parse(storedFavourites) : [];
   });
-  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord, setSnackMessage  } = useLetterContext();
+  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord, setSnackMessage, setLoading, loading } = useLetterContext();
   const { searchedWords } = useSearchContext();
 
   const toggleContent = () => {
@@ -39,7 +40,10 @@ function Sidebar() {
   };
 
   const handleWordChange = (word: string) => {
-    setVerb(word);
+    setLoading(true)
+    if(loading){
+      setVerb(word);
+    }
     toggleContent();
   };
 
@@ -76,9 +80,9 @@ function Sidebar() {
                   <ListItemButton>
                     <ListItemIcon>
                       {isWordInFavorites(value) ? (
-                        <StarIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                        <FavoriteIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                       ) : (
-                        <StarBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                        <FavoriteBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                       )}
                     </ListItemIcon>
                     <ListItemText primary={value} onClick={() => handleWordChange(value)} />
@@ -101,9 +105,9 @@ function Sidebar() {
                         <ListItemButton selected>
                           <ListItemIcon>
                             {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                              <StarIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                              <FavoriteIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                             ) : (
-                              <StarBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                              <FavoriteBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                             )}
                           </ListItemIcon>
                           <ListItemText primary={value} onClick={() => handleWordChange(value)} />
@@ -112,9 +116,9 @@ function Sidebar() {
                         <ListItemButton>
                           <ListItemIcon>
                             {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                              <StarIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                              <FavoriteIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                             ) : (
-                              <StarBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                              <FavoriteBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                             )}
                           </ListItemIcon>
                           <ListItemText primary={value} onClick={() => handleWordChange(value)} />
@@ -141,9 +145,9 @@ function Sidebar() {
                                 <ListItemButton selected>
                                   <ListItemIcon>
                                     {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                                      <StarIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                                      <FavoriteIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                                     ) : (
-                                      <StarBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                                      <FavoriteBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                                     )}
                                   </ListItemIcon>
                                   <ListItemText primary={value} onClick={() => handleWordChange(value)} />
@@ -152,9 +156,9 @@ function Sidebar() {
                                 <ListItemButton>
                                   <ListItemIcon>
                                     {favourites.some((favWord: FavWords) => favWord.word === value) ? (
-                                      <StarIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                                      <FavoriteIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                                     ) : (
-                                      <StarBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
+                                      <FavoriteBorderIcon onClick={() => handleFavourites(value)} className='star-icon'/>
                                     )}
                                   </ListItemIcon>
                                   <ListItemText primary={value} onClick={() => handleWordChange(value)} className='star-icon'/>

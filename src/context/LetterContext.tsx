@@ -77,13 +77,12 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
   const [favourites, setFavourites] = useState<FavWords[]>([]);
   const [showFavourites, setShowFavourites] = useState<boolean>(false);
   const [mobile, setMobile] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [wordData, setWordData] = useState<WordItem[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
         const response = await fetch('json/words.json', {
           headers: {
             'Content-Type': 'application/json',

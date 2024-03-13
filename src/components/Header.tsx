@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +10,6 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
-import StarIcon from '@mui/icons-material/Star';
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import Snackbar from '@mui/material/Snackbar';
@@ -21,7 +20,9 @@ import InputBase from '@mui/material/InputBase';
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 import { SnackbarContent } from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -64,16 +65,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
 const settings = ['Settings', 'Share', 'About', 'Privacy Policy', 'Remove Ads'];
 
 function Header() {
+
+  interface SnackbarMessage {
+    message: string;
+    key: number;
+  }
+
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter, setTab, snackMessage } = useLetterContext();
   const { setSearchedWords } = useSearchContext();
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
+  const [searchOpen,setSearchOpen] = useState(false);
+  const [toast, setToast] = useState('');
   const [darkTheme, setDarkTheme] = useState(false);
+  const [snackPack, setSnackPack] = React.useState<readonly SnackbarMessage[]>([]);
+  const [messageInfo, setMessageInfo] = React.useState<SnackbarMessage | undefined>(
+    undefined,
+  );
 
+  const handleExited = () => {
+    setMessageInfo(undefined);
+  };
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -100,28 +116,37 @@ function Header() {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
-    setMessage(`searched word ${searchValue} not found`);
-
+    
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
-      .flatMap(letter => alphapeticLettersData[letter])
-      .filter(word => word.toLowerCase().includes(searchValue));
-
+    .flatMap(letter => alphapeticLettersData[letter])
+    .filter(word => word.toLowerCase().includes(searchValue));
+    
     setSearchedWords([...filteredWords]);
 
-    setOpen(filteredWords.length === 0 && searchValue.trim() !== '');
+    setToast(`searched word ${searchValue} not found`);
+
+    setSearchOpen(filteredWords.length === 0 && searchValue.trim() !== '');
 
   };
 
 
   useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
-    if (snackMessage) {
-      setMessage(snackMessage);
-      setOpen(true);
+    if(snackMessage.length !== 0){
+      setSnackPack((prev) => [...prev, { message: snackMessage, key: new Date().getTime() }]);
     }
   }, [snackMessage]);
+
+
+  useEffect(() => {
+    if (snackPack.length && !messageInfo ) {
+      setMessageInfo({ ...snackPack[0] });
+      setSnackPack((prev) => prev.slice(1));
+      setOpen(true);
+    } else if (snackPack.length && messageInfo && open) {
+      setOpen(false);
+    }
+  }, [snackPack, messageInfo]);
+
 
   const setDark = () => {
     localStorage.setItem("theme", "dark");
@@ -198,10 +223,12 @@ function Header() {
             </Box>
 
             <Snackbar
+              key={messageInfo ? messageInfo.key : undefined}
               className='snackbar'
               open={open}
-              autoHideDuration={2000}
+              autoHideDuration={1500}
               onClose={handleClose}
+              TransitionProps={{ onExited: handleExited }}
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "center",
@@ -209,8 +236,24 @@ function Header() {
             >
               <SnackbarContent
                 style={{ backgroundColor: 'white', color: 'black' }}
-                message={message}
-              />
+                message={messageInfo ? messageInfo.message : undefined}
+                />
+            </Snackbar>
+
+            <Snackbar
+              className='snackbar'
+              open={searchOpen}
+              autoHideDuration={1500}
+              onClose={() => setSearchOpen(false)}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
+            >
+              <SnackbarContent
+                style={{ backgroundColor: 'white', color: 'black' }}
+                message={toast}
+                />
             </Snackbar>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -221,7 +264,7 @@ function Header() {
                   </IconButton>)
                   :
                   (<IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
-                    <StarIcon />
+                    <FavoriteIcon />
                   </IconButton>
                   )}
               </Tooltip>
@@ -230,7 +273,7 @@ function Header() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Dark Mode">
                 <IconButton sx={{ ml: 1 }} color="inherit" onClick={toggleTheme}>
-                  {!darkTheme ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
+                  {!darkTheme ? <DarkModeIcon /> : <LightModeOutlinedIcon />}
                 </IconButton>
               </Tooltip>
             </Box>
