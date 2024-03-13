@@ -230,7 +230,7 @@ function Header() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Dark Mode">
                 <IconButton sx={{ ml: 1 }} color="inherit" onClick={toggleTheme}>
-                  {darkTheme ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
+                  {!darkTheme ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
                 </IconButton>
               </Tooltip>
             </Box>
