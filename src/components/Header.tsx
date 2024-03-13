@@ -20,6 +20,8 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 import { SnackbarContent } from '@mui/material';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -35,37 +37,6 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
-
-const setDark = () => {
-  localStorage.setItem("theme", "dark");
-  document.documentElement.setAttribute("data-theme", "dark");
-};
-
-const setLight = () => {
-  localStorage.setItem("theme", "light");
-  document.documentElement.setAttribute("data-theme", "light");
-};
-
-const storedTheme = localStorage.getItem("theme");
-
-const prefersDark =
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-const defaultDark =
-  storedTheme === "dark" || (storedTheme === null && prefersDark);
-
-if (defaultDark) {
-  setDark();
-}
-
-const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
-  if (e.target.checked) {
-    setDark();
-  } else {
-    setLight();
-  }
-};
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -101,6 +72,8 @@ function Header() {
   const { setSearchedWords } = useSearchContext();
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const [darkTheme, setDarkTheme] = useState(false);
+
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -128,27 +101,60 @@ function Header() {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
     setMessage(`searched word ${searchValue} not found`);
-  
+
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
       .flatMap(letter => alphapeticLettersData[letter])
       .filter(word => word.toLowerCase().includes(searchValue));
-  
+
     setSearchedWords([...filteredWords]);
-  
-    if (filteredWords.length === 0 && searchValue.trim() !== '') {
-      setOpen(true);
-    } else {
-      setOpen(false);
-    }
+
+    setOpen(filteredWords.length === 0 && searchValue.trim() !== '');
+
   };
-  
+
 
   useEffect(() => {
+    if (open) {
+      setOpen(false);
+    }
     if (snackMessage) {
       setMessage(snackMessage);
       setOpen(true);
     }
   }, [snackMessage]);
+
+  const setDark = () => {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+  };
+  
+  const setLight = () => {
+    localStorage.setItem("theme", "light");
+    document.documentElement.setAttribute("data-theme", "light");
+  };
+  
+  const storedTheme = localStorage.getItem("theme");
+  
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+  const defaultDark =
+    storedTheme === "dark" || (storedTheme === null && prefersDark);
+  
+  if (defaultDark) {
+    setDark();
+  }
+  
+  const toggleTheme: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    if (storedTheme === "dark") {
+      setDarkTheme(false)
+      setLight();
+    } else {
+      setDarkTheme(true)
+      setDark();    
+    }
+  };
 
   return (
     <AppBar position="static">
@@ -194,7 +200,7 @@ function Header() {
             <Snackbar
               className='snackbar'
               open={open}
-              autoHideDuration={500}
+              autoHideDuration={2000}
               onClose={handleClose}
               anchorOrigin={{
                 vertical: "top",
@@ -223,16 +229,8 @@ function Header() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Dark Mode">
-                 <IconButton sx={{ ml: 1 }} color="inherit">
-                  <div className="form-check form-switch">
-                    <input
-                      className="form-check-input"
-                      id="flexSwitchCheckDefault"
-                      type="checkbox"
-                      onChange={toggleTheme}
-                      defaultChecked={defaultDark}
-                    />
-                  </div>
+                <IconButton sx={{ ml: 1 }} color="inherit" onClick={toggleTheme}>
+                  {darkTheme ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
                 </IconButton>
               </Tooltip>
             </Box>
