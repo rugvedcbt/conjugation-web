@@ -49,11 +49,7 @@ body {
   color: var(----letter-color) !important;
 }
 
-.css-cveggr-MuiListItemIcon-root{
-  color: var(--star-outline-color) !important;
-}
-
-.MuiButtonBase-root .css-1f8bwsm{
+.MuiListItemIcon-root .star-icon{
   color: var(--star-outline-color) !important;
 }
 
@@ -389,11 +385,7 @@ footer .quick-links {
   height: max-content;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root {
-  background-image: linear-gradient(to right, var(--header-bg-color), var(--header-bg-color));
-}
-
-.MuiPaper-root.css-1x7skt0{
+.main-header-wrapper {
   background-image: linear-gradient(to right, var(--header-bg-color), var(--header-bg-color));
 }
 
