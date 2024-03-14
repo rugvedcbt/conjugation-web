@@ -32,7 +32,7 @@ function Sidebar() {
     const storedFavourites = localStorage.getItem('favourites');
     return storedFavourites ? JSON.parse(storedFavourites) : [];
   });
-  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord, setSnackMessage, setLoading, loading } = useLetterContext();
+  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord, setSnackMessage, setLoading, setWordData } = useLetterContext();
   const { searchedWords } = useSearchContext();
 
   const toggleContent = () => {
@@ -40,10 +40,9 @@ function Sidebar() {
   };
 
   const handleWordChange = (word: string) => {
+    setWordData([])
     setLoading(true)
-    if(loading){
-      setVerb(word);
-    }
+    setVerb(word);
     toggleContent();
   };
 

@@ -40,6 +40,7 @@ interface LetterContextType {
   loading: boolean;
   setLoading: (loading: boolean) => void;
   wordData: WordItem[];
+  setWordData: (wordData: any) => void;
 }
 
 const LetterContext = createContext<LetterContextType>({
@@ -63,6 +64,7 @@ const LetterContext = createContext<LetterContextType>({
   loading: false,
   setLoading: () => {},
   wordData: [],
+  setWordData: () => {},
 });
 
 export const useLetterContext = () => useContext(LetterContext);
@@ -98,7 +100,11 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          if(verb.length !==0){
+            setLoading(false);
+          }
+        }, 300);
       }
     };
 
@@ -131,6 +137,7 @@ export const LetterContextProvider = ({ children }: { children: ReactNode }) => 
     loading,
     setLoading,
     wordData,
+    setWordData,
     tab,
     setTab,
     snackMessage,

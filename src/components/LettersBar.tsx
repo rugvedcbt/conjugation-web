@@ -4,9 +4,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useSearchContext } from '../context/SearchContext';
+import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
+
 
 export default function LetterBar() {
-  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord, setShowFavourites, tab , setTab } = useLetterContext();
+  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord, setShowFavourites, tab ,setTab, setLoading, setWordData } = useLetterContext();
   const { setSearchedWords } = useSearchContext();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -14,12 +16,15 @@ export default function LetterBar() {
   };
 
   const handleLetterChange = (letter: string) => {
-    setVerb('')
-    setSearchWord('')
-    setSearchedWords([])
-    setMobile(false)
-    setShowFavourites(false)
-    setCurrentLetter(letter)
+    setVerb('');
+    setWordData([]);
+    setCurrentLetter(letter);
+    setLoading(true);
+    setSearchWord('');
+    setSearchedWords([]);
+    setMobile(false);
+    setShowFavourites(false);
+    setVerb(alphapeticLettersData[letter][0]);
   };
 
   useEffect(() => {

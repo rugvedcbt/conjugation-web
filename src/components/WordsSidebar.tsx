@@ -72,14 +72,11 @@ export default function WordsSidebar() {
     const parts = typeof text === 'string' ? text.split(/(\s+)/).filter(Boolean) : [];
   
     return parts.map((part, index) => {
-      // Check if the part contains Tamil script characters
       const isTamil = /[\u0B80-\u0BFF]/.test(part);
   
-      // Choose the appropriate exclusion list and highlighting function
       const excludedWords = isTamil ? excludedTamilWords : excludedEnglishWords;
       const highlightFunction = isTamil ? highlightKeywordsTamil : highlightKeywords;
   
-      // Check for partial matching for Tamil words
       const matchingWord = excludedWords.find(word => part.toLowerCase().includes(word.toLowerCase()));
   
       return (

@@ -145,7 +145,7 @@ function Header() {
     } else if (snackPack.length && messageInfo && open) {
       setOpen(false);
     }
-  }, [snackPack, messageInfo]);
+  }, [snackPack, messageInfo, open]);
 
 
   const setDark = () => {
@@ -243,7 +243,7 @@ function Header() {
             <Snackbar
               className='snackbar'
               open={searchOpen}
-              autoHideDuration={1500}
+              autoHideDuration={1200}
               onClose={() => setSearchOpen(false)}
               anchorOrigin={{
                 vertical: "top",
@@ -259,11 +259,11 @@ function Header() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Favourites">
                 {showFavourites ? (
-                  <IconButton size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
+                  <IconButton sx={{ ml: 1 }} size="large" aria-label="list-favorites" color="inherit" onClick={toggleFavourites}>
                     <ViewListIcon />
                   </IconButton>)
                   :
-                  (<IconButton size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
+                  (<IconButton sx={{ ml: 1 }} size="large" aria-label="favorites" color="inherit" onClick={toggleFavourites}>
                     <FavoriteIcon />
                   </IconButton>
                   )}
@@ -272,7 +272,7 @@ function Header() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Dark Mode">
-                <IconButton sx={{ ml: 1 }} color="inherit" onClick={toggleTheme}>
+                <IconButton color="inherit" onClick={toggleTheme}>
                   {!darkTheme ? <DarkModeIcon /> : <LightModeOutlinedIcon />}
                 </IconButton>
               </Tooltip>
