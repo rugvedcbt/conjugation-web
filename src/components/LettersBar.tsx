@@ -8,7 +8,7 @@ import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 
 
 export default function LetterBar() {
-  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord, setShowFavourites, tab ,setTab, setLoading, setWordData } = useLetterContext();
+  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord, setShowFavourites, tab ,setTab, setLoading, setWordData, verb } = useLetterContext();
   const { setSearchedWords } = useSearchContext();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -17,14 +17,20 @@ export default function LetterBar() {
 
   const handleLetterChange = (letter: string) => {
     setVerb('');
-    setWordData([]);
     setCurrentLetter(letter);
-    setLoading(true);
     setSearchWord('');
     setSearchedWords([]);
     setMobile(false);
     setShowFavourites(false);
-    setVerb(alphapeticLettersData[letter][0]);
+    if(letter === 'all'){
+      setVerb('about')
+    }else if(verb !== alphapeticLettersData[letter][0]){
+      setWordData([]);
+      setLoading(true);
+      setVerb(alphapeticLettersData[letter][0])
+    }else{
+      setVerb(alphapeticLettersData[letter][0])
+    }
   };
 
   useEffect(() => {

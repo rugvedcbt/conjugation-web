@@ -40,8 +40,10 @@ function Sidebar() {
   };
 
   const handleWordChange = (word: string) => {
-    setWordData([])
-    setLoading(true)
+    if(verb !== word){
+      setWordData([])
+      setLoading(true)
+    }
     setVerb(word);
     toggleContent();
   };

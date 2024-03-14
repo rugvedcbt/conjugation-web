@@ -101,7 +101,7 @@ export default function WordsSidebar() {
                 {wordData.length === 0 && loading ? (
                   <p className='no-verb'>
                     <Box sx={{ display: 'flex' }}>
-                      <CircularProgress />
+                      <CircularProgress disableShrink  />
                     </Box>
                   </p>
                 ) : (
