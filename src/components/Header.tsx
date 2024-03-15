@@ -1,4 +1,14 @@
 import React, { useEffect, useState } from 'react';
+
+//  Hooks 
+import { useLetterContext } from '../context/LetterContext';
+import { useSearchContext } from '../context/SearchContext';
+
+// constants
+import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
+import { styled, alpha } from '@mui/material/styles';
+
+//  Components 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,15 +23,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import ileanLogo from '../images/ilearn-logo.png';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import Snackbar from '@mui/material/Snackbar';
-import { useLetterContext } from '../context/LetterContext';
-import { useSearchContext } from '../context/SearchContext';
-import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 import { SnackbarContent } from '@mui/material';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -79,7 +85,7 @@ function Header() {
   const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter, setTab, snackMessage } = useLetterContext();
   const { setSearchedWords } = useSearchContext();
   const [open, setOpen] = useState(false);
-  const [searchOpen,setSearchOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [toast, setToast] = useState('');
   const [darkTheme, setDarkTheme] = useState(false);
   const [snackPack, setSnackPack] = React.useState<readonly SnackbarMessage[]>([]);
@@ -116,11 +122,11 @@ function Header() {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.toLowerCase();
     setSearchWord(searchValue);
-    
+
     const filteredWords: string[] = Object.keys(alphapeticLettersData)
-    .flatMap(letter => alphapeticLettersData[letter])
-    .filter(word => word.toLowerCase().includes(searchValue));
-    
+      .flatMap(letter => alphapeticLettersData[letter])
+      .filter(word => word.toLowerCase().includes(searchValue));
+
     setSearchedWords([...filteredWords]);
 
     setToast(`searched word ${searchValue} not found`);
@@ -131,14 +137,14 @@ function Header() {
 
 
   useEffect(() => {
-    if(snackMessage.length !== 0){
+    if (snackMessage.length !== 0) {
       setSnackPack((prev) => [...prev, { message: snackMessage, key: new Date().getTime() }]);
     }
   }, [snackMessage]);
 
 
   useEffect(() => {
-    if (snackPack.length && !messageInfo ) {
+    if (snackPack.length && !messageInfo) {
       setMessageInfo({ ...snackPack[0] });
       setSnackPack((prev) => prev.slice(1));
       setOpen(true);
@@ -152,34 +158,48 @@ function Header() {
     localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
   };
-  
+
   const setLight = () => {
     localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
   };
-  
+
   const storedTheme = localStorage.getItem("theme");
-  
+
   const prefersDark =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
-  
+
   const defaultDark =
     storedTheme === "dark" || (storedTheme === null && prefersDark);
-  
+
   if (defaultDark) {
     setDark();
   }
-  
-  const toggleTheme: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (storedTheme === "dark") {
-      setDarkTheme(false)
-      setLight();
-    } else {
+  const toggletheme = (checked: boolean) => {
+      if (checked) {
+        setDarkTheme(!checked)
+        setLight();
+      } else {
+        setDarkTheme(!checked)
+        setDark();
+      }
+    };
+
+  useEffect( () => {
+    if(storedTheme === "dark"){
       setDarkTheme(true)
-      setDark();    
     }
-  };
+  }, [darkTheme, storedTheme])
+  // const toggleTheme: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  //   if (storedTheme === "dark") {
+  //     setDarkTheme(false)
+  //     setLight();
+  //   } else {
+  //     setDarkTheme(true)
+  //     setDark();
+  //   }
+  // };
 
   return (
     <AppBar position="static" className='main-header-wrapper'>
@@ -237,7 +257,7 @@ function Header() {
               <SnackbarContent
                 style={{ backgroundColor: 'white', color: 'black' }}
                 message={messageInfo ? messageInfo.message : undefined}
-                />
+              />
             </Snackbar>
 
             <Snackbar
@@ -253,7 +273,7 @@ function Header() {
               <SnackbarContent
                 style={{ backgroundColor: 'white', color: 'black' }}
                 message={toast}
-                />
+              />
             </Snackbar>
 
             <Box sx={{ flexGrow: 0 }}>
@@ -272,9 +292,15 @@ function Header() {
 
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Dark Mode">
-                <IconButton color="inherit" onClick={toggleTheme}>
+                {/* <IconButton color="inherit" onClick={toggleTheme}>
                   {!darkTheme ? <DarkModeIcon /> : <LightModeOutlinedIcon />}
-                </IconButton>
+                </IconButton> */}
+                <DarkModeSwitch
+                  style={{ color: 'white' }}
+                  checked={!darkTheme}
+                  onChange={toggletheme}
+                  size={25}
+                />
               </Tooltip>
             </Box>
 

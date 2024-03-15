@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 // Hooks
 import { useLetterContext } from '../context/LetterContext';
 import { useSearchContext } from '../context/SearchContext';
@@ -13,8 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import FavoriteBorderIcon from '@mui/icons-material/StarBorder';
-// import FavoriteIcon from '@mui/icons-material/Star';
 import List from '@mui/material/List';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -137,6 +134,7 @@ function Sidebar() {
               <div>
                 {Object.keys(alphapeticLettersData).map((letter, index) => (
                   <div key={index}>
+                    {/* {letter} */}
                     <List>
                       {alphapeticLettersData[letter].map((value, valueIndex) => (
                         <React.Fragment key={valueIndex}>

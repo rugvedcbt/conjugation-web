@@ -1,7 +1,7 @@
 import React, { useRef,useState, useEffect } from 'react';
+
+//  components 
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
-// import { useAudioContext } from '../context/AudioContext';
-// import VolumeDownIcon from '@mui/icons-material/VolumeDown';
 
 interface AudioPlayerProps {
   src: string;
@@ -10,9 +10,6 @@ interface AudioPlayerProps {
   selectedId?: string;
 }
 
-// interface ModalProps {
-//   onClose: () => void;
-// }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, id, handleSelectedID, selectedId }) => {
   const audioRef:any = useRef<HTMLAudioElement>(null);

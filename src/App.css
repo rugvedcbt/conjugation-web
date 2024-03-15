@@ -802,7 +802,20 @@ body {
   font-style: normal;
 }
 
-.css-1t20nyk-MuiSnackbar-root {
-  display: block !important;
-  z-index: 999 !important;
+.css-r6ewbb-MuiToolbar-root a{
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
