@@ -82,8 +82,8 @@ function Header() {
   }
 
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const { showFavourites, setShowFavourites, searchWord, setSearchWord, setCurrentLetter, setTab, snackMessage } = useLetterContext();
-  const { setSearchedWords } = useSearchContext();
+  const { showFavourites, setShowFavourites, setCurrentLetter, setTab, snackMessage } = useLetterContext();
+  const { searchWord, setSearchWord, setSearchedWords } = useSearchContext();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [toast, setToast] = useState('');

@@ -29,8 +29,8 @@ function Sidebar() {
     const storedFavourites = localStorage.getItem('favourites');
     return storedFavourites ? JSON.parse(storedFavourites) : [];
   });
-  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, searchWord, setSnackMessage, setLoading, setWordData } = useLetterContext();
-  const { searchedWords } = useSearchContext();
+  const { currentLetter, verb, setVerb, showFavourites, mobile, setMobile, setSnackMessage, setLoading, setWordData } = useLetterContext();
+  const { searchedWords , searchWord } = useSearchContext();
 
   const toggleContent = () => {
     setMobile(!mobile);
