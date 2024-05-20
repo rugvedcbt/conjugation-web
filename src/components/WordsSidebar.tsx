@@ -228,6 +228,11 @@ export default function WordsSidebar() {
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.positiveSentences.types.present.data.setIt?.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -267,6 +272,11 @@ export default function WordsSidebar() {
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.positiveSentences.types.past.data.setIt?.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -302,6 +312,11 @@ export default function WordsSidebar() {
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.positiveSentences.types.future.data.setThey.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.positiveSentences.types.future.data.setIt?.map((texttense: any, index: number) => (
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
@@ -355,6 +370,11 @@ export default function WordsSidebar() {
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.negativeSentences.types.present.data.setIt?.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -393,6 +413,11 @@ export default function WordsSidebar() {
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.negativeSentences.types.past.data.setIt?.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -428,6 +453,11 @@ export default function WordsSidebar() {
                                   </div>
                                   <div className='setpara'>
                                     {item.indicative.indicativeTypes.negativeSentences.types.future.data.setThey.map((texttense: any, index: number) => (
+                                      <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
+                                    ))}
+                                  </div>
+                                  <div className='setpara'>
+                                    {item.indicative.indicativeTypes.negativeSentences.types.future.data.setIt?.map((texttense: any, index: number) => (
                                       <p className="card-text" key={index}>{highlightMixedKeywords(texttense.text)}</p>
                                     ))}
                                   </div>

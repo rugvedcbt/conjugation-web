@@ -8,8 +8,8 @@ import { alphapeticLettersData } from '../constants/AlbhapeticLetterList';
 
 
 export default function LetterBar() {
-  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setSearchWord, setShowFavourites, tab ,setTab, setLoading, setWordData, verb } = useLetterContext();
-  const { setSearchedWords } = useSearchContext();
+  const { letters, setCurrentLetter, currentLetter, setVerb, setMobile, setShowFavourites, tab ,setTab, setLoading, setWordData, verb } = useLetterContext();
+  const { setSearchedWords, setSearchWord } = useSearchContext();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);
