@@ -43,7 +43,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "we sell"
+                      "text": "We sell"
                     },
                     {
                       "text": "Naanga/Naama vikkuroam"
@@ -54,7 +54,7 @@
                   ],
                   "setYou": [
                     {
-                      "text": "you sell"
+                      "text": "You sell"
                     },
                     {
                       "text": "Nee/Neenga vikkura/vikkureenga"
@@ -65,7 +65,7 @@
                   ],
                   "setHe": [
                     {
-                      "text": "he sells"
+                      "text": "He sells"
                     },
                     {
                       "text": "Avan/Avar vikkuraan/vikkuraar"
@@ -87,10 +87,24 @@
                   ],
                   "setThey": [
                     {
-                      "text": "they sell"
+                      "text": "They sell"
                     },
                     {
                       "text": "Avanga vikkuraanga"
+                    },
+                    {
+                      "text": "அவங்க விக்கிறாங்க"
+                    }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It sells"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkidhu"
+                    },
+                    {
+                      "text": "இது/அது விக்கிது"
                     }
                   ]
                 }
@@ -164,6 +178,17 @@
                     {
                       "text": "அவங்க வித்தாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It sold"
+                    },
+                    {
+                      "text": "Idhu/Adhu Vitththudhu/viththuchu"
+                    },
+                    {
+                      "text": "இது/அது வித்துது/வித்துச்சு"
+                    }
                   ]
                 }
               },
@@ -236,6 +261,17 @@
                     {
                       "text": "அவங்க விப்பாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It will sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkum"
+                    },
+                    {
+                      "text": "இது/அது விக்கும்"
+                    }
                   ]
                 }
               }
@@ -295,7 +331,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -314,6 +350,17 @@
                     {
                       "text": "அவங்க விக்கல"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It doesn’t sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkala"
+                    },
+                    {
+                      "text": "இது/அது விக்கல"
+                    }
                   ]
                 }
               },
@@ -323,7 +370,7 @@
                 "data": {
                   "setI": [
                     {
-                      "text": "I didnt sell"
+                      "text": "I didn’t sell"
                     },
                     {
                       "text": "Naan vikkala"
@@ -334,7 +381,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "We didnt sell"
+                      "text": "We didn’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikkala"
@@ -345,7 +392,7 @@
                   ],
                   "setYou": [
                     {
-                      "text": "You didnt sell"
+                      "text": "You didn’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikkala"
@@ -356,7 +403,7 @@
                   ],
                   "setHe": [
                     {
-                      "text": "He didnt sell"
+                      "text": "He didn’t sell"
                     },
                     {
                       "text": "Avan/Avar vikkala"
@@ -367,7 +414,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -385,6 +432,17 @@
                     },
                     {
                       "text": "அவங்க விக்கல"
+                    }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It didn’t sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkala"
+                    },
+                    {
+                      "text": "இது/அது விக்கல"
                     }
                   ]
                 }
@@ -458,6 +516,17 @@
                     {
                       "text": "அவங்க விக்க மாட்டாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It will not sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkaadhu"
+                    },
+                    {
+                      "text": "இது/அது விக்காது"
+                    }
                   ]
                 }
               }
@@ -489,7 +558,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -589,7 +658,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -600,7 +669,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -611,7 +680,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -622,7 +691,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -633,7 +702,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -644,7 +713,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -737,7 +806,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -748,7 +817,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -759,7 +828,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -770,7 +839,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -781,7 +850,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -792,7 +861,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -973,7 +1042,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "We are able sell"
+                      "text": "We are able to sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyudhu"
@@ -1006,7 +1075,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She is may sell"
+                      "text": "She is able to sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyudhu"
@@ -1077,7 +1146,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She is not may sell"
+                      "text": "She is not able to sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyala"
@@ -1263,7 +1332,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I shouldn’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -1274,7 +1343,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We shouldn’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -1285,7 +1354,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You shouldn’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -1296,7 +1365,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He shouldn’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -1307,7 +1376,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She shouldn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -1318,7 +1387,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They shouldn’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
@@ -1354,7 +1423,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we are selling"
+                  "text": "We are selling"
                 },
                 {
                   "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
@@ -1365,7 +1434,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you are selling"
+                  "text": "You are selling"
                 },
                 {
                   "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
@@ -1398,7 +1467,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they are selling"
+                  "text": "They are selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
@@ -1448,7 +1517,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he was selling"
+                  "text": "He was selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
@@ -1470,7 +1539,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they were selling"
+                  "text": "They were selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
@@ -1520,7 +1589,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will be selling"
+                  "text": "He will be selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
@@ -1542,7 +1611,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will be selling"
+                  "text": "They will be selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
@@ -1570,7 +1639,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have sold"
+                  "text": "We have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irukkoam"
@@ -1581,7 +1650,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have sold"
+                  "text": "You have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
@@ -1592,7 +1661,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has sold"
+                  "text": "He has sold"
                 },
                 {
                   "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
@@ -1603,7 +1672,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have sold"
+                  "text": "She has sold"
                 },
                 {
                   "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
@@ -1614,7 +1683,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have sold"
+                  "text": "They have sold"
                 },
                 {
                   "text": "Avanga viththu irukkaanga"
@@ -1642,7 +1711,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had sold"
+                  "text": "We had sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irundhoam"
@@ -1653,7 +1722,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had sold"
+                  "text": "You had sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
@@ -1664,7 +1733,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had sold"
+                  "text": "He had sold"
                 },
                 {
                   "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
@@ -1686,7 +1755,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had sold"
+                  "text": "They had sold"
                 },
                 {
                   "text": "Avanga viththu irundhaanga"
@@ -1714,7 +1783,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have sold"
+                  "text": "We will have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu iruppoam"
@@ -1725,7 +1794,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have sold"
+                  "text": "You will have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
@@ -1736,7 +1805,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have sold"
+                  "text": "He will have sold"
                 },
                 {
                   "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
@@ -1758,7 +1827,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have sold"
+                  "text": "They will have sold"
                 },
                 {
                   "text": "Avanga viththu irunppaanga"
@@ -1786,7 +1855,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have been selling"
+                  "text": "We have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
@@ -1797,7 +1866,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have been selling"
+                  "text": "You have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
@@ -1808,7 +1877,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has been selling"
+                  "text": "He has been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
@@ -1819,7 +1888,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have been selling"
+                  "text": "She has been selling"
                 },
                 {
                   "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
@@ -1830,7 +1899,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have been selling"
+                  "text": "They have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irukkaanga"
@@ -1858,7 +1927,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had been selling"
+                  "text": "We had been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
@@ -1869,7 +1938,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had been selling"
+                  "text": "You had been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
@@ -1880,7 +1949,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had been selling"
+                  "text": "He had been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
@@ -1902,7 +1971,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had been selling"
+                  "text": "They had been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
@@ -1930,7 +1999,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have been selling"
+                  "text": "We will have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
@@ -1941,7 +2010,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have been selling"
+                  "text": "You will have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
@@ -1952,7 +2021,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have been selling"
+                  "text": "He will have been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
@@ -1974,7 +2043,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have been selling"
+                  "text": "They will have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
@@ -2032,7 +2101,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "we sell"
+                      "text": "We sell"
                     },
                     {
                       "text": "Naanga/Naama vikkuroam"
@@ -2043,7 +2112,7 @@
                   ],
                   "setYou": [
                     {
-                      "text": "you sell"
+                      "text": "You sell"
                     },
                     {
                       "text": "Nee/Neenga vikkura/vikkureenga"
@@ -2054,7 +2123,7 @@
                   ],
                   "setHe": [
                     {
-                      "text": "he sells"
+                      "text": "He sells"
                     },
                     {
                       "text": "Avan/Avar vikkuraan/vikkuraar"
@@ -2076,10 +2145,24 @@
                   ],
                   "setThey": [
                     {
-                      "text": "they sell"
+                      "text": "They sell"
                     },
                     {
                       "text": "Avanga vikkuraanga"
+                    },
+                    {
+                      "text": "அவங்க விக்கிறாங்க"
+                    }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It sells"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkidhu"
+                    },
+                    {
+                      "text": "இது/அது விக்கிது"
                     }
                   ]
                 }
@@ -2153,6 +2236,17 @@
                     {
                       "text": "அவங்க வித்தாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It sold"
+                    },
+                    {
+                      "text": "Idhu/Adhu Vitththudhu/viththuchu"
+                    },
+                    {
+                      "text": "இது/அது வித்துது/வித்துச்சு"
+                    }
                   ]
                 }
               },
@@ -2225,6 +2319,17 @@
                     {
                       "text": "அவங்க விப்பாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It will sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkum"
+                    },
+                    {
+                      "text": "இது/அது விக்கும்"
+                    }
                   ]
                 }
               }
@@ -2284,7 +2389,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -2303,6 +2408,17 @@
                     {
                       "text": "அவங்க விக்கல"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It doesn’t sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkala"
+                    },
+                    {
+                      "text": "இது/அது விக்கல"
+                    }
                   ]
                 }
               },
@@ -2312,7 +2428,7 @@
                 "data": {
                   "setI": [
                     {
-                      "text": "I didnt sell"
+                      "text": "I didn’t sell"
                     },
                     {
                       "text": "Naan vikkala"
@@ -2323,7 +2439,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "We didnt sell"
+                      "text": "We didn’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikkala"
@@ -2334,7 +2450,7 @@
                   ],
                   "setYou": [
                     {
-                      "text": "You didnt sell"
+                      "text": "You didn’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikkala"
@@ -2345,7 +2461,7 @@
                   ],
                   "setHe": [
                     {
-                      "text": "He didnt sell"
+                      "text": "He didn’t sell"
                     },
                     {
                       "text": "Avan/Avar vikkala"
@@ -2356,7 +2472,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -2374,6 +2490,17 @@
                     },
                     {
                       "text": "அவங்க விக்கல"
+                    }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It didn’t sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkala"
+                    },
+                    {
+                      "text": "இது/அது விக்கல"
                     }
                   ]
                 }
@@ -2447,6 +2574,17 @@
                     {
                       "text": "அவங்க விக்க மாட்டாங்க"
                     }
+                  ],
+                  "setIt" : [
+                    {
+                      "text": "It will not sell"
+                    },
+                    {
+                      "text": "Idhu/Adhu vikkaadhu"
+                    },
+                    {
+                      "text": "இது/அது விக்காது"
+                    }
                   ]
                 }
               }
@@ -2478,7 +2616,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -2578,7 +2716,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -2589,7 +2727,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -2600,7 +2738,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -2611,7 +2749,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -2622,7 +2760,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -2633,7 +2771,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -2726,7 +2864,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -2737,7 +2875,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -2748,7 +2886,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -2759,7 +2897,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -2770,7 +2908,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -2781,7 +2919,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -2962,7 +3100,7 @@
                   ],
                   "setWe": [
                     {
-                      "text": "We are able sell"
+                      "text": "We are able to sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyudhu"
@@ -2995,7 +3133,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She is may sell"
+                      "text": "She is able to sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyudhu"
@@ -3066,7 +3204,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She is not may sell"
+                      "text": "She is not able to sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyala"
@@ -3252,7 +3390,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I shouldn’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -3263,7 +3401,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We shouldn’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -3274,7 +3412,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You shouldn’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -3285,7 +3423,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He shouldn’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -3296,7 +3434,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She shouldn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -3307,7 +3445,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They shouldn’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
@@ -3343,7 +3481,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we are selling"
+                  "text": "We are selling"
                 },
                 {
                   "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
@@ -3354,7 +3492,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you are selling"
+                  "text": "You are selling"
                 },
                 {
                   "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
@@ -3387,7 +3525,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they are selling"
+                  "text": "They are selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
@@ -3437,7 +3575,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he was selling"
+                  "text": "He was selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
@@ -3459,7 +3597,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they were selling"
+                  "text": "They were selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
@@ -3509,7 +3647,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will be selling"
+                  "text": "He will be selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
@@ -3531,7 +3669,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will be selling"
+                  "text": "They will be selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
@@ -3559,7 +3697,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have sold"
+                  "text": "We have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irukkoam"
@@ -3570,7 +3708,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have sold"
+                  "text": "You have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
@@ -3581,7 +3719,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has sold"
+                  "text": "He has sold"
                 },
                 {
                   "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
@@ -3592,7 +3730,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have sold"
+                  "text": "She has sold"
                 },
                 {
                   "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
@@ -3603,7 +3741,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have sold"
+                  "text": "They have sold"
                 },
                 {
                   "text": "Avanga viththu irukkaanga"
@@ -3631,7 +3769,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had sold"
+                  "text": "We had sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irundhoam"
@@ -3642,7 +3780,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had sold"
+                  "text": "You had sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
@@ -3653,7 +3791,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had sold"
+                  "text": "He had sold"
                 },
                 {
                   "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
@@ -3675,7 +3813,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had sold"
+                  "text": "They had sold"
                 },
                 {
                   "text": "Avanga viththu irundhaanga"
@@ -3703,7 +3841,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have sold"
+                  "text": "We will have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu iruppoam"
@@ -3714,7 +3852,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have sold"
+                  "text": "You will have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
@@ -3725,7 +3863,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have sold"
+                  "text": "He will have sold"
                 },
                 {
                   "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
@@ -3747,7 +3885,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have sold"
+                  "text": "They will have sold"
                 },
                 {
                   "text": "Avanga viththu irunppaanga"
@@ -3775,7 +3913,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have been selling"
+                  "text": "We have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
@@ -3786,7 +3924,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have been selling"
+                  "text": "You have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
@@ -3797,7 +3935,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has been selling"
+                  "text": "He has been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
@@ -3808,7 +3946,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have been selling"
+                  "text": "She has been selling"
                 },
                 {
                   "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
@@ -3819,7 +3957,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have been selling"
+                  "text": "They have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irukkaanga"
@@ -3847,7 +3985,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had been selling"
+                  "text": "We had been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
@@ -3858,7 +3996,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had been selling"
+                  "text": "You had been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
@@ -3869,7 +4007,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had been selling"
+                  "text": "He had been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
@@ -3891,7 +4029,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had been selling"
+                  "text": "They had been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
@@ -3919,7 +4057,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have been selling"
+                  "text": "We will have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
@@ -3930,7 +4068,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have been selling"
+                  "text": "You will have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
@@ -3941,7 +4079,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have been selling"
+                  "text": "He will have been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
@@ -3963,88 +4101,10 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have been selling"
+                  "text": "They will have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
-                },
-                {
-                  "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாங்க"
-                }
-              ]
-            }
-          },
-
-
-
-
-
-          
-          "PerfectProgressive": {
-            "displayText": "Perfect progressive",
-            "audioUrl": "",
-            "data": {
-              "setI": [
-                {
-                  "text": "I would have been selling"
-                },
-                {
-                  "text": "Naan viththuttu/viththukittu irundhiruppaen"
-                },
-                {
-                  "text": "நான் வித்துட்டு/வித்துகிட்டு இருந்திருப்பேன்"
-                }
-              ],
-              "setWe": [
-                {
-                  "text": "we would have been selling"
-                },
-                {
-                  "text": "Naanga/Naama viththuttu/viththukittu irundhiruppoam"
-                },
-                {
-                  "text": "நாங்க/நாம வித்துட்டு/வித்துகிட்டு இருந்திருப்போம்"
-                }
-              ],
-              "setYou": [
-                {
-                  "text": "you would have been selling"
-                },
-                {
-                  "text": "Nee/Neenga viththuttu/viththukittu irundhiruppa/irundhiruppeenga"
-                },
-                {
-                  "text": "நீ/நீங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்ப/இருந்திருப்பீங்க"
-                }
-              ],
-              "setHe": [
-                {
-                  "text": "he would have been selling"
-                },
-                {
-                  "text": "Avan/Avar vithuttu/viththukittu irundhiruppaan/irundhiruppaar"
-                },
-                {
-                  "text": "அவன்/அவர் வித்துட்டு/வித்துகிட்டு இருந்திருப்பான்/இருந்திருப்பார்"
-                }
-              ],
-              "setShe": [
-                {
-                  "text": "She would have been selling"
-                },
-                {
-                  "text": "Aval/Avanga vithuttu/viththukittu irundhiruppaal/irundhiruppaanga"
-                },
-                {
-                  "text": "அவள்/அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாள்/இருந்திருப்பாங்க"
-                }
-              ],
-              "setThey": [
-                {
-                  "text": "they would have been selling"
-                },
-                {
-                  "text": "Avanga vithuttu/viththukittu irundhiruppaanga"
                 },
                 {
                   "text": "அவங்க வித்துட்டு/வித்துகிட்டு இருந்திருப்பாங்க"
@@ -4353,7 +4413,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -4425,7 +4485,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -4547,7 +4607,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -4647,7 +4707,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -4658,7 +4718,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -4669,7 +4729,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -4680,7 +4740,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -4691,7 +4751,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -4702,7 +4762,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -4795,7 +4855,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -4806,7 +4866,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -4817,7 +4877,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -4828,7 +4888,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -4839,7 +4899,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -4850,7 +4910,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -5321,7 +5381,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I should n’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -5332,7 +5392,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We should n’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -5343,7 +5403,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You should n’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -5354,7 +5414,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He should n’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -5365,7 +5425,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She should n’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -5376,7 +5436,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They should n’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
@@ -5412,7 +5472,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we are selling"
+                  "text": "We are selling"
                 },
                 {
                   "text": "Naanga/Naama viththuttu/viththukittu irukkoam"
@@ -5423,7 +5483,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you are selling"
+                  "text": "You are selling"
                 },
                 {
                   "text": "Nee/Neenga viththuttu/viththukittu irukka/irukkeenga"
@@ -5456,7 +5516,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they are selling"
+                  "text": "They are selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irukkaal/irukkaanga"
@@ -5506,7 +5566,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he was selling"
+                  "text": "He was selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu irundhaan/irundhaar"
@@ -5528,7 +5588,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they were selling"
+                  "text": "They were selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu irundhaal/irundhaanga"
@@ -5578,7 +5638,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will be selling"
+                  "text": "He will be selling"
                 },
                 {
                   "text": "Avan/Avar viththuttu/viththukittu iruppaan/iruppaar"
@@ -5600,7 +5660,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will be selling"
+                  "text": "They will be selling"
                 },
                 {
                   "text": "Avanga viththuttu/viththukittu iruppaal/iruppaanga"
@@ -5628,7 +5688,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have sold"
+                  "text": "We have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irukkoam"
@@ -5639,7 +5699,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have sold"
+                  "text": "You have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irukka/ viththu irukkeenga"
@@ -5650,7 +5710,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has sold"
+                  "text": "He has sold"
                 },
                 {
                   "text": "Avan/Avar viththu irukkaan/ viththu irukkaar"
@@ -5661,7 +5721,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have sold"
+                  "text": "She has sold"
                 },
                 {
                   "text": "Aval/Avanga viththu irukkaal/ viththu irukkaanga"
@@ -5672,7 +5732,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have sold"
+                  "text": "They have sold"
                 },
                 {
                   "text": "Avanga viththu irukkaanga"
@@ -5700,7 +5760,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had sold"
+                  "text": "We had sold"
                 },
                 {
                   "text": "Naanga/Naama viththu irundhoam"
@@ -5711,7 +5771,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had sold"
+                  "text": "You had sold"
                 },
                 {
                   "text": "Nee/Neenga viththu irundha/ viththu irundheenga"
@@ -5722,7 +5782,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had sold"
+                  "text": "He had sold"
                 },
                 {
                   "text": "Avan/Avar viththu irundhaan/ viththu irundhaar"
@@ -5744,7 +5804,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had sold"
+                  "text": "They had sold"
                 },
                 {
                   "text": "Avanga viththu irundhaanga"
@@ -5772,7 +5832,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have sold"
+                  "text": "We will have sold"
                 },
                 {
                   "text": "Naanga/Naama viththu iruppoam"
@@ -5783,7 +5843,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have sold"
+                  "text": "You will have sold"
                 },
                 {
                   "text": "Nee/Neenga viththu iruppa/viththu iruppeenga"
@@ -5794,7 +5854,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have sold"
+                  "text": "He will have sold"
                 },
                 {
                   "text": "Avan/Avar viththu iruppaan/ viththu iruppaar"
@@ -5816,7 +5876,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have sold"
+                  "text": "They will have sold"
                 },
                 {
                   "text": "Avanga viththu irunppaanga"
@@ -5844,7 +5904,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we have been selling"
+                  "text": "We have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irukkoam"
@@ -5855,7 +5915,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you have been selling"
+                  "text": "You have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irukka/irukkeenga"
@@ -5866,7 +5926,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he has been selling"
+                  "text": "He has been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irukkaan/irukkaar"
@@ -5877,7 +5937,7 @@
               ],
               "setShe": [
                 {
-                  "text": "She have been selling"
+                  "text": "She has been selling"
                 },
                 {
                   "text": "Aval/Avanga vithuttu/viththu kittu irukkaal/irukkaanga"
@@ -5888,7 +5948,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they have been selling"
+                  "text": "They have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irukkaanga"
@@ -5916,7 +5976,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we had been selling"
+                  "text": "We had been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhirukkoam"
@@ -5927,7 +5987,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you had been selling"
+                  "text": "You had been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhirukka/irundhirukkeenga"
@@ -5938,7 +5998,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he had been selling"
+                  "text": "He had been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhirukkaan/irundhirukkaar"
@@ -5960,7 +6020,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they had been selling"
+                  "text": "They had been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhirukkaanga"
@@ -5988,7 +6048,7 @@
               ],
               "setWe": [
                 {
-                  "text": "we will have been selling"
+                  "text": "We will have been selling"
                 },
                 {
                   "text": "Naanga/Naama vithuttu/viththu kittu irundhiruppoam"
@@ -5999,7 +6059,7 @@
               ],
               "setYou": [
                 {
-                  "text": "you will have been selling"
+                  "text": "You will have been selling"
                 },
                 {
                   "text": "Nee/Neenga vithuttu/viththu kittu irundhiruppa/irundhiruppeenga"
@@ -6010,7 +6070,7 @@
               ],
               "setHe": [
                 {
-                  "text": "he will have been selling"
+                  "text": "He will have been selling"
                 },
                 {
                   "text": "Avan/Avar vithuttu/viththu kittu irundhiruppaan/irundhiruppaar"
@@ -6032,7 +6092,7 @@
               ],
               "setThey": [
                 {
-                  "text": "they will have been selling"
+                  "text": "They will have been selling"
                 },
                 {
                   "text": "Avanga vithuttu/viththu kittu irundhiruppaanga"
@@ -6342,7 +6402,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -6414,7 +6474,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -6536,7 +6596,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -6636,7 +6696,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -6647,7 +6707,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -6658,7 +6718,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -6669,7 +6729,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -6680,7 +6740,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -6691,7 +6751,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -6784,7 +6844,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -6795,7 +6855,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -6806,7 +6866,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -6817,7 +6877,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -6828,7 +6888,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -6839,7 +6899,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -7310,7 +7370,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I should n’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -7321,7 +7381,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We should n’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -7332,7 +7392,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You should n’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -7343,7 +7403,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He should n’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -7354,7 +7414,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She should n’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -7365,7 +7425,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They should n’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
@@ -8331,7 +8391,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -8403,7 +8463,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -8525,7 +8585,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -8625,7 +8685,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -8636,7 +8696,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -8647,7 +8707,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -8658,7 +8718,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -8669,7 +8729,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -8680,7 +8740,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -8773,7 +8833,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -8784,7 +8844,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -8795,7 +8855,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -8806,7 +8866,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -8817,7 +8877,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -8828,7 +8888,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -9299,7 +9359,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I should n’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -9310,7 +9370,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We should n’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -9321,7 +9381,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You should n’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -9332,7 +9392,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He should n’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -9343,7 +9403,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She should n’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -9354,7 +9414,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They should n’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
@@ -10320,7 +10380,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She doesn't sell"
+                      "text": "She doesn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -10392,7 +10452,7 @@
                   ],
                   "setShe": [
                     {
-                      "text": "She didn't sell"
+                      "text": "She didn’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikkala"
@@ -10514,7 +10574,7 @@
               "data": {
                 "setYou": [
                   {
-                    "text": "You don't sell"
+                    "text": "You don’t sell"
                   },
                   {
                     "text": "Nee/Neenga vikkaadha/Vikkaadheenga"
@@ -10614,7 +10674,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I don't need to sell"
+                      "text": "I don’t need to sell"
                     },
                     {
                       "text": "Naan vikka vaenaam"
@@ -10625,7 +10685,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We don't need to sell"
+                      "text": "We don’t need to sell"
                     },
                     {
                       "text": "Naanga/Naama vikka vaenaam"
@@ -10636,7 +10696,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You don't need to sell"
+                      "text": "You don’t need to sell"
                     },
                     {
                       "text": "Nee/Neenga vikka vaenaam"
@@ -10647,7 +10707,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He don't need to sell"
+                      "text": "He don’t need to sell"
                     },
                     {
                       "text": "Avan/Avar vikka vaenaam"
@@ -10658,7 +10718,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She don't need to sell"
+                      "text": "She don’t need to sell"
                     },
                     {
                       "text": "Aval/Avanga vikka vaenaam"
@@ -10669,7 +10729,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They don't need to sell"
+                      "text": "They don’t need to sell"
                     },
                     {
                       "text": "Avanga vikka vaenaam"
@@ -10762,7 +10822,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I can't sell"
+                      "text": "I can’t sell"
                     },
                     {
                       "text": "Ennaala vikka mudiyaadhu"
@@ -10773,7 +10833,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We can't sell"
+                      "text": "We can’t sell"
                     },
                     {
                       "text": "Engalaala vikka mudiyaadhu"
@@ -10784,7 +10844,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You can't sell"
+                      "text": "You can’t sell"
                     },
                     {
                       "text": "Unnaala/Ungalaala vikka mudiyaadhu"
@@ -10795,7 +10855,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He can't sell"
+                      "text": "He can’t sell"
                     },
                     {
                       "text": "Avanaala/Avaraala vikka mudiyaadhu"
@@ -10806,7 +10866,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She can't sell"
+                      "text": "She can’t sell"
                     },
                     {
                       "text": "Avalaala/Avangalaala vikka mudiyaadhu"
@@ -10817,7 +10877,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They can't sell"
+                      "text": "They can’t sell"
                     },
                     {
                       "text": "Avangalaala vikka mudiyaadhu"
@@ -11288,7 +11348,7 @@
                 "data" : {
                   "notsetI": [
                     {
-                      "text": "I should n't sell"
+                      "text": "I should n’t sell"
                     },
                     {
                       "text": "Naan vikka koodaadhu"
@@ -11299,7 +11359,7 @@
                   ],
                   "notsetWe": [
                     {
-                      "text": "We should n't sell"
+                      "text": "We should n’t sell"
                     },
                     {
                       "text": "Naanga/Naama vikka koodaadhu"
@@ -11310,7 +11370,7 @@
                   ],
                   "notsetYou": [
                     {
-                      "text": "You should n't sell"
+                      "text": "You should n’t sell"
                     },
                     {
                       "text": "Nee/Neenga vikka koodaadhu"
@@ -11321,7 +11381,7 @@
                   ],
                   "notsetHe": [
                     {
-                      "text": "He should n't sell"
+                      "text": "He should n’t sell"
                     },
                     {
                       "text": "Avan/Avar vikka koodaadhu"
@@ -11332,7 +11392,7 @@
                   ],
                   "notsetShe": [
                     {
-                      "text": "She should n't sell"
+                      "text": "She should n’t sell"
                     },
                     {
                       "text": "Aval/Avanga vikka koodaadhu"
@@ -11343,7 +11403,7 @@
                   ],
                   "notsetThey": [
                     {
-                      "text": "They should n't sell"
+                      "text": "They should n’t sell"
                     },
                     {
                       "text": "Avanga vikka koodaadhu"
